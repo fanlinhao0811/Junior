@@ -1,4 +1,4 @@
  navigator.userAgent  可以查看浏览器版本
  location.href="   "   重定向
  可以把浏览器看成一个document，浏览器是事件（event）驱动
- 事件三要素：事件源 事件处理方法 
+ 事件三要素：事件源 事件处理方法 事件对象
