@@ -1,0 +1,2 @@
+ navigator.userAgent  可以查看浏览器版本
+ location.href   重定向
