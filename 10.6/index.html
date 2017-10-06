@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="main.css">
+    <style>
+        .nav .selected{
+            background: #000000;
+            color: #fff;
+        }
+        #content div{
+            display: none;
+        }
+        #content .selected{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<div id="container">
+    <ul class="nav">
+        <li data-tab-name="logo"><a href="index.html"><div class="logo"><img src="img/logo.png"></div></a></li>
+        <li class="selected" data-tab-name="introduction"><span class="tabs-text">个人资料</span></li>
+        <li data-tab-name="skill"><span class="tabs-text">我的技能</span></li>
+        <li data-tab-name="production"><span class="tabs-text">我的作品</span></li>
+        <li data-tab-name="experience"><span class="tabs-text">我的经历</span></li>
+        <li data-tab-name="contact"><span class="tabs-text">联系方式</span></li>
+    </ul>
+    <div id="content">
+        <div class="selected">
+            <div class="home-container">
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="left-content">
+                            <div class="left-line"></div>
+                            <div class="primary-button">
+                                <a href="resume.html">More...</a>
+                            </div>
+                            <h2>范林浩</h2>
+                            <p>前端小菜鸟</p>
+                            <li>黑龙江大学数据科学与技术学院2015级网络工程专业学生</li>
+                            <li>熟悉Html/Css以及原生Js</li>
+                            <li>本人性格乐观，为人真诚，惯于换位思考；对自己要求严格，做事情讲究效率</li>
+                            <li>有较强的学习能力、求知欲，适应行业的要求和新技术的挑战</li>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="right-content">
+                            <img src="img/home-image.jpg">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="about-container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h3>编程语言</h3>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="min-width: 3em;width: 70%;">
+                                Html: &nbsp; &nbsp; 70%
+                            </div>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100" style="min-width: 3em; width: 65%;">
+                                Css: &nbsp; &nbsp; 65%
+                            </div>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100" style="min-width: 3em; width: 65%;">
+                                JavaScript: &nbsp; &nbsp; 65%
+                            </div>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="min-width: 3em;width:10%;">
+                                Node.js: &nbsp; &nbsp; 0%
+                            </div>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="min-width: 3em;width:10%;">
+                                PHP: &nbsp; &nbsp; 0%
+                            </div>
+                        </div>
+                        <h3>办公技能</h3>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="min-width: 3em;width: 50%;">
+                                Photoshop: &nbsp; &nbsp; 50%
+                            </div>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="min-width: 3em; width: 80%;">
+                                Word: &nbsp; &nbsp; 80%
+                            </div>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100" style="min-width: 3em; width: 65%;">
+                                Excel: &nbsp; &nbsp; 65%
+                            </div>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100" style="min-width: 3em;width:65%;">
+                                PPT: &nbsp; &nbsp; 65%
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <h3>框架结构</h3>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100" style="min-width: 3em; width: 65%;">
+                                JQuery: &nbsp; &nbsp; 65%
+                            </div>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100" style="min-width: 3em; width: 65%;">
+                                Bootstrap: &nbsp; &nbsp; 65%
+                            </div>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="min-width: 3em;width:10%;">
+                                Vue: &nbsp; &nbsp; 0%
+                            </div>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="min-width: 3em;width:10%;">
+                                React: &nbsp; &nbsp; 0%
+                            </div>
+                        </div>
+                        <h3>个人爱好</h3>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="min-width: 3em; width: 80%;">
+                                旅游: &nbsp; &nbsp; 80%
+                            </div>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100" style="min-width: 3em; width: 65%;">
+                                运动: &nbsp; &nbsp; 65%
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div >
+            <div class="production-container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <img src="img/production.gif" alt=""/>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div >
+            <div class="experience-container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <img src="img/production.gif" alt=""/>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="contact-container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="contact-form">
+                            <div class="heading">
+                                <h2>联 系 我</h2>
+                            </div>
+                            <form id="contact" action="" method="post">
+                                <input name="name" type="text" class="form-control" id="name" placeholder="Your Name">
+                                <input name="email" type="email" class="form-control" id="email" placeholder="Email">
+                                <textarea name="message" rows="8" class="form-control" id="message" placeholder="Message"></textarea>
+                                <button type="submit" id="form-submit" class="btn">提交</button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="more-info">
+                            <p>电话：132 4466 0295 </p>
+                            <p>邮箱：haohaoangle@163.com</p>
+                            <p>QQ：&nbsp; 675800393</p>
+                            <p>网站：<a href="http://www.fanlinhao.cn">www.fanlinhao.cn</a></p>
+                            <p>Github: <a href="https://github.com/fanlinhao0811">github.com/fanlinhao0811</a></p>
+                            <p>住址：黑龙江大学C26</p>
+                            <iframe src="map.html" width="280" height="200" frameborder="0" scrolling="no"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="main.js"></script>
+
+</body>
+</html>
