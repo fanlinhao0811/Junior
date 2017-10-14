@@ -8,11 +8,26 @@
 
 
 <script>
-    var a1=[1,2,3];
-    var a2=[4,5,6];
+   // var a1=[1,2,3];
+    //var a2=[4,5,6];
     //var a3= [...a1,...a2];
     //var a3=a1.concat(a2);
-    console.log(a3);
+    //console.log(a3);
+//    var arr = [1,2,3,NaN,6,7,8];
+//    function hasNaN(arr){
+//
+//        0
+//    }
+
+
+    var arr = [1,2,3,4,5,6,7,8,9,0];
+    //console.log(arr.copyWithin(2,4));
+
+    var val = arr.findIndex(function(value,index){
+        return index>6;
+    });
+    console.log(val);
+    console.log(arr.fill(0));
 </script>
 </body>
 </html>
