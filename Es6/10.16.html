@@ -16,11 +16,16 @@
 //        console.log(i);
 //    }
 //    console.log(i);
+
+
 //    for(let i=0;i<3;i++){
 //        console.log(i);
 //    }
 //    console.log(i);   //Uncaught ReferenceError: i is not defined
-//    var aLi = document.getElementsByTagName("li");
+
+
+
+  var aLi = document.getElementsByTagName("li");
 //    for(var i = 0;i<aLi.length;i++){
 //        (function(index){
 //            aLi[index].onclick = function(){
@@ -28,6 +33,16 @@
 //            }
 //        })(i)
 //    } //闭包
+
+    for(var i=0;i<aLi.length;i++){
+        aLi[i].onclick = function(){
+            console.log(i);
+        }
+    }
+
+
+
+
 </script>
 </body>
 </html>
