@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>银行家算法</title>
+</head>
+<style>
+    table, td {
+        border:2px solid #ccc;
+        border-collapse:collapse;
+        font-size: 22px;
+    }
+</style>
+<body>
+<div><h1>银行家算法</h1></div>
+<div>银行家拥有资金：美元<input type="text" id="own_m">日元<input type="text" id="own_r"></div>
+<div align="center">
+    <table id="t1" border="1"  align="center">
+        <tr>
+            <td>客户</td>
+            <td colspan="2" align="center">Max<br>最大需求量</td>
+            <td colspan="2" align="center">Allocation<br>已借款数</td>
+            <td colspan="2" align="center">Need<br>仍需申请贷款数</td>
+            <td colspan="2" align="center">Available<br>银行家当前可用资金数</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td align="center">美元</td>
+            <td align="center">日元</td>
+            <td align="center">美元</td>
+            <td align="center">日元</td>
+            <td align="center">美元</td>
+            <td align="center">日元</td>
+            <td align="center">美元</td>
+            <td align="center">日元</td>
+        </tr>
+        <tr class="no">
+            <td align="center">P0</td>
+            <td align="center"><input onblur="max_m()" name="max_m" type="text" /></td>
+            <td align="center"><input name="max_r" type="text" /></td>
+            <td align="center"><input name="all_m" type="text" /></td>
+            <td align="center"><input name="all_r" type="text" /></td>
+            <td align="center"><input name="nee_m" type="text" /></td>
+            <td align="center"><input name="nee_r" type="text" /></td>
+            <td align="center"></td>
+            <td align="center"></td>
+        </tr>
+        <tr class="no">
+            <td align="center">P1</td>
+            <td align="center"><input name="max_m" type="text" /></td>
+            <td align="center"><input name="max_r" type="text" /></td>
+            <td align="center"><input name="all_m" type="text" /></td>
+            <td align="center"><input name="all_r" type="text" /></td>
+            <td align="center"><input name="nee_m" type="text" /></td>
+            <td align="center"><input name="nee_r" type="text" /></td>
+            <td align="center"></td>
+            <td align="center"></td>
+        </tr>
+        <tr class="no">
+            <td align="center">P2</td>
+            <td align="center"><input name="max_m" type="text" /></td>
+            <td align="center"><input name="max_r" type="text" /></td>
+            <td align="center"><input name="all_m" type="text" /></td>
+            <td align="center"><input name="all_r" onchange="" type="text" /></td>
+            <td align="center"><input name="nee_m" type="text" /></td>
+            <td align="center"><input name="nee_r" type="text" /></td>
+            <td align="center"></td>
+            <td align="center"></td>
+        </tr>
+        <tr>
+            <td align="center">总计</td>
+            <td align="center"><input type="text" id="max_m" /></td>
+            <td align="center"><input type="text" id="max_r" /></td>
+            <td align="center"><input type="text" id="all_m" /></td>
+            <td align="center"><input type="text" id="all_r" /></td>
+            <td align="center"><input type="text" id="nee_m" /></td>
+            <td align="center"><input type="text" id="nee_r" /></td>
+            <td align="center"><input type="text" id="av_m" /></td>
+            <td align="center"><input type="text" id="av_r" /></td>
+        </tr>
+    </table>
+    <input type="button" onclick="sum_ky();" value="计算可用资金" />
+    <input type="button" onclick="sum_safe();" value="计算安全算法" />
+    <input type="button" onclick="ini();" value="初始" />
+</div>
+<div id="sta">
+
+</div>
+
+<div align="center" id="ress">
+    <table id="res">
+
+        <tr>
+            <td>客户</td>
+            <td colspan="2" align="center">Max<br>最大需求量</td>
+            <td colspan="2" align="center">Allocation<br>已借款数</td>
+            <td colspan="2" align="center">Need<br>仍需申请贷款数</td>
+            <td colspan="2" align="center">Available<br>银行家当前可用资金数</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td align="center">美元</td>
+            <td align="center">日元</td>
+            <td align="center">美元</td>
+            <td align="center">日元</td>
+            <td align="center">美元</td>
+            <td align="center">日元</td>
+            <td align="center">美元</td>
+            <td align="center">日元</td>
+        </tr>
+    </table>
+</div>
+<script language="javascript" src="jquery.js"></script>
+<script>
+    function sum_safe(){//计算安全序列算法
+        $("#ress").show();//将算法序列表格显示
+        var av_m =$("#av_m").val();//获取当前可用美元值
+        var av_r =$("#av_r").val();//获取当前可用日元值
+        $("tr[class=no]").each(function(){//获取未处理进程集合，并循环判断
+            var leng = $("tr[class=no]").length;//获取未处理进程数量
+            if(leng!=0){//判断未处理进程数量是否等于0，不为0时执行
+                $(this).find("td").first().attr("bgcolor","red");//将进程名称变红
+                var ne_m = $(this).find("td").eq(5).find("input").first().val();//获取申请美元值
+                var ne_r = $(this).find("td").eq(6).find("input").first().val();//获取申请日元值
+                if(Number(ne_m)<=Number(av_m)&&Number(ne_r)<=Number(av_r)){//判断申请美元/日元是否小于等于可用美元/日元值
+                    $(this).attr("class","have");//将未处理进程状态改为已处理
+                    $(this).find("td").first().attr("bgcolor","green");//将进程名变红
+
+
+                    var al_m =  $(this).find("td").eq(3).find("input").first().val();//获取已借美元值
+                    var al_r =  $(this).find("td").eq(4).find("input").first().val();//获取已借日元值
+
+                    var m = Number(av_m)+Number(al_m);//将已申请美元值与可用美元值相加，得出处理后可用美元值
+                    var r = Number(av_r)+Number(al_r);//将已申请日元值与可用日元值相加，得出处理后可用日元值
+                    $("#av_m").val(m);//将可用美元重新赋值
+                    $("#av_r").val(r);//将可用日元重新赋值
+                    /***********将可处理进程添加到结果表格中  start ***************/
+                    var tr ="<tr>";
+                    tr+="<td align='center'>"+$(this).find("td").eq(0).html();+"</td>";
+                    tr+="<td align='center'>"+$(this).find("td").eq(1).find("input").first().val();+"</td>";
+                    tr+="<td align='center'>"+$(this).find("td").eq(2).find("input").first().val();+"</td>";
+                    tr+="<td align='center'>"+$(this).find("td").eq(3).find("input").first().val();+"</td>";
+                    tr+="<td align='center'>"+$(this).find("td").eq(4).find("input").first().val();+"</td>";
+                    tr+="<td align='center'>"+$(this).find("td").eq(5).find("input").first().val();+"</td>";
+                    tr+="<td align='center'>"+$(this).find("td").eq(6).find("input").first().val();+"</td>";
+                    tr+="<td align='center'>"+m+"</td>";
+                    tr+="<td align='center'>"+r+"</td>";
+                    tr+="</tr>";
+                    $("#res").append(tr);
+                    /***********将可处理进程添加到结果表格中  end ***************/
+                    sum_safe();//递归重新执行该方法进行循环判断
+
+                }
+            }
+
+        });
+    }
+    function ini(){//初始化方法
+        sum_ky();//计算可用资金
+        $("#t1").find("tr").eq(2).attr("class","no");//将进程状态重新改变
+        $("#t1").find("tr").eq(3).attr("class","no");
+        $("#t1").find("tr").eq(4).attr("class","no");
+        $("#ress").hide();//将结果表格隐藏
+        rem();//删除结果表格中数据
+
+    }
+
+    function rem(){
+        var le =$("#res").find("tr").length;//获取结果表格中数据
+        if(le!=2){
+            $("#res").find("tr").last().remove();//删除表格数据
+            rem();
+        }
+    }
+
+    function sum_ky(){//计算可用资金
+        var own_m = $("#own_m").val();//获取拥有资金
+        var own_r = $("#own_r").val();
+        var all_m = $("#all_m").val();//获取已用资金
+        var all_r = $("#all_r").val();
+        var av_m = Number(own_m)-Number(all_m);//拥有资金与已用资金相减得出可用资金
+        var av_r = Number(own_r)-Number(all_r);
+        $("#av_m").val(av_m);//将可用资金赋值
+        $("#av_r").val(av_r)
+
+    }
+    $(function(){//页面初始化加载方法
+        $("input[name=max_m]").live("blur",function(){//绑定最大申请值列输入框失去焦点事件
+            var max = 0;
+            $("input[name=max_m]").each(function(){//循环相加最大申请列数值
+                var v =	$(this).val();
+                if(v!=null&&v!=""){//判断是否为空
+                    max+=Number(v);//将列中数值相加得出合计值
+                }
+            });
+            $("#max_m").val(max);//合计值赋值
+        });
+        $("input[name=max_r]").live("blur",function(){
+            var max = 0;
+            $("input[name=max_r]").each(function(){
+                var v =	$(this).val();
+                if(v!=null&&v!=""){
+                    max+=Number(v);
+                }
+            });
+            $("#max_r").val(max);
+        });
+        $("input[name=all_m]").live("blur",function(){
+            var all = 0;
+            $("input[name=all_m]").each(function(){
+                var v =	$(this).val();
+                if(v!=null&&v!=""){
+                    all+=Number(v);
+                }
+            });
+            $("#all_m").val(all);
+            var ownm = $("#own_m").val();
+
+        });
+        $("input[name=all_r]").live("blur",function(){
+            var all = 0;
+            $("input[name=all_r]").each(function(){
+                var v =	$(this).val();
+                if(v!=null&&v!=""){
+                    all+=Number(v);
+                }
+            });
+            $("#all_r").val(all);
+            var ownm = $("#own_r").val();
+
+        });
+        $("input[name=nee_m]").live("blur",function(){//绑定申请值列输入框失去焦点事件
+            var nee = 0;
+            var vl =$(this).val();
+            var max = $(this).parent().parent().find("input").first().val();
+            //alert(vl+"::"+max);
+            if(Number(vl)>Number(max)){//判断申请值是否大于最大申请值
+                alert("申请贷款数不能大于最大需求量！请重新输入");
+                $(this).focus();
+                return;
+            }
+            $("input[name=nee_m]").each(function(){
+                var v =	$(this).val();
+                if(v!=null&&v!=""){
+                    nee+=Number(v);
+                }
+            });
+            $("#nee_m").val(nee);
+        });
+        $("input[name=nee_r]").live("blur",function(){
+            var nee = 0;
+            var vl =$(this).val();
+            var max = $(this).parent().parent().find("input").eq(1).val();
+            if(Number(vl)>Number(max)){
+                alert("申请贷款数不能大于最大需求量！请重新输入");
+                $(this).focus();
+                return;
+            }
+            $("input[name=nee_r]").each(function(){
+                var v =	$(this).val();
+                if(v!=null&&v!=""){
+                    nee+=Number(v);
+                }
+            });
+            $("#nee_r").val(nee);
+        });
+        $("#ress").hide();
+    });
+
+</script>
+</body>
+</html>
