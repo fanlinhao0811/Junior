@@ -172,7 +172,7 @@
             rem();
         }
     }
-
+    
     function sum_ky(){//计算可用资金
         var own_m = $("#own_m").val();//获取拥有资金
         var own_r = $("#own_r").val();
@@ -215,7 +215,6 @@
             });
             $("#all_m").val(all);
             var ownm = $("#own_m").val();
-
         });
         $("input[name=all_r]").live("blur",function(){
             var all = 0;
@@ -227,7 +226,6 @@
             });
             $("#all_r").val(all);
             var ownm = $("#own_r").val();
-
         });
         $("input[name=nee_m]").live("blur",function(){//绑定申请值列输入框失去焦点事件
             var nee = 0;
@@ -266,7 +264,6 @@
         });
         $("#ress").hide();
     });
-
 </script>
 </body>
 </html>
