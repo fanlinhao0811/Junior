@@ -1,6 +1,5 @@
 /**
  * Created by lenovo on 2017/10/19.
  */
-let a =5;
-let b=6;
-
+let b=5;
+let c=6;
