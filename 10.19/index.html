@@ -122,6 +122,8 @@
                 $(this).find("td").first().attr("bgcolor","red");//将进程名称变红
                 var ne_m = $(this).find("td").eq(5).find("input").first().val();//获取申请美元值
                 var ne_r = $(this).find("td").eq(6).find("input").first().val();//获取申请日元值
+
+                
                 if(Number(ne_m)<=Number(av_m)&&Number(ne_r)<=Number(av_r)){//判断申请美元/日元是否小于等于可用美元/日元值
                     $(this).attr("class","have");//将未处理进程状态改为已处理
                     $(this).find("td").first().attr("bgcolor","green");//将进程名变红
