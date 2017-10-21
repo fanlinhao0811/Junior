@@ -8,24 +8,36 @@
 
 </body>
 <script>
-    function People(name,age){
+//    function People(name,age){
+//        this.name = name;
+//        this.age = age;
+//    }
+//    People.prototype.showName = function(){
+//        console.log("我的名字是"+this.name);
+//    };
+//    var p1 = new People('zhangsan',18);
+//    console.log(p1.name);
+//    p1.showName();
+// //基于原型继承
+//    function Coder(name,age){
+//        People.call(this,name,age);//继承类的属性
+//    }
+//    Coder.prototype = new People();//继承父类的方法
+//    var c1 = new Coder('lisi',20);
+//    console.log(c1.name);
+//    c1.showName();
+
+    class People {
+        constructor(name,age){
         this.name = name;
         this.age = age;
     }
-    People.prototype.showName = function(){
-        console.log("我的名字是"+this.name);
-    };
-    var p1 = new People('zhangsan',18);
-    console.log(p1.name);
-    p1.showName();
- //基于原型继承
-    function Coder(name,age){
-        People.call(this,name,age);//继承类的属性
+        showName(){
+            console.log("我的名字是："+this.name);
+        }
     }
-    Coder.prototype = new People();//继承父类的方法
-    var c1 = new Coder('lisi',20);
-    console.log(c1.name);
-    c1.showName();
-
+     var p1 = new People('zhangsan',18);
+     console.log(p1.name);
+     p1.showName();
 </script>
 </html>
