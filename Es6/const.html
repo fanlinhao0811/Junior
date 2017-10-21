@@ -29,12 +29,19 @@
 
     //  var a3 = [...a1,...a2];
     //    console.log(a3);
-    var a1 = [1,2,3];
-    //    var a2 = a1;
-    //    var a2 = a1.concat();
-    var a2 = [...a1];
-    a1[0] = 4;
-    console.log(a2);
+//    var a1 = [1,2,3];
+//    //    var a2 = a1;
+//    //    var a2 = a1.concat();
+//    var a2 = [...a1];
+//    a1[0] = 4;
+//    console.log(a2);
+//    const arr = [1,2,3,4];
+//    const [first,second] = arr;
+function foo(...arg){
+   // console.log(arguments[2],arguments[1])
+    console.log(arg)
+}
+foo(5,6,7);
 </script>
 </body>
 </html>
