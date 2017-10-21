@@ -48,11 +48,15 @@
         showCompany(){
             console.log(`我的公司是：${this.company}`);
         }
+        static foo(){
+            console.log('我是静态');
+        }
     }
     let c1 = new Coder('lisi',20,'百度');
     console.log(c1.name);
     c1.showName();
     c1.showCompany();
+    Coder.foo();
 
 </script>
 </html>
