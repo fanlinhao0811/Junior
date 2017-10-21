@@ -39,5 +39,20 @@
      var p1 = new People('zhangsan',18);
      console.log(p1.name);
      p1.showName();
+
+    class Coder extends People{
+        constructor(name,age,company){
+             super(name,age);
+            this.company = company;
+        }
+        showCompany(){
+            console.log(`我的公司是：${this.company}`);
+        }
+    }
+    let c1 = new Coder('lisi',20,'百度');
+    console.log(c1.name);
+    c1.showName();
+    c1.showCompany();
+
 </script>
 </html>
