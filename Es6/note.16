@@ -20,3 +20,7 @@ sass -i进入运算可加减乘除
 abs()取绝对值  round()四舍五入 ceil()向上取整 floor()向下取整
 percentage()自动换成百分比  min() 取小 max()取大
 type-of()可以输出类型
+字符串函数：
+to-upper-case()字母小写变大写  to-lower-case()变小写
+str-length()长度  str-index(abc,a)求索引，下标从1开始
+str-insert() str-insert(abc,d,3)  输出"abdc"
