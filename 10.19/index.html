@@ -6,64 +6,80 @@
 </head>
 <style>
     table, td {
-        border:2px solid #ccc;
-        border-collapse:collapse;
-        font-size: 22px;
+        border:1px solid #ccc;
+
+        font-size: 20px;
     }
 </style>
 <body>
 <div><h1>银行家算法</h1></div>
-<div>银行家拥有资金：美元<input type="text" id="own_m">日元<input type="text" id="own_r"></div>
+<div>Available：A<input type="text" id="own_a">B<input type="text" id="own_b">C<input type="text" id="own_c"></div>
 <div align="center">
     <table id="t1" border="1"  align="center">
         <tr>
-            <td>客户</td>
-            <td colspan="2" align="center">Max<br>最大需求量</td>
-            <td colspan="2" align="center">Allocation<br>已借款数</td>
-            <td colspan="2" align="center">Need<br>仍需申请贷款数</td>
-            <td colspan="2" align="center">Available<br>银行家当前可用资金数</td>
+            <td>进程</td>
+            <td colspan="3" align="center">Max</td>
+            <td colspan="3" align="center">Allocation</td>
+            <td colspan="3" align="center">Need</td>
+            <td colspan="3" align="center">Available</td>
         </tr>
         <tr>
             <td></td>
-            <td align="center">美元</td>
-            <td align="center">日元</td>
-            <td align="center">美元</td>
-            <td align="center">日元</td>
-            <td align="center">美元</td>
-            <td align="center">日元</td>
-            <td align="center">美元</td>
-            <td align="center">日元</td>
+            <td align="center">A</td>
+            <td align="center">B</td>
+            <td align="center">C</td>
+            <td align="center">A</td>
+            <td align="center">B</td>
+            <td align="center">C</td>
+            <td align="center">A</td>
+            <td align="center">B</td>
+            <td align="center">C</td>
+            <td align="center">A</td>
+            <td align="center">B</td>
+            <td align="center">C</td>
         </tr>
         <tr class="no">
             <td align="center">P0</td>
-            <td align="center"><input onblur="max_m()" name="max_m" type="text" /></td>
-            <td align="center"><input name="max_r" type="text" /></td>
-            <td align="center"><input name="all_m" type="text" /></td>
-            <td align="center"><input name="all_r" type="text" /></td>
-            <td align="center"><input name="nee_m" type="text" /></td>
-            <td align="center"><input name="nee_r" type="text" /></td>
+            <td align="center"><input onblur="max_a()" name="max_m" type="text" /></td>
+            <td align="center"><input name="max_b" type="text" /></td>
+            <td align="center"><input name="max_c" type="text" /></td>
+            <td align="center"><input name="all_a" type="text" /></td>
+            <td align="center"><input name="all_b" type="text" /></td>
+            <td align="center"><input name="max_c" type="text" /></td>
+            <td align="center"><input name="nee_a" type="text" /></td>
+            <td align="center"><input name="nee_b" type="text" /></td>
+            <td align="center"><input name="max_c" type="text" /></td>
+            <td align="center"></td>
             <td align="center"></td>
             <td align="center"></td>
         </tr>
         <tr class="no">
             <td align="center">P1</td>
-            <td align="center"><input name="max_m" type="text" /></td>
-            <td align="center"><input name="max_r" type="text" /></td>
-            <td align="center"><input name="all_m" type="text" /></td>
-            <td align="center"><input name="all_r" type="text" /></td>
-            <td align="center"><input name="nee_m" type="text" /></td>
-            <td align="center"><input name="nee_r" type="text" /></td>
+            <td align="center"><input name="max_a" type="text" /></td>
+            <td align="center"><input name="max_b" type="text" /></td>
+            <td align="center"><input name="max_c" type="text" /></td>
+            <td align="center"><input name="all_a" type="text" /></td>
+            <td align="center"><input name="all_b" type="text" /></td>
+            <td align="center"><input name="max_c" type="text" /></td>
+            <td align="center"><input name="nee_a" type="text" /></td>
+            <td align="center"><input name="nee_b" type="text" /></td>
+            <td align="center"><input name="max_c" type="text" /></td>
+            <td align="center"></td>
             <td align="center"></td>
             <td align="center"></td>
         </tr>
         <tr class="no">
             <td align="center">P2</td>
-            <td align="center"><input name="max_m" type="text" /></td>
-            <td align="center"><input name="max_r" type="text" /></td>
-            <td align="center"><input name="all_m" type="text" /></td>
-            <td align="center"><input name="all_r" onchange="" type="text" /></td>
-            <td align="center"><input name="nee_m" type="text" /></td>
-            <td align="center"><input name="nee_r" type="text" /></td>
+            <td align="center"><input name="max_a" type="text" /></td>
+            <td align="center"><input name="max_b" type="text" /></td>
+            <td align="center"><input name="max_c" type="text" /></td>
+            <td align="center"><input name="all_a" type="text" /></td>
+            <td align="center"><input name="all_b" onchange="" type="text" /></td>
+            <td align="center"><input name="all_c" type="text" /></td>
+            <td align="center"><input name="nee_a" type="text" /></td>
+            <td align="center"><input name="nee_b" type="text" /></td>
+            <td align="center"><input name="nee_c" type="text" /></td>
+            <td align="center"></td>
             <td align="center"></td>
             <td align="center"></td>
         </tr>
@@ -92,21 +108,25 @@
 
         <tr>
             <td>客户</td>
-            <td colspan="2" align="center">Max<br>最大需求量</td>
-            <td colspan="2" align="center">Allocation<br>已借款数</td>
-            <td colspan="2" align="center">Need<br>仍需申请贷款数</td>
-            <td colspan="2" align="center">Available<br>银行家当前可用资金数</td>
+            <td colspan="3" align="center">Max<br>最大需求量</td>
+            <td colspan="3" align="center">Allocation<br>已借款数</td>
+            <td colspan="3" align="center">Need<br>仍需申请贷款数</td>
+            <td colspan="3" align="center">Available<br>银行家当前可用资金数</td>
         </tr>
         <tr>
             <td></td>
-            <td align="center">美元</td>
-            <td align="center">日元</td>
-            <td align="center">美元</td>
-            <td align="center">日元</td>
-            <td align="center">美元</td>
-            <td align="center">日元</td>
-            <td align="center">美元</td>
-            <td align="center">日元</td>
+            <td align="center">A</td>
+            <td align="center">B</td>
+            <td align="center">C</td>
+            <td align="center">A</td>
+            <td align="center">B</td>
+            <td align="center">C</td>
+            <td align="center">A</td>
+            <td align="center">B</td>
+            <td align="center">C</td>
+            <td align="center">A</td>
+            <td align="center">B</td>
+            <td align="center">C</td>
         </tr>
     </table>
 </div>
@@ -123,7 +143,7 @@
                 var ne_m = $(this).find("td").eq(5).find("input").first().val();//获取申请美元值
                 var ne_r = $(this).find("td").eq(6).find("input").first().val();//获取申请日元值
 
-                
+
                 if(Number(ne_m)<=Number(av_m)&&Number(ne_r)<=Number(av_r)){//判断申请美元/日元是否小于等于可用美元/日元值
                     $(this).attr("class","have");//将未处理进程状态改为已处理
                     $(this).find("td").first().attr("bgcolor","green");//将进程名变红
