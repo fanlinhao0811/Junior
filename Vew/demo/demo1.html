@@ -26,7 +26,11 @@
         },
         methods:{
             fn(){
-        vm.classA=''
+        if(this.classA == 'red'){
+            this.classA='';
+        }else{
+            this.classA='red'
+        }
     }
         }
     })
