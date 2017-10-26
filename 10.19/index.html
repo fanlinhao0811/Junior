@@ -134,26 +134,29 @@
 <script>
     function sum_safe(){//计算安全序列算法
         $("#ress").show();//将算法序列表格显示
-        var av_m =$("#av_m").val();//获取当前可用美元值
-        var av_r =$("#av_r").val();//获取当前可用日元值
+        var av_a =$("#av_a").val();//获取当前可用A
+        var av_b =$("#av_b").val();//获取当前可用B
+        var av_c =$("#av_c").val();//获取当前可用C
         $("tr[class=no]").each(function(){//获取未处理进程集合，并循环判断
             var leng = $("tr[class=no]").length;//获取未处理进程数量
             if(leng!=0){//判断未处理进程数量是否等于0，不为0时执行
-                $(this).find("td").first().attr("bgcolor","red");//将进程名称变红
-                var ne_m = $(this).find("td").eq(5).find("input").first().val();//获取申请美元值
-                var ne_r = $(this).find("td").eq(6).find("input").first().val();//获取申请日元值
+                $(this).find("td").first().attr("background","red");//将进程名称变红
+                var ne_a = $(this).find("td").eq(7).find("input").first().val();//获取申请A
+                var ne_b = $(this).find("td").eq(8).find("input").first().val();//获取申请B
+                var ne_c = $(this).find("td").eq(9).find("input").first().val();//获取申请C
 
 
-                if(Number(ne_m)<=Number(av_m)&&Number(ne_r)<=Number(av_r)){//判断申请美元/日元是否小于等于可用美元/日元值
+                if(Number(ne_a)<=Number(av_a)&&Number(ne_b)<=Number(av_b)&&Number(ne_c)<=Number(av_c)){//判断申请A/B/C是否小于等于可用A/B/C
                     $(this).attr("class","have");//将未处理进程状态改为已处理
-                    $(this).find("td").first().attr("bgcolor","green");//将进程名变红
+                    $(this).find("td").first().attr("background-color","green");//将进程名变红
 
 
-                    var al_m =  $(this).find("td").eq(3).find("input").first().val();//获取已借美元值
-                    var al_r =  $(this).find("td").eq(4).find("input").first().val();//获取已借日元值
+                    var al_a =  $(this).find("td").eq(4).find("input").first().val();//获取已借A
+                    var al_b =  $(this).find("td").eq(5).find("input").first().val();//获取已借B
+                    var al_c =  $(this).find("td").eq(6).find("input").first().val();//获取已借C
 
-                    var m = Number(av_m)+Number(al_m);//将已申请美元值与可用美元值相加，得出处理后可用美元值
-                    var r = Number(av_r)+Number(al_r);//将已申请日元值与可用日元值相加，得出处理后可用日元值
+                    var a = Number(av_a)+Number(al_a);//将已申请美元值与可用美元值相加，得出处理后可用美元值
+                    var b = Number(av_b)+Number(al_b);//将已申请日元值与可用日元值相加，得出处理后可用日元值
                     $("#av_m").val(m);//将可用美元重新赋值
                     $("#av_r").val(r);//将可用日元重新赋值
                     /***********将可处理进程添加到结果表格中  start ***************/
@@ -165,8 +168,12 @@
                     tr+="<td align='center'>"+$(this).find("td").eq(4).find("input").first().val();+"</td>";
                     tr+="<td align='center'>"+$(this).find("td").eq(5).find("input").first().val();+"</td>";
                     tr+="<td align='center'>"+$(this).find("td").eq(6).find("input").first().val();+"</td>";
-                    tr+="<td align='center'>"+m+"</td>";
-                    tr+="<td align='center'>"+r+"</td>";
+                    tr+="<td align='center'>"+$(this).find("td").eq(7).find("input").first().val();+"</td>";
+                    tr+="<td align='center'>"+$(this).find("td").eq(8).find("input").first().val();+"</td>";
+                    tr+="<td align='center'>"+$(this).find("td").eq(9).find("input").first().val();+"</td>";
+                    tr+="<td align='center'>"+a+"</td>";
+                    tr+="<td align='center'>"+b+"</td>";
+                    tr+="<td align='center'>"+c+"</td>";
                     tr+="</tr>";
                     $("#res").append(tr);
                     /***********将可处理进程添加到结果表格中  end ***************/
