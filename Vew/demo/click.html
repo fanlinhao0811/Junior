@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div id="app">
+    <button @click="fn">click</button>当前点击次数：{{msg}}
+
+</div>
+
+</body>
+<script src="../vue.js"></script>
+<script>
+    var vm = new Vue({
+        el:'#app',
+        data:{
+            msg:'0',
+        },
+        methods:{
+            fn:function(){
+                vm.msg++;
+            }
+        }
+    });
+</script>
+
+</html>

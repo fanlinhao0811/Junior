@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .red{
+            width: 200px;
+            height: 200px;
+            background: #00f;
+        }
+        .font{
+            font-size: 40px;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <div :class="[classA,classB]">ddddd</div>
+</div>
+</body>
+<script src="../vue.js"></script>
+<script>
+    var vm = new Vue({
+        el:'#app',
+        data:{
+            classA:'red',
+            classB:'font'
+        }
+    })
+</script>
+</html>
