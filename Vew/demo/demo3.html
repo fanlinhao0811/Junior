@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        li{
+        cursor:pointer
+        }
+        .red{
+        color:red
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <input type="text" v-model="input"/>
+    <button @click="push">add</button>
+    <ul>
+        <li v-for="item in arr" @click="item.isRed = !item.isRed">
+            <span class="{red:item.isRed}">{{item.input}}</span>
+        </li>
+    </ul>
+</div>
+</body>
+<script src="../vue.js"></script>
+<script>
+    var vm = new Vue({
+        el: '#app',
+        data(){
+            return{
+                arr:[],
+                input:''
+            }
+    },
+    methods: {
+        push(){
+            // console.log(this.input);
+            var beInput = null
+            if (this.input) {
+                beInput = {
+                    input: this.input,
+                    isRed: false,
+                    dis: true
+                }
+                // console.log(this.input);
+                this.arr.push(beInput);
+                this.arr.sort((a, b) => a.input - b.input)
+            }
+            this.input = ''
+        },
+        filt() {
+        }
+    },
+    });
+</script>
+</html>
