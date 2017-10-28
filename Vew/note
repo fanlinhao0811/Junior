@@ -4,3 +4,5 @@ v-on (通常@)绑定事件
 
 v-text
 v-html 两者区别与jQuery中 text 和html区别一样,html可以写标签，有样式
+
+splice
