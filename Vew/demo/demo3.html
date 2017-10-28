@@ -30,10 +30,9 @@
         data:{
                 arr:[],
                 input:''
-
-             },
-        methods:{
-             push(){
+    },
+    methods:{
+        push(){
             // console.log(this.input);
             var beInput = null
             if (this.input) {
@@ -47,10 +46,8 @@
                 this.arr.sort((a, b) => a.input - b.input)
             }
             this.input = ''
-        },
-        filt() {
         }
-    },
-    });
+    }
+    })
 </script>
 </html>
