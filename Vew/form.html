@@ -6,17 +6,17 @@
 </head>
 <body>
 <div id="app">
-    是否需要额外付费设施； <input type="checkbox" v-model="show"
+    是否需要额外付费设施: <input type="checkbox" v-model="show"
         @click="showFacility"/>
     <ul>
-        <li v-for = "obj in arr">
+        <li v-for="obj in arr">
             {{obj.name}}({{obj.price}})
             <input type="checkbox" v-model="facility" :value="obj"/>
         </li>
     </ul>
     订单费用信息
     <ul>
-        <li>
+        <li v-for="obj in facility">
             {{obj.name}}({{obj.price}})
         </li>
     </ul>
@@ -44,7 +44,7 @@
         methods:{
             showFacility(){
             if(!this.show){
-        this.arr=[{name:'沙发',price:100},
+             this.arr=[{name:'沙发',price:100},
             {name:'床',price:200},
             {name:'wifi',price:20}];
     }else{
