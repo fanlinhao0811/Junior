@@ -18,7 +18,7 @@
     <button @click="push">add</button>
     <ul>
         <li v-for="item in arr" @click="item.isRed = !item.isRed">
-            <span class="{red:item.isRed}">{{item.input}}</span>
+            <span :class="{red:item.isRed}">{{item.input}}</span>
         </li>
     </ul>
 </div>
@@ -27,14 +27,13 @@
 <script>
     var vm = new Vue({
         el: '#app',
-        data(){
-            return{
+        data:{
                 arr:[],
                 input:''
-            }
-    },
-    methods: {
-        push(){
+
+             },
+        methods:{
+             push(){
             // console.log(this.input);
             var beInput = null
             if (this.input) {
