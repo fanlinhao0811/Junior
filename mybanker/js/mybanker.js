@@ -55,7 +55,7 @@ function getMaxArr(){
 	return max
 }
 
-function getAllocationArr(){
+function getAllocationArr(){  //已分配资源
 	var allocation = []
 	$(".Allocation input").each(function(){
 		allocation.push(getOneResource($(this).val()))
@@ -73,7 +73,7 @@ function getNeedArr(Max,Allocation){
 }
 
 
-function getAvailable(){
+function getAvailable(){  //可用资源
 	var available;
 	var sumA = 0;
 	var sumB = 0;
@@ -89,6 +89,7 @@ function getAvailable(){
 	return available
 }
 
+//判断能否分配
 function tryAllot(process_num,request)
 {
 //request向量需小于Need矩阵中对应的向量
@@ -103,6 +104,7 @@ if(!(request.A <= Available.A && request.B <= Available.B && request.C <= Availa
 	return false;
 }
 
+//尝试分配请求的资源	
 function doAllot(process_num,request)
 {
 	Available.A -= request.A;
@@ -118,21 +120,6 @@ function doAllot(process_num,request)
 	Need[process_num].C -= request.C;
 }
 
-function RollBack(process_num,request)
-{
-	Available.A += request.A;
-	Available.B += request.B;
-	Available.C += request.C;
-
-	Allocation[process_num].A -= request.A;
-	Allocation[process_num].B -= request.B;
-	Allocation[process_num].C -= request.C;
-
-	Need[process_num].A += request.A;
-	Need[process_num].B += request.B;
-	Need[process_num].C += request.C;
-}
-//尝试分配请求的资源	
 
 function isSafe(){
 	var	work = getAvailable();
@@ -189,7 +176,20 @@ function isSafe(){
 		}
 		
 	}
-
+	function RollBack(process_num,request)
+	{
+		Available.A += request.A;
+		Available.B += request.B;
+		Available.C += request.C;
+	
+		Allocation[process_num].A -= request.A;
+		Allocation[process_num].B -= request.B;
+		Allocation[process_num].C -= request.C;
+	
+		Need[process_num].A += request.A;
+		Need[process_num].B += request.B;
+		Need[process_num].C += request.C;
+	}	
 	function printText(str){
 		$("#print").append(str)
 	}
