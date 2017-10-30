@@ -216,7 +216,7 @@ function isSafe(){
 		Request = getRequest()
 
 		if(true == tryAllot(Request.process_num,Request.data)){
-			printText('        ' + 'Allocation' + '	      ' + 'Need' + '	      ' + 'Work+Allocation' + ' ' + 'Finish顺序' + '\n')
+			printText('     ' + 'Allocation' + '       ' + 'Need' + '	    ' + 'Work+Allocation' + ' ' + 'Finish顺序' + '\n')
 			for(var i=0;i<=P.length-1;i++){
 				printText(P[i] + '    ' + Allocation[i].A +'  ' + Allocation[i].B + '  ' + Allocation[i].C + '	     ' + Need[i].A + '  ' + Need[i].B + '  ' + Need[i].C + '	        ' + Work_Allocation[i].A + '  ' + Work_Allocation[i].B + '  ' + Work_Allocation[i].C + '	         ' + safe.indexOf(i) + '\n')
 			}
