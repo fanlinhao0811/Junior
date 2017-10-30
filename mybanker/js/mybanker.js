@@ -38,7 +38,6 @@ function getOneResource(str){
 }
 
 function getResource(){
-
 	return getOneResource($("input[name='resource']").val())
 }
 
@@ -205,7 +204,7 @@ function isSafe(){
 	var Request
 	var safe = []
 	var Work_Allocation = []
-	var P = ['PA','PB','PC','PD','PE']
+	var P = ['P0','P1','P2','P3','P4']
 	function run(){
 		Work_Allocation = []
 		Max = getMaxArr()
