@@ -88,6 +88,49 @@ function getAvailable(){
 
 	return available
 }
+function doAllot(process_num,request)
+{
+	Available.A -= request.A;
+	Available.B -= request.B;
+	Available.C -= request.C;
+
+	Allocation[process_num].A += request.A;
+	Allocation[process_num].B += request.B;
+	Allocation[process_num].C += request.C;
+
+	Need[process_num].A -= request.A;
+	Need[process_num].B -= request.B;
+	Need[process_num].C -= request.C;
+}
+
+function RollBack(process_num,request)
+{
+	Available.A += request.A;
+	Available.B += request.B;
+	Available.C += request.C;
+
+	Allocation[process_num].A -= request.A;
+	Allocation[process_num].B -= request.B;
+	Allocation[process_num].C -= request.C;
+
+	Need[process_num].A += request.A;
+	Need[process_num].B += request.B;
+	Need[process_num].C += request.C;
+}
+	//尝试分配请求的资源
+	function tryAllot(process_num,request)
+	{
+	//request向量需小于Need矩阵中对应的向量
+	if(!(request.A <= Need[process_num].A && request.B <= Need[process_num].B && request.C <= Need[process_num].C)) {
+		printText("分配失败。原因：请求资源大于需求资源。\n")
+		return false;
+	}
+
+	//request向量需小于Available向量
+	if(!(request.A <= Available.A && request.B <= Available.B && request.C <= Available.C)) {
+		printText("分配失败。原因：请求资源大于可用资源。\n");
+		return false;
+	}
 
 function isSafe(){
 	var	work = getAvailable();
@@ -126,50 +169,7 @@ function isSafe(){
 			return true;
 }
 
-	function doAllot(process_num,request)
-	{
-		Available.A -= request.A;
-		Available.B -= request.B;
-		Available.C -= request.C;
-
-		Allocation[process_num].A += request.A;
-		Allocation[process_num].B += request.B;
-		Allocation[process_num].C += request.C;
-
-		Need[process_num].A -= request.A;
-		Need[process_num].B -= request.B;
-		Need[process_num].C -= request.C;
-	}
-
-	function RollBack(process_num,request)
-	{
-		Available.A += request.A;
-		Available.B += request.B;
-		Available.C += request.C;
-
-		Allocation[process_num].A -= request.A;
-		Allocation[process_num].B -= request.B;
-		Allocation[process_num].C -= request.C;
-
-		Need[process_num].A += request.A;
-		Need[process_num].B += request.B;
-		Need[process_num].C += request.C;
-	}
-		//尝试分配请求的资源
-		function tryAllot(process_num,request)
-		{
-		//request向量需小于Need矩阵中对应的向量
-		if(!(request.A <= Need[process_num].A && request.B <= Need[process_num].B && request.C <= Need[process_num].C)) {
-			printText("分配失败。原因：请求资源大于需求资源。\n")
-			return false;
-		}
-
-		//request向量需小于Available向量
-		if(!(request.A <= Available.A && request.B <= Available.B && request.C <= Available.C)) {
-			printText("分配失败。原因：请求资源大于可用资源。\n");
-			return false;
-		}
-
+	
 		//分配
 		doAllot(process_num,request);
 
