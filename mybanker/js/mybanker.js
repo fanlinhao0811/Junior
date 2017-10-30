@@ -13,19 +13,19 @@ function Resource(A,B,C){
 	this.C = C;
 }
 function setDefault(){
-	$("input[name='AM']").val('2,1,3');
-	$("input[name='BM']").val('3,4,7');
-	$("input[name='CM']").val('3,1,4');
-	$("input[name='DM']").val('2,5,9');
-	$("input[name='EM']").val('2,2,2');
+	$("input[name='AM']").val('7,5,3');
+	$("input[name='BM']").val('3,2,2');
+	$("input[name='CM']").val('9,0,2');
+	$("input[name='DM']").val('2,2,2');
+	$("input[name='EM']").val('4,3,3');
 
-	$("input[name='AA']").val('0,1,2');
-	$("input[name='BA']").val('0,3,0');
-	$("input[name='CA']").val('2,1,0');
-	$("input[name='DA']").val('2,0,3');
-	$("input[name='EA']").val('1,0,2');
+	$("input[name='AA']").val('0,1,0');
+	$("input[name='BA']").val('2,0,0');
+	$("input[name='CA']").val('3,0,2');
+	$("input[name='DA']").val('2,1,1');
+	$("input[name='EA']").val('0,0,2');
 
-	$("input[name='resource']").val('7,5,10');
+	$("input[name='resource']").val('10,5,7');
 	$("input[name='request']").val('');
 	$("#process_num").val('-1');
 }
