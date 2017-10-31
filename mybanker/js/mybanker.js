@@ -158,6 +158,23 @@ function isSafe(){
 			return true;
 }
 
+function RollBack(process_num,request)
+{
+	Available.A += request.A;
+	Available.B += request.B;
+	Available.C += request.C;
+
+	Allocation[process_num].A -= request.A;
+	Allocation[process_num].B -= request.B;
+	Allocation[process_num].C -= request.C;
+
+	Need[process_num].A += request.A;
+	Need[process_num].B += request.B;
+	Need[process_num].C += request.C;
+}	
+function printText(str){
+	$("#print").append(str)
+}
 	
 		//分配
 		doAllot(process_num,request);
@@ -175,23 +192,6 @@ function isSafe(){
 			return false;
 		}
 		
-	}
-	function RollBack(process_num,request)
-	{
-		Available.A += request.A;
-		Available.B += request.B;
-		Available.C += request.C;
-	
-		Allocation[process_num].A -= request.A;
-		Allocation[process_num].B -= request.B;
-		Allocation[process_num].C -= request.C;
-	
-		Need[process_num].A += request.A;
-		Need[process_num].B += request.B;
-		Need[process_num].C += request.C;
-	}	
-	function printText(str){
-		$("#print").append(str)
 	}
 
 

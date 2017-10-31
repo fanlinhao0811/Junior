@@ -1,4 +1,4 @@
-v-model
+v-model 双向绑定  vue 影响model model影响model
 v-on (通常@)绑定事件
 
 
