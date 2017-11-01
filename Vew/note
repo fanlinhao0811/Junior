@@ -1,5 +1,5 @@
 v-model 双向绑定 v-model="  "  vue 影响model model影响model     利用ES5中Obj.defineProperty   访问性属性
-v-on (通常@)绑定事件 v-on:click = "fn"
+v-on (通常@)绑定事件 v-on:click = "fn" @click="fn"             fn写在methods里
 
 
 v-text
