@@ -16,8 +16,9 @@
 <body>
 	<div id="app">
 		 <!-- <div :class="{red:isRed}"></div>	 -->
-		 <div :class="classObj"></div>	
-
+		 <!-- <div :class="classObj"></div>	 -->
+		 <div :class="[classA]"></div>	
+ 
 	</div>
 	
 </body>
@@ -29,7 +30,8 @@ var vm = new Vue({
 		isRed:true ,
 		classObj:{
 			red:true
-		}
+		},
+		classA:'red'
 	}
 })
 </script>
