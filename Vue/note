@@ -8,4 +8,10 @@ v-html 两者区别与jQuery中 text 和html区别一样,html可以写标签，�
 v-bind   v-bind:   (简写形式：)   动态绑定属性
 class  style  特殊属性
 
+v-if  
+
+
+数组排序   sort(function(a,b){a>b})
+
+
 splice
