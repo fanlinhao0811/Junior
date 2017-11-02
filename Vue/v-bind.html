@@ -17,7 +17,10 @@
 	<div id="app">
 		 <!-- <div :class="{red:isRed}"></div>	 -->
 		 <!-- <div :class="classObj"></div>	 -->
-		 <div :class="[classA]"></div>	
+		 <!-- <div :class="[classA]"></div>	 -->
+		 <!-- <div :style="{background:bgStyle}">111</div>	 -->
+		 <!-- <div :style="styleObj">111</div>	 -->
+		 <div :style="[styleA]">111</div>	
  
 	</div>
 	
@@ -31,7 +34,15 @@ var vm = new Vue({
 		classObj:{
 			red:true
 		},
-		classA:'red'
+		classA:'red',
+		bgStyle:"red",
+		styleObj:{
+			background:'red',
+			"font-size":'40px'
+		},
+		styleA:{
+			background:'red'
+		}
 	}
 })
 </script>
