@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div{width:100px;height:100px;}
+        .top{margin: 50px 0;
+            background: #0000ff;}
+        .bottom{margin:20px 0;
+            background: #00ff00;}
+    </style>
+
+
+</head>
+<body>
+<div class="top"></div>
+<div class="bottom"></div>
+</body>
+<script>
+    //for(var i=1;i<+3;i++){setTimeout(function(){console.log(i);},0)}
+setTimeout(function(){console.log(1);},0)
+    Promise.resolve(function(){console.log(2);});
+    new Promise(function(resolve){console.log(3);});
+    console.log(4);
+</script>
+</html>
