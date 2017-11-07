@@ -7,6 +7,7 @@ let命令 定义变量
 
 
 const 定义常量   大写只是一种习惯不强制
+json.parse讲json格式转换为对象
 
 
 闭包：
