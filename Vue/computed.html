@@ -17,13 +17,13 @@
             firstName:'zhang',
             lastName:'san'
         },
-        computed:{
+        computed:{  //计算属性有计算缓存功能
             fullName:{
                 get:function(){
                     return this.firstName  +' '+this.lastName;
                 },
                 set:function(){
-                        //zhang san
+                   //zhang san
                     var arr = val.split(' ');
                     this.firstName = arr[0];
                     this.lastName = arr[1];
