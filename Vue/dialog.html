@@ -23,8 +23,12 @@
 <div id="app">
     <button @click="loginShow=true">登陆</button>
     <button @click="regShow=true">注册</button>
-    <mydialog v-show="loginShow"></mydialog>
-    <mydialog v-show="regShow"></mydialog>
+    <mydialog v-show="loginShow">
+        <span>登陆</span>
+    </mydialog>
+    <mydialog v-show="regShow">
+
+    </mydialog>
 </div>
 </body>
 <script src="vue.js"></script>
