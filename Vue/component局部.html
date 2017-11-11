@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div id="app">
+    <demo>
+        <p slot="title">ppp</p>
+    </demo>
+    <demo></demo>
+</div>
+
+</body>
+<script src="vue.js"></script>
+<script type="text/x-template" id="temp">
+<div>
+    <slot name="title">
+        <h1>我是默认值000</h1>
+    </slot>
+    <slot name="title1">
+        <h1>我是默认值111</h1>
+    </slot>
+</div>
+</script>
+<script>
+    new Vue({
+        el:'#app',
+        data:{},
+        components:{
+            demo:{
+                template:'#temp',
+                props:['msg']
+            }
+        }
+    })
+
+</script>
+</html>

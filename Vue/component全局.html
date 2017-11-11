@@ -8,14 +8,21 @@
 <div id="app">
     <demo></demo>
 </div>
+<demo></demo>  //不好使，全局组件也必须在作用域内
+<div id="app1">
+    <demo></demo>   //好使
+</div>
 </body>
 <script src="vue.js"></script>
 <script>
-    Vue.component('demo',{
+    Vue.component('demo',{                                //这是一个全局组件
         template:'<div><h1>1111</h1><p>222</p></div>'
     });
     new Vue({
         el:'#app'
+    })
+    new Vue({
+        el:'#app1'
     })
 </script>
 </html>
