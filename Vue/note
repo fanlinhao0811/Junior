@@ -11,6 +11,8 @@ class  style  特殊属性
 v-if  
 
 
+
+
 数组排序   sort(function(a,b){a>b})
 
 
