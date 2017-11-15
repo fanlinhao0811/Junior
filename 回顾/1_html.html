@@ -14,7 +14,10 @@
             list-style: none;
         }
         img{
-            border: 0;   //a标签中img，ie6会出现蓝边
+            border: 0;    //a标签中img，ie6会出现蓝边
+        }
+        a{
+            text-decoration: none;  下划线
         }
     </style>
 </head>
@@ -29,5 +32,12 @@
     <li>003</li>
     <li>004</li>
 </ul>
+<a href=""><img src="" alt="图片加载失败" title="提示条"/></a>
+<a href="http://www.baidu.com">baidu</a>
+<span>文字</span>
+<!--
+行级元素：span a img input textarea button  并列一行，不能设置宽高，由内容撑开
+块级元素：p div h1-h6 ol ul li      独占一行 width充满父元素
+-->
 </body>
 </html>
