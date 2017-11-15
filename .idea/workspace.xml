@@ -58,7 +58,7 @@
         <entry file="file://$PROJECT_DIR$/回顾/1_html.html">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.7092265">
-              <caret line="45" column="42" selection-start-line="45" selection-start-column="42" selection-end-line="45" selection-end-column="42" />
+              <caret line="45" column="72" selection-start-line="45" selection-start-column="72" selection-end-line="45" selection-end-column="72" />
               <folding />
             </state>
           </provider>
@@ -278,12 +278,6 @@
       <created>1505308143234</created>
       <option name="number" value="Default" />
       <updated>1505308143234</updated>
-    </task>
-    <task id="LOCAL-00027" summary="2017.10.17">
-      <created>1508251489663</created>
-      <option name="number" value="00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1508251489663</updated>
     </task>
     <task id="LOCAL-00028" summary="2017.10.17">
       <created>1508251693501</created>
@@ -573,7 +567,13 @@
       <option name="project" value="LOCAL" />
       <updated>1510756275511</updated>
     </task>
-    <option name="localTasksCounter" value="76" />
+    <task id="LOCAL-00076" summary="2017.11.15 小复习">
+      <created>1510756941975</created>
+      <option name="number" value="00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1510756941976</updated>
+    </task>
+    <option name="localTasksCounter" value="77" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1007,7 +1007,7 @@
     <entry file="file://$PROJECT_DIR$/回顾/1_html.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.7092265">
-          <caret line="45" column="42" selection-start-line="45" selection-start-column="42" selection-end-line="45" selection-end-column="42" />
+          <caret line="45" column="72" selection-start-line="45" selection-start-column="72" selection-end-line="45" selection-end-column="72" />
           <folding />
         </state>
       </provider>
