@@ -35,9 +35,22 @@
 <a href=""><img src="" alt="图片加载失败" title="提示条"/></a>
 <a href="http://www.baidu.com">baidu</a>
 <span>文字</span>
+
+<form action="">
+    <label for="username">用户名：</label>
+    <input type="text" id="username"/>
+    <!--<label for="">用户名：<input type="text"/></label>-->
+</form>
+<input type="submit"/>
+<input type="reset"/>
+<button>提交</button>  默认提交  ，自动触发onsubmit事件
+<button type="button">提交</button>  加type
 <!--
 行级元素：span a img input textarea button  并列一行，不能设置宽高，由内容撑开
-块级元素：p div h1-h6 ol ul li      独占一行 width充满父元素
+块级元素：p div h1-h6 ol ul li      独占一行 width充满父元素  高度内容撑开
+
+display： block inline inline-block none                   行级元素浮动后也可设置宽高
+语义化标签  搜索引擎优化，开发者阅读
 -->
 </body>
 </html>
