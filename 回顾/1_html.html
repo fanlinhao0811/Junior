@@ -6,10 +6,16 @@
     <meta name="description" content="小复习">
     <title></title>
     <style>
-        /**{             //css reset  css重置，过于暴力*/
+        /*  *{             //css reset  css重置，过于暴力 ，  可以使用normalize.css */
             /*margin: 0;*/
             /*padding: 0;  */
-        /*}*/
+        /*   }*/
+        ul,ol{
+            list-style: none;
+        }
+        img{
+            border: 0;   //a标签中img，ie6会出现蓝边
+        }
     </style>
 </head>
 <body>
@@ -17,5 +23,11 @@
 <h2>h2</h2>
 <div>div</div>
 <p>p</p>自带上下16px margin边距
+<ul>
+    <li>001</li>
+    <li>002</li>
+    <li>003</li>
+    <li>004</li>
+</ul>
 </body>
 </html>
