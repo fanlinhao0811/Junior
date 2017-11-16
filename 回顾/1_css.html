@@ -3,6 +3,9 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title></title>
+    <style>
+        <!-- 透明度也有兼容性问题  opacity: .5; = filter:alpha(opacity=20)               -->
+    </style>
 </head>
 <body>
 <!--
@@ -31,12 +34,34 @@
 margin外边距合并问题
 
 定位 position ：static relative相对，相对自己，不脱离文档流  absolute绝对定位，相对于已经定位的祖先元素，如果没有就相对于body，脱离文档流
-      fixed  固定定位（兼容性问题）
+      fixed  固定定位  相对于浏览器（兼容性问题）
  var iScrollTop = document.body.scrollTop \\ document.documentElement.scrollTop     //获取当前滚动条高度
 
+
+float ：left/right         //浮动元素脱离文档流
+clear:both  //清除浮动
 
 
 
 -->
+
+<!--
+两列布局，左固定，右自适应
+1.浮动
+2.定位
+3.弹性盒模型
+-->
+<!--
+三列布局，左右固定，中间自适应
+-->
+
+display：none;空间释放，绑定事件也没了
+opacity:0;空间不释放，绑定事件还在
+visibility：hidden 空间不释放，绑定事件不在
+
+
+
+display:inline-block   有兼容性问题   
+
 </body>
 </html>
