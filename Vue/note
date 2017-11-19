@@ -8,7 +8,8 @@ v-html 两者区别与jQuery中 text 和html区别一样,html可以写标签，�
 v-bind   v-bind:    (简写形式：)   动态绑定属性
 class  style  特殊属性
 
-v-if  
+v-if  v-else-if v-else      在dom结构中不显示
+v-show 在dom结构中显示
 
 
 
