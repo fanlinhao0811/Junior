@@ -12,7 +12,8 @@ v-if  v-else-if v-else      在dom结构中不显示
 v-show 在dom结构中显示
 
 
-
+  
+	
 
 数组排序   sort(function(a,b){a>b})
 
