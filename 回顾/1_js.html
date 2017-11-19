@@ -8,10 +8,29 @@
 </head>
 <body>
 	<script>
-		
+		aa();
+		function aa(){
+			alert(123);
+		}
+		var bb = function(){
+			alert(456);
+		};
+		bb();       //必须先申明在使用
+		document.getElementById('aa');
+		document.getElementsByTagName('div');
+		document.getElementsByClassName('aa');//兼容性问题
+		document.getElementsByName('username');//兼容性问题
+		document.querySelector("#id");  //h5语法，兼容性问题
+		document.querySelectorAll(".aa");//h5语法，兼容性问题
+
+
 /**
 *navigator.userAgent  查看浏览器版本
 *
+浏览器内核 IE  Tridet
+           Mozilla Firefox   Gecko 壁虎
+						Opera  Presto 
+						Google Safari    webkit
 **/
 
 	</script>
