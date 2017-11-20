@@ -5,16 +5,24 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>Document</title>
+	<style>
+	body{
+		height: 2000px;
+	}
+	</style>
 </head>
 <body>
+
+
+
 	<script>
 		aa();
 		function aa(){
-			alert(123);
+			//alert(123);
 		}
 		var bb = function(){
-			alert(456);
-		};
+			//alert(456);
+		}; 
 		bb();       //必须先申明在使用
 		document.getElementById('aa');
 		document.getElementsByTagName('div');
@@ -24,7 +32,28 @@
 		document.querySelectorAll(".aa");//h5语法，兼容性问题
 //nodeType 节点类型 ，元素节点为1，文本节点为3
 //getElementsByTagName,getElementsByName 返回NodeList
+  
 
+	var oDiv = document.createElement("div");
+	oDiv.innerHTML = "faskf";
+	document.body.appendChild(oDiv);  //后插
+	var oDiv1 = document.createElement("div");
+	oDiv1.innerHTML = "123"
+	document.body.insertBefore(oDiv1,oDiv);  //前插，注意参数
+	document.body.removeChild(oDiv1); 
+
+
+	// window.onresize = function(){
+	// 	console.log(document.body.clientWidth);  //获取浏览器宽度
+	// };
+
+	window.onscroll = function(){
+		var iScrollTop = document.documentElement.scrollTop || document.body.scrollTop;  //获取浏览器高度 
+		console.log(iScrollTop);
+	};
+
+
+	//事件三要素    事件源  ，事件类型，事件对象
 /**
 *navigator.userAgent  查看浏览器版本
 *
