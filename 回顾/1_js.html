@@ -56,10 +56,13 @@
 
 
 var oDiv2 = document.getElementById("div2");
-oDiv2.onclick = function(e){
+oDiv2.onclick = function(e){                            //如果绑定两次相同事件，第二次事件会把第一次事件顶替
 		var target = e.target || window.event.srcElement;  //e有兼容性问题
 		console.log(target);
 };
+		oDiv2.addEventListener("click",function(){         //如果绑定两次相同事件，第二次事件不会把第一次事件顶替
+
+		},false);   //第三个参数控制事件冒泡还是事件捕获，false表示冒泡，从里往外
 
 
 	//事件三要素    事件源  ，事件处理函数，事件对象e
