@@ -5,9 +5,22 @@
     <title></title>
 </head>
 <body>
+<ul>
+    <li>{014}</li>
+    <li>{024}</li>
+    <li>{034}</li>
+</ul>
 <script>
-    //闭包：外部函数内部声明了内部函数，在内部函数中引入了外部函数的局部变量，当外部函数执行完毕以后，这个局部变量不会释放
-
+    //闭包：外部函数内部声明了内部函数，在内部函数中引入了外部函数的局部变量，
+    // 当外部函数执行完毕以后，这个局部变量不会释放
+ var aLi = document.getElementsByTagName("li");
+    for(var i = 0;i<aLi.length;i++){
+        (function(idx){
+            aLi[i].onclick = function(){
+                console.log(idx);
+            }
+        })(i);
+    }
 </script>
 </body>
 </html>
