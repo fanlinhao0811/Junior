@@ -15,7 +15,7 @@
     // 当外部函数执行完毕以后，这个局部变量不会释放
  var aLi = document.getElementsByTagName("li");
     for(var i = 0;i<aLi.length;i++){
-        (function(idx){
+        (function(idx ){
             aLi[i].onclick = function(){
                 console.log(idx);
             }
