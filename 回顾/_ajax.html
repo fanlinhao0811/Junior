@@ -20,7 +20,8 @@
 	//2.发送请求
 	xmlhttp.open('GET','servers.php',true);
 	xmlhttp.send();
-
+  
+	//3.服务器回调
 	xmlhttp.onreadystatechange = function () {
 		if(xmlhttp.readyState == 4 && xmlhttp.status = 200){
 			alert('aa');
