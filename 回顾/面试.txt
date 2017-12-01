@@ -1,0 +1,5 @@
+requireJs模块化开发。解决文件依赖加载
+判断是不是一个数组 constructor 返回Array； instanceof实例 Array  返回true
+function isArray（arr）{
+if（）
+}
