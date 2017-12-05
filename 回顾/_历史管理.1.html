@@ -23,11 +23,11 @@
 				}
 				oResult.innerHTML = arr ;
 				
-				location.hash = Math.random();
-				obj[location.hash] = arr;
+				history.pushState(arr,"");
 			});
-			window.onhashchange = function name(params) {
-				oResult.innerHTML = obj[location.hash];
+			window.onpopstate = function name(e) {
+				console.log(e.state);
+				oResult.innerHTML = e.state;
 			}
 	</script>
 </body>
