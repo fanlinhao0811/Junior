@@ -3,3 +3,4 @@ requireJs模块化开发。解决文件依赖加载
 function isArray（arr）{
 if（）
 }
+padding 的百分比值相当于父元素的宽度
