@@ -4,3 +4,5 @@ function isArray（arr）{
 if（）
 }
 padding 的百分比值相当于父元素的宽度
+array.prototype.sort    数组排序，改变原数组
+array.prototype.slice    从某个已有的数组返回选定的元素
