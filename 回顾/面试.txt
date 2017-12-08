@@ -6,3 +6,5 @@ if（）
 padding 的百分比值相当于父元素的宽度
 array.prototype.sort    数组排序，改变原数组
 array.prototype.slice    从某个已有的数组返回选定的元素
+array.prototype.concat连接两个或更多的数组，并返回结果。
+array.prototype.splice  删除元素，并向数组添加新元素。
