@@ -9,3 +9,4 @@ array.prototype.slice    从某个已有的数组返回选定的元素
 array.prototype.concat连接两个或更多的数组，并返回结果。
 array.prototype.splice  删除元素，并向数组添加新元素。
   setTimeout在临时线程中，js有个主线程，主线程执行完成，执行临时线程
+	setTimeout后面的时间参数的意思是多少秒后加入临时线程
