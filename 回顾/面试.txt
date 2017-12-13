@@ -12,3 +12,6 @@ array.prototype.splice  删除元素，并向数组添加新元素。
 	setTimeout后面的时间参数的意思是多少秒后加入临时线程
 	box-sizing:border-box;怪异盒模型，widing=content+padding+border
 	var a=b=3  =>var a=3 (有作用域);b=3（全局 ）
+
+	form中action表示提交路径  method表示提交方式，默认post 不安全 最多2048个字节
+	post随便多大
