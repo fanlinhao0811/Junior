@@ -18,4 +18,4 @@ array.prototype.splice  删除元素，并向数组添加新元素。
 	1byte=8bit  1int= 2(16位cpu) 4 8 
 	文件编码 ANSI     unicode     utf-8
 	浏览器解码 GBK      GB2312 GB18030     utf-8
-	数据库编码  utf-8      setEncoding（utf8）传输编码
+	数据库编码  utf-8      setEncoding（utf8）传输编码 
