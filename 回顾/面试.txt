@@ -19,3 +19,12 @@ array.prototype.splice  删除元素，并向数组添加新元素。
 	文件编码 ANSI     unicode     utf-8
 	浏览器解码 GBK      GB2312 GB18030     utf-8
 	数据库编码  utf-8      setEncoding（utf8）传输编码 
+
+h5 新增标签  header footer nav  article  视屏音频  aside   canvas
+语义化  1.有利于程序员阅读，便于团队开发和维护 2.浏览器读取方便  3.SEO搜索引擎优化  4.默认样式，如果浏览器禁止css，h1还有效果
+SEO 利用搜索引擎的搜索规则优化，keyword （也可以花钱）
+新选择器 querySelector（"#app"）  querySelectorAll("#all")
+
+
+json.parse 字符串-》json  
+	很多框架mvc，Vue则是mvvm（模型视图视图模型）数据驱动
