@@ -8,6 +8,12 @@
 
 
 透明度,标准浏览器（0-1）opacity:0.2,   IE(0-100)filter:20 
-
+IE6不支持display:inline-block     IE6可以使用（_display:inline） IE7使用（*display:inline）      
+css hack！！！  （条件hack  属性hack   选择符hack）  css手册！
+IE6中浮动会产生双边距(margin会变成双倍) 可以加上（_display:inline）
+IE6中不支持min-height可以（_height：）
+IE中3px Bug 
+png24 图做背景透明度  标准浏览器透明，IE6中有灰底  png滤镜   也可以js  （代码比较多）
+_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='png24.png'); background-repeat:no-repeat} 
 </body>
 </html>
