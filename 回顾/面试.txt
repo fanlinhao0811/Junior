@@ -25,6 +25,8 @@ h5 新增标签  header footer nav  article  视屏音频  aside   canvas
 SEO 利用搜索引擎的搜索规则优化，keyword （也可以花钱）
 新选择器 querySelector（"#app"）  querySelectorAll("#all")
 
+浮动元素塌陷：1.如果父元素高度固定，可以写死  2.在dom元素加一个<div style="clear:both"></div>    
+																		也可以.clearfix::after{content:'';display；block;clear:both;}
 
 json.parse 字符串-》json  
 	很多框架mvc，Vue则是mvvm（模型视图视图模型）数据驱动
