@@ -35,7 +35,7 @@ doctype是文本类型，完整定义doctype，会触发标准模式，如果缺
 
 弹性盒模型，  display：box     flex：1
 json.parse 字符串-》json  
-	很多框架mvc，Vue则是mvvm（模型视图视图模型）数据驱动
+	很多框架mvc ，Vue则是mvvm（模型视图视图模型）数据驱动
 
 	统一资源定位器（URL） scheme://host.domain:port/path/filename 
 	scheme - 定义因特网服务的类型。最常见的类型是 http 
