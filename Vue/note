@@ -15,7 +15,7 @@ v-show 在dom结构中显示
   
 	
 
-数组排序   sort(function(a,b){a>b})
+数组排序    sort(function(a,b){a>b})
 
 
 splice
