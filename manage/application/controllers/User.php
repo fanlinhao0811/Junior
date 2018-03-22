@@ -26,4 +26,22 @@ class User extends CI_Controller {
 	{
 		$this->load->view('login');
 	}
+	public function info()
+	{
+		$this->load->view('info');
+	}
+	public function book()
+	{
+		$this->load->view('book');
+	}
+	public function email()
+	{
+		$this->load->view('email');
+	}
+
+	public function adv()
+	{
+		$this->load->view('adv');
+	}
+
 }
