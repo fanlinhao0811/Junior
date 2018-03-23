@@ -14,23 +14,23 @@
 </head>
 <body>
 <div class="panel admin-panel">
-  <div class="panel-head"><strong class="icon-reorder">规章条例</strong></div>
+  <div class="panel-head"><strong class="icon-reorder">岗位管理</strong></div>
   <div class="padding border-bottom">  
   </div>
   <table class="table table-hover text-center">
     <tr>
-      <th width="10%">编号</th>
-      <th width="20%">简要说明</th>
-      <th width="15%">分类</th>
-      <th width="30%">详细</th>
-      <th width="15%">操作</th>
+      <th width="20%">编号</th>
+			<th width="20%">姓名</th>
+			<th width="20%">岗位</th>
+      <th width="20%">分类</th>
+      <th width="20%">操作</th>
     </tr>
    
     <tr>
       <td>1</td>     
-      <td>上班期间不准喝酒</td>     
-      <td>生活</td>
-      <td>描述文字....</td>
+      <td>张三</td>     
+      <td>英语老师</td>
+      <td>教师</td>
       <td><div class="button-group">
       <a class="button border-main" href="#add"><span class="icon-edit"></span> 修改</a>
       <a class="button border-red" href="javascript:void(0)" onclick="return del(1,1)"><span class="icon-trash-o"></span> 删除</a>
@@ -38,25 +38,14 @@
     </tr>
     <tr>
       <td>2</td>     
-      <td>迟到早退要请假</td>     
-      <td>请假</td>
-      <td>描述文字....</td>
+      <td>李四</td>     
+      <td>宿舍管理员</td>
+      <td>后勤</td>
       <td><div class="button-group">
       <a class="button border-main" href="#add"><span class="icon-edit"></span> 修改</a>
       <a class="button border-red" href="javascript:void(0)" onclick="return del(1,1)"><span class="icon-trash-o"></span> 删除</a>
       </div></td>
     </tr>
-    <tr>
-      <td>3</td>     
-      <td>不得受贿</td>     
-      <td>纪律</td>
-      <td>描述文字....</td>
-      <td><div class="button-group">
-      <a class="button border-main" href="#add"><span class="icon-edit"></span> 修改</a>
-      <a class="button border-red" href="javascript:void(0)" onclick="return del(1,1)"><span class="icon-trash-o"></span> 删除</a>
-      </div></td>
-    </tr>
-    
   </table>
 </div>
 <script type="text/javascript">
@@ -81,7 +70,7 @@ function del(id,mid){
       </div>
       <div class="form-group">
         <div class="label">
-          <label>简要说明：</label>
+          <label>姓名：</label>
         </div>
         <div class="field">
           <input type="text" class="input w50" name="explain" value=""  />
@@ -90,7 +79,7 @@ function del(id,mid){
       </div>
       <div class="form-group">
         <div class="label">
-          <label>分类：</label>
+          <label>岗位：</label>
         </div>
         <div class="field">
           <input type="text" class="input w50" name="sort" value=""  />
@@ -99,7 +88,7 @@ function del(id,mid){
       </div>
       <div class="form-group">
         <div class="label">
-          <label>详细：</label>
+          <label>分类：</label>
         </div>
         <div class="field">
           <textarea type="text" class="input" name="note" style="height:120px;" value=""></textarea>

@@ -13,75 +13,22 @@
 <script src="assets/js/pintuer.js"></script>
 </head>
 <body>
-<div class="panel admin-panel">
-  <div class="panel-head"><strong class="icon-reorder">规章条例</strong></div>
-  <div class="padding border-bottom">  
-  </div>
-  <table class="table table-hover text-center">
-    <tr>
-      <th width="10%">编号</th>
-      <th width="20%">简要说明</th>
-      <th width="15%">分类</th>
-      <th width="30%">详细</th>
-      <th width="15%">操作</th>
-    </tr>
-   
-    <tr>
-      <td>1</td>     
-      <td>上班期间不准喝酒</td>     
-      <td>生活</td>
-      <td>描述文字....</td>
-      <td><div class="button-group">
-      <a class="button border-main" href="#add"><span class="icon-edit"></span> 修改</a>
-      <a class="button border-red" href="javascript:void(0)" onclick="return del(1,1)"><span class="icon-trash-o"></span> 删除</a>
-      </div></td>
-    </tr>
-    <tr>
-      <td>2</td>     
-      <td>迟到早退要请假</td>     
-      <td>请假</td>
-      <td>描述文字....</td>
-      <td><div class="button-group">
-      <a class="button border-main" href="#add"><span class="icon-edit"></span> 修改</a>
-      <a class="button border-red" href="javascript:void(0)" onclick="return del(1,1)"><span class="icon-trash-o"></span> 删除</a>
-      </div></td>
-    </tr>
-    <tr>
-      <td>3</td>     
-      <td>不得受贿</td>     
-      <td>纪律</td>
-      <td>描述文字....</td>
-      <td><div class="button-group">
-      <a class="button border-main" href="#add"><span class="icon-edit"></span> 修改</a>
-      <a class="button border-red" href="javascript:void(0)" onclick="return del(1,1)"><span class="icon-trash-o"></span> 删除</a>
-      </div></td>
-    </tr>
-    
-  </table>
-</div>
-<script type="text/javascript">
-function del(id,mid){
-	if(confirm("您确定要删除吗?")){
-	
-	}
-}
-</script>
 <div class="panel admin-panel margin-top" id="add">
-  <div class="panel-head"><strong><span class="icon-pencil-square-o"></span> 增加内容</strong></div>
+  <div class="panel-head"><strong><span class="icon-pencil-square-o"></span> 资源申请 </strong></div>
   <div class="body-content">
     <form method="post" class="form-x" action="">    
       <div class="form-group">
         <div class="label">
-          <label>编号：</label>
+          <label>申请编号：</label>
         </div>
         <div class="field">
-          <input type="text" class="input w50" value="" name="no" data-validate="required:请输入编号" />
+          <input type="text" class="input w50" value="" name="no" data-validate="required:请输入申请编号" />
           <div class="tips"></div>
         </div>
       </div>
       <div class="form-group">
         <div class="label">
-          <label>简要说明：</label>
+          <label>申请部门：</label>
         </div>
         <div class="field">
           <input type="text" class="input w50" name="explain" value=""  />
@@ -90,7 +37,7 @@ function del(id,mid){
       </div>
       <div class="form-group">
         <div class="label">
-          <label>分类：</label>
+          <label>申请人：</label>
         </div>
         <div class="field">
           <input type="text" class="input w50" name="sort" value=""  />
@@ -99,14 +46,13 @@ function del(id,mid){
       </div>
       <div class="form-group">
         <div class="label">
-          <label>详细：</label>
+          <label>申请用途说明：</label>
         </div>
         <div class="field">
-          <textarea type="text" class="input" name="note" style="height:120px;" value=""></textarea>
+          <textarea name="content"></textarea>
           <div class="tips"></div>
         </div>
       </div>
-      
 			<div class="form-group">
         <div class="label">
           <label>附件：</label>

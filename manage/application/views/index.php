@@ -24,7 +24,7 @@
   <ul style="display:block">
     <li><a href="user/info" target="right"><span class="icon-caret-right"></span>个人考勤</a></li>
     <li><a href="user/email" target="right"><span class="icon-caret-right"></span>邮件</a></li>
-    <li><a href="page.html" target="right"><span class="icon-caret-right"></span>岗位管理</a></li>  
+    <li><a href="user/job" target="right"><span class="icon-caret-right"></span>岗位管理</a></li>  
     <li><a href="user/book" target="right"><span class="icon-caret-right"></span>通讯录</a></li>      
   </ul>   
   <h2><span class="icon-pencil-square-o"></span>项目管理</h2>
@@ -36,18 +36,18 @@
   </ul> 
 	<h2><span class="icon-pencil-square-o"></span>综合行政</h2>
   <ul>
-    <li><a href="list.html" target="right"><span class="icon-caret-right"></span>会议申请</a></li>
-    <li><a href="add.html" target="right"><span class="icon-caret-right"></span>资源申请</a></li>      
+    <li><a href="user/apply_meeting" target="right"><span class="icon-caret-right"></span>会议申请</a></li>
+    <li><a href="user/apply_resource" target="right"><span class="icon-caret-right"></span>资源申请</a></li>      
   </ul> 
 	<h2><span class="icon-pencil-square-o"></span>相关部门管理</h2>
   <ul>
-    <li><a href="list.html" target="right"><span class="icon-caret-right"></span>相关部门建立</a></li>
-    <li><a href="add.html" target="right"><span class="icon-caret-right"></span>相关部门删除</a></li>     
+    <li><a href="user/department_add" target="right"><span class="icon-caret-right"></span>相关部门建立</a></li>
+    <li><a href="user/department_reduce" target="right"><span class="icon-caret-right"></span>相关部门删除</a></li>     
   </ul> 
 	<h2><span class="icon-pencil-square-o"></span>规章制度管理</h2>
   <ul>
     <li><a href="user/adv" target="right"><span class="icon-caret-right"></span>增删规章制度</a></li>
-    <li><a href="add.html" target="right"><span class="icon-caret-right"></span>纪律监察</a></li>  
+    <li><a href="user/suggest" target="right"><span class="icon-caret-right"></span>纪律监察</a></li>  
   </ul>  
 </div>
 <script type="text/javascript">
@@ -70,10 +70,7 @@ $(function(){
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;切换语言：<a href="##">中文</a> &nbsp;&nbsp;<a href="##">英文</a> </li>
 </ul>
 <div class="admin">
-  <iframe scrolling="auto" rameborder="0" src="user/info" name="right" width="100%" height="100%"></iframe>
-</div>
-<div style="text-align:center;">
-<p>来源:<a href="http://www.mycodes.net/" target="_blank">源码之家</a></p>
+  <iframe scrolling="auto" rameborder="0" src="user/inbox" name="right" width="100%" height="100%"></iframe>
 </div>
 </body>
 </html>

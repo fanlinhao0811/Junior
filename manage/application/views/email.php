@@ -14,9 +14,21 @@
 </head>
 <body>
 <div class="panel admin-panel">
-  <div class="panel-head"><strong><span class="icon-pencil-square-o"></span> 发信箱</strong></div>
+	<div class="panel-head">
+		<strong><span class="icon-pencil-square-o"></span> 发信箱</strong>
+		<strong><a href="user/inbox"><span class="icon-pencil-square-o" style="margin-left:80%;"></span> 收信箱</a></strong>
+	</div>
   <div class="body-content">
-    <form method="post" class="form-x" action="">      
+    <form method="post" class="form-x" action="">   
+		<div class="form-group">
+        <div class="label">
+          <label>发给：</label>
+        </div>
+        <div class="field">
+          <input type="text" class="input" name="title" value="" />
+          <div class="tips"></div>
+        </div>
+      </div>   
       <div class="form-group">
         <div class="label">
           <label>标题：</label>
@@ -28,12 +40,11 @@
       </div>
       <div class="form-group">
         <div class="label">
-          <label>图片：</label>
+          <label>附件：</label>
         </div>
         <div class="field">
-          <input type="text" id="url1" name="img" class="input tips" style="width:25%; float:left;"  value=""  data-toggle="hover" data-place="right" data-image="" />
+          <input type="text" class="input" name="title" style="width:25%; float:left;"  value=""   />
           <input type="button" class="button bg-blue margin-left" id="image1" value="+ 浏览上传"  style="float:left;">
-          <div class="tipss">图片尺寸：500*200</div>
         </div>
       </div>
       <div class="form-group">
@@ -50,7 +61,7 @@
           <label></label>
         </div>
         <div class="field">
-          <button class="button bg-main icon-check-square-o" type="submit"> 提交</button>
+          <button class="button bg-main icon-check-square-o" type="submit"> 发送</button>
         </div>
       </div>
     </form>
