@@ -18,7 +18,13 @@ class User extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
-	public function index()
+	 public function __construct()
+	 {
+		 parent::__construct();
+		 $this->load->model('User_model');
+	 }
+
+	 public function index()
 	{
 		$this->load->view('index');
 	}
@@ -72,5 +78,25 @@ class User extends CI_Controller {
 	{
 		$this->load->view('suggest');
 	}
+
+
+	public function check_login(){
+		$name = $this->input->get('name');
+		$pwd = $this->input->get('pwd');
+		$result = $this->User_model->get_user_by_name($name);
+		if(count($result) == 0){
+			echo 'name not exist';
+		}else{
+			if($result[0]->password == $pwd){
+				$this->session->set_userdata(array(
+					'user'=>$result[0]
+				));
+				echo 'success';
+			}else{
+				echo 'password error';
+			}
+		}
+	}
+
 
 }
