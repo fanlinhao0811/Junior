@@ -16,8 +16,10 @@
   <div class="logo margin-big-left fadein-top">
     <h1><img src="assets/images/y.jpg" class="radius-circle rotate-hover" height="50" alt="" />基建管理系统</h1>
   </div>
-	<div class="head-l"><?php $user = $this->session->userdata('user');
-	echo $user->name?>
+	<div class="head-l">
+	<?php $user = $this->session->userdata('user');
+	echo $user->name
+	 ?>
 	</div>
   <div class="head-l"><a class="button button-little bg-red" href="user/login"><span class="icon-power-off"></span> 退出登录</a> </div>
 </div>

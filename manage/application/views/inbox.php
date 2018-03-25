@@ -26,12 +26,14 @@
         <th>内容</th>    
       </tr>      
         <tr>
-          <td>123456@qq.com</td>
-          <td>请假</td>
-          <td>1.zip</td>          
-          <td>xxx要请假</td>
+					<?php foreach($list as $email){?>
+          <td><?php echo $email->email_name?></td>
+          <td><?php echo $email->title?></td>
+          <td><?php echo $email->plus?></td>          
+          <td><?php echo $email->content?></td>
 					<td><div class="button-group"> <a class="button border-red" href="javascript:void(0)"><span class="icon-trash-o"></span> 阅读全文</a> </div></td>
-        </tr>
+					<?php }?>
+				</tr>
         <td colspan="8"><div class="pagelist"> <a href="">上一页</a> <span class="current">1</span><a href="">2</a><a href="">3</a><a href="">下一页</a><a href="">尾页</a> </div></td>
       </tr>
     </table>
