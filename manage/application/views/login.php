@@ -39,9 +39,8 @@
                     </div>
                     <div class="form-group">
                         <div class="field">
-                            <input type="text" class="input input-big" name="code" placeholder="填写右侧的验证码" data-validate="required:请填写右侧的验证码" />
-                           <img src="assets/images/passcode.jpg" alt="" width="100" height="32" class="passcode" style="height:43px;cursor:pointer;" onclick="this.src=this.src+'?'">  
-                              <!-- <?php echo $img?>                      -->
+                            <input type="text" class="input input-big" name="code" id="f_code" placeholder="填写右侧的验证码" data-validate="required:请填写右侧的验证码" />
+													<span  width="100" height="32" class="passcode" style="height:43px;cursor:pointer;"><?php echo $img?></span> 
                         </div>
                     </div>
                 </div>
@@ -55,10 +54,11 @@
 $('#btn-login').on('click',function(){
 			var name = $('#f_name').val();
 			var pwd = $('#f_pwd').val();
-	
+			var code = $('#f_code').val();
 			$.get('user/check_login',{
 				name:name,
-				pwd:pwd
+				pwd:pwd,
+				code:code
 			},function(data){
 				if(data == 'name not exist'){
 					$('#error_msg').html("账号不存在");

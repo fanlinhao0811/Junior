@@ -30,7 +30,9 @@ class User extends CI_Controller {
 	}
 	public function login()
 	{
-		$this->load->view('login');
+		
+
+		$this->load->view('login',array('img'=>$img));
 	}
 	public function inbox()
 	{
@@ -83,6 +85,8 @@ class User extends CI_Controller {
 	public function check_login(){
 		$name = $this->input->get('name');
 		$pwd = $this->input->get('pwd');
+	
+
 		$result = $this->User_model->get_user_by_name($name);
 		if(count($result) == 0){
 			echo 'name not exist';
