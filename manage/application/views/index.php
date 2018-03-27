@@ -21,7 +21,7 @@
 	echo $user->name
 	 ?>
 	</div>
-  <div class="head-l"><a class="button button-little bg-red" href="user/login"><span class="icon-power-off"></span> 退出登录</a> </div>
+  <div class="head-l"><a class="button button-little bg-red" href="welcome/index"><span class="icon-power-off"></span> 退出登录</a> </div>
 </div>
 <div class="leftnav">
   <div class="leftnav-title"><strong><span class="icon-list"></span>菜单列表</strong></div>
@@ -75,7 +75,7 @@ $(function(){
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;切换语言：<a href="##">中文</a> &nbsp;&nbsp;<a href="##">英文</a> </li>
 </ul>
 <div class="admin">
-  <iframe scrolling="auto" rameborder="0" src="user/inbox" name="right" width="100%" height="100%"></iframe>
+  <iframe scrolling="auto" rameborder="0" src="welcome/inbox" name="right" width="100%" height="100%"></iframe>
 </div>
 </body>
 </html>

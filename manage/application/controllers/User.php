@@ -22,6 +22,7 @@ class User extends CI_Controller {
 	 {
 		 parent::__construct();
 		 $this->load->model('User_model');
+		 $this->load->model('Email_model');
 	 }
 
 	 public function index()
@@ -32,12 +33,9 @@ class User extends CI_Controller {
 	{
 		
 
-		$this->load->view('login',array('img'=>$img));
+		$this->load->view('login');
 	}
-	public function inbox()
-	{
-		$this->load->view('inbox');
-	}
+
 	public function info()
 	{
 		$this->load->view('info');
@@ -48,7 +46,8 @@ class User extends CI_Controller {
 	}
 	public function book()
 	{
-		$this->load->view('book');
+		$result = $this->Email_model->get_book_list();
+		$this->load->view('book',array('list'=>$result));
 	}
 	public function email()
 	{
@@ -70,6 +69,10 @@ class User extends CI_Controller {
 	{
 		$this->load->view('apply_resource');
 	}
+	public function apply_room()
+	{
+		$this->load->view('apply_room');
+	}
 	
 
 	public function adv()
@@ -82,25 +85,7 @@ class User extends CI_Controller {
 	}
 
 
-	public function check_login(){
-		$name = $this->input->get('name');
-		$pwd = $this->input->get('pwd');
-	
 
-		$result = $this->User_model->get_user_by_name($name);
-		if(count($result) == 0){
-			echo 'name not exist';
-		}else{
-			if($result[0]->password == $pwd){
-				$this->session->set_userdata(array(
-					'user'=>$result[0]
-				));
-				echo 'success';
-			}else{
-				echo 'password error';
-			}
-		}
-	}
 
 
 }

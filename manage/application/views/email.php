@@ -16,7 +16,7 @@
 <div class="panel admin-panel">
 	<div class="panel-head">
 		<strong><span class="icon-pencil-square-o"></span> 发信箱</strong>
-		<strong><a href="user/inbox"><span class="icon-pencil-square-o" style="margin-left:80%;"></span> 收信箱</a></strong>
+		<strong><a href="welcome/inbox"><span class="icon-pencil-square-o" style="margin-left:80%;"></span> 收信箱</a></strong>
 	</div>
   <div class="body-content">
     <form method="post" class="form-x" action="">   

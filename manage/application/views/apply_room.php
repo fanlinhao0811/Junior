@@ -14,9 +14,7 @@
 </head>
 <body>
 <div class="panel admin-panel margin-top" id="add">
-  <div class="panel-head"><strong><span class="icon-pencil-square-o">会议申请 </span> 
-	<a href="user/apply_room"><span class="icon-pencil-square-o">会议室申请 </span></a>
-	</strong></div>
+  <div class="panel-head"><strong><span class="icon-pencil-square-o"></span> 会议室申请 </strong></div>
   <div class="body-content">
     <form method="post" class="form-x" action="">    
       <div class="form-group">
