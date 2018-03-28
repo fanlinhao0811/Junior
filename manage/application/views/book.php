@@ -34,16 +34,16 @@
         <th width="25%">地址</th>      
       </tr>      
 			<?php foreach($list as $book){?>
-        <tr>
-          <td><input type="checkbox" name="id[]" value="1" />
-            1</td>
+        <tr data-no="<?php echo $book->no;?>">
+          <td><input type="checkbox" name="id[]"/>
+					<?php echo $book->no?></td>
           <td><?php echo $book->call?></td>
           <td><?php echo $book->tel?></td>
           <td><?php echo $book->email?></td>  
-           <td><?php echo $book->tel?></td>         
+           <td><?php echo $book->job?></td>         
           <td><?php echo $book->address?></td>
-					<td><div class="button-group"> <a class="button border-green" href="javascript:void(0)" onclick="return del(1)"><span class="icon-trash-o"></span> 修改</a> </div></td>
-          <td><div class="button-group"> <a class="button border-red" href="javascript:void(0)" onclick="return del(1)"><span class="icon-trash-o"></span> 删除</a> </div></td>
+					<!-- <td><div class="button-group"> <a class="button border-green" href="javascript:void(0)" onclick="return del(1)"><span class="icon-trash-o"></span> 修改</a> </div></td> -->
+          <td><div class="button-group"> <a class="button border-red" href="javascript:void(0)" ><span class="icon-trash-o"></span> 删除</a> </div></td>
         </tr>
 				<?php }?>
       <tr>
@@ -53,40 +53,53 @@
   </div>
 </form>
 <script type="text/javascript">
+$(".button-group").on("click",function () {
+	var no = $(this).parent().parent().data("no");
 
-	function del(id){
-		if(confirm("您确定要删除吗?")){
+	$.get('welcome/del_book',{
+		no:no
+		},function (data) {
+		if(data == 'fail'){
+
+		}if(data == 'success')
+		{
+			location.href = 'user/book';
+		}
+		},'text');	
+});
+	// function del(id){
+	// 	if(confirm("您确定要删除吗?")){
 			
-		}
-	}
+	// 	}
+	// }
 
-	$("#checkall").click(function(){ 
-		$("input[name='id[]']").each(function(){
-			if (this.checked) {
-				this.checked = false;
-			}
-			else {
-				this.checked = true;
-			}
-		});
-	})
+	// $("#checkall").click(function(){ 
+	// 	$("input[name='id[]']").each(function(){
+	// 		if (this.checked) {
+	// 			this.checked = false;
+	// 		}
+	// 		else {
+	// 			this.checked = true;
+	// 		}
+	// 	});
+	// })
 
-	function DelSelect(){
-		var Checkbox=false;
-		$("input[name='id[]']").each(function(){
-			if (this.checked==true) {		
-			Checkbox=true;	
-			}
-		});
-		if (Checkbox){
-			var t=confirm("您确认要删除选中的内容吗？");
-			if (t==false) return false; 		
-		}
-		else{
-			alert("请选择您要删除的内容!");
-			return false;
-		}
-	}
+	// function DelSelect(){
+	// 	var Checkbox=false;
+	// 	$("input[name='id[]']").each(function(){
+	// 		if (this.checked==true) {		
+	// 		Checkbox=true;	
+	// 		}
+	// 	});
+	// 	if (Checkbox){
+	// 		var t=confirm("您确认要删除选中的内容吗？");
+	// 		if (t==false) return false; 		
+	// 	}
+	// 	else{
+	// 		alert("请选择您要删除的内容!");
+	// 		return false;
+	// 	}
+	// }
 
 </script>
 </body>

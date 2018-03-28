@@ -26,28 +26,15 @@
       <th width="20%">考勤</th>
 			<th width="30%">说明</th>
     </tr>
-   
+		<?php foreach($list as $info){?>
     <tr>
-      <td>2018.03.18</td>     
-      <td>08:00</td>     
-      <td>17:00</td>
-      <td>正常</td>
-			<td>正常</td>
+      <td><?php echo $info->date?></td>     
+      <td><?php echo $info->time_in?></td>     
+      <td><?php echo $info->time_out?></td>
+      <td><?php echo $info->check?></td>
+			<td><?php echo $info->content?></td>
     </tr>
-    <tr>
-      <td>2018.03.19</td>     
-      <td>08:30</td>     
-      <td>17:00</td>
-      <td>迟到</td>
-			<td>请假</td>
-    </tr>
-    <tr>
-      <td>2018.03.20</td>     
-      <td>08:30</td>     
-      <td>16:30</td>
-      <td>迟到早退</td>
-			<td>外出</td>
-    </tr>
+    <?php }?>
     
   </table>
 </body>

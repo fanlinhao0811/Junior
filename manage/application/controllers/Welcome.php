@@ -46,7 +46,8 @@ class Welcome extends CI_Controller {
 		public function index()
 		{
 					$img = $this->captcha();
-					$this->Email_model->get_email_list();
+					
+					//$this->Email_model->get_email_list();
 			$this->load->view('login',array('img'=>$img));
 			
 		}	
@@ -65,10 +66,18 @@ class Welcome extends CI_Controller {
 		$this->pagination->initialize($config);
 		$links = $this->pagination->create_links();
 
-			$result = $this->Email_model->get_email_list($this->uri->segment(3),$config['per_page']);
+			$result = $this->Email_model->get_email_list($this->uri->segment(3),$config['per_page'],$user);
+
 			$this->load->view('inbox',array('list'=>$result,'links'=>$links));
 		}
-
+		public function del_book(){
+			$no = $this->input->get('no');
+			$rows = $this ->Email_model ->del_book($no);
+			if(rows>0){
+				echo "success";
+			}
+		}
+		
 		public function check_login(){
 			$name = $this->input->get('name');
 			$pwd = $this->input->get('pwd');

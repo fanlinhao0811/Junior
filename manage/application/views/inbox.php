@@ -32,7 +32,6 @@
           <td><?php echo $email->title?></td>
           <td><?php echo $email->plus?></td>          
           <td><?php echo $email->content?></td>
-					<td><div class="button-group"> <a class="button border-red" href="javascript:void(0)"><span class="icon-trash-o"></span> 阅读全文</a> </div></td>
 					
 				</tr>
 				<?php }?>

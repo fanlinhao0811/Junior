@@ -38,7 +38,8 @@ class User extends CI_Controller {
 
 	public function info()
 	{
-		$this->load->view('info');
+		$result = $this->Email_model->get_info_list();
+		$this->load->view('info',array('list'=>$result));
 	}
 	public function job()
 	{
@@ -84,6 +85,23 @@ class User extends CI_Controller {
 		$this->load->view('suggest');
 	}
 
+		public function send_email(){
+			$email = $this->input->post('email');
+			$title = $this->input->post('title');
+			$plus = $this->input->post('plus');
+			$content = $this->input->post('content');
+			$user = $this->session->userdata('user');
+			
+			$rows = $this->Email_model->add($email,$title,$plus,$content,$user);
+			if($rows > 0){
+			
+				echo '发送成功！';
+				//redirect('user/login');
+			}else{
+				echo 'fail';
+			}
+	
+		}
 
 
 

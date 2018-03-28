@@ -19,14 +19,13 @@
 		<strong><a href="welcome/inbox"><span class="icon-pencil-square-o" style="margin-left:80%;"></span> 收信箱</a></strong>
 	</div>
   <div class="body-content">
-    <form method="post" class="form-x" action="">   
+    <form method="post" class="form-x" action="user/send_email">   
 		<div class="form-group">
         <div class="label">
           <label>发给：</label>
         </div>
         <div class="field">
-          <input type="text" class="input" name="title" value="" />
-          <div class="tips"></div>
+          <input type="text" class="input" name="email" value="" />
         </div>
       </div>   
       <div class="form-group">
@@ -35,7 +34,6 @@
         </div>
         <div class="field">
           <input type="text" class="input" name="title" value="" />
-          <div class="tips"></div>
         </div>
       </div>
       <div class="form-group">
@@ -43,7 +41,7 @@
           <label>附件：</label>
         </div>
         <div class="field">
-          <input type="text" class="input" name="title" style="width:25%; float:left;"  value=""   />
+          <input type="text" class="input" name="plus" style="width:25%; float:left;"  value=""   />
           <input type="button" class="button bg-blue margin-left" id="image1" value="+ 浏览上传"  style="float:left;">
         </div>
       </div>
@@ -52,8 +50,7 @@
           <label>内容：</label>
         </div>
         <div class="field">
-          <textarea name="content"></textarea>
-          <div class="tips"></div>
+				<input type="text" class="input" name="content" style="width:600px;height:300px;"  value=""   />
         </div>
       </div>
       <div class="form-group">
