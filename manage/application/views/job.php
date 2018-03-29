@@ -25,27 +25,17 @@
       <th width="20%">分类</th>
       <th width="20%">操作</th>
     </tr>
-   
-    <tr>
-      <td>1</td>     
-      <td>张三</td>     
-      <td>英语老师</td>
-      <td>教师</td>
+		<?php foreach($list as $job){?>
+    <tr data-no="<?php echo $job->no;?>">
+      <td><?php echo $job->no?></td>     
+      <td><?php echo $job->name?></td>     
+      <td><?php echo $job->job?></td>
+      <td><?php echo $job->class?></td>
       <td><div class="button-group">
-      <a class="button border-main" href="#add"><span class="icon-edit"></span> 修改</a>
       <a class="button border-red" href="javascript:void(0)" onclick="return del(1,1)"><span class="icon-trash-o"></span> 删除</a>
       </div></td>
     </tr>
-    <tr>
-      <td>2</td>     
-      <td>李四</td>     
-      <td>宿舍管理员</td>
-      <td>后勤</td>
-      <td><div class="button-group">
-      <a class="button border-main" href="#add"><span class="icon-edit"></span> 修改</a>
-      <a class="button border-red" href="javascript:void(0)" onclick="return del(1,1)"><span class="icon-trash-o"></span> 删除</a>
-      </div></td>
-    </tr>
+		<?php }?>
   </table>
 </div>
 <script type="text/javascript">
@@ -54,11 +44,24 @@ function del(id,mid){
 	
 	}
 }
+$(".button-group").on("click",function () {
+	var no = $(this).parent().parent().data("no");
+
+	$.get('welcome/del_job',{
+		no:no
+		},function (data) {
+			if(data == 'fail'){		
+			}
+			if(data == 'success'){
+				location.href='user/job';
+			}
+		},'text');	
+});
 </script>
 <div class="panel admin-panel margin-top" id="add">
-  <div class="panel-head"><strong><span class="icon-pencil-square-o"></span> 增加内容</strong></div>
+  <div class="panel-head"><strong><span class="icon-pencil-square-o"></span> 增加岗位</strong></div>
   <div class="body-content">
-    <form method="post" class="form-x" action="">    
+    <form method="post" class="form-x" action="user/add_job">    
       <div class="form-group">
         <div class="label">
           <label>编号：</label>
@@ -73,7 +76,7 @@ function del(id,mid){
           <label>姓名：</label>
         </div>
         <div class="field">
-          <input type="text" class="input w50" name="explain" value=""  />
+          <input type="text" class="input w50" name="name" value=""  />
           <div class="tips"></div>
         </div>
       </div>
@@ -82,7 +85,7 @@ function del(id,mid){
           <label>岗位：</label>
         </div>
         <div class="field">
-          <input type="text" class="input w50" name="sort" value=""  />
+          <input type="text" class="input w50" name="job" value=""  />
           <div class="tips"></div>
         </div>
       </div>
@@ -91,20 +94,11 @@ function del(id,mid){
           <label>分类：</label>
         </div>
         <div class="field">
-          <textarea type="text" class="input" name="note" style="height:120px;" value=""></textarea>
+					<input type="text" class="input w50" name="job_class" value=""  />
           <div class="tips"></div>
         </div>
       </div>
-      
-			<div class="form-group">
-        <div class="label">
-          <label>附件：</label>
-        </div>
-        <div class="field">
-          <input type="text" id="url1" name="img" class="input tips" style="width:25%; float:left;"  value="" data-toggle="hover" data-place="right" data-image="" />
-          <input type="button" class="button bg-blue margin-left" id="image1" value="+ 浏览上传"  style="float:left;">
-        </div>
-      </div>
+  
       <div class="form-group">
         <div class="label">
           <label></label>

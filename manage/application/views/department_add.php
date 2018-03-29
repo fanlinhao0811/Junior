@@ -22,23 +22,22 @@
       <th width="25%">部门编号</th>
 			<th width="25%">部门名称</th>
 			<th width="25%">部门负责人</th>
-      <th width="25%">操作</th>
+      <th width="25%">说明</th>
     </tr>
-   
+   <?php foreach($list as $department){?>
     <tr>
-      <td>1</td>     
-      <td>教研部</td>     
-      <td>张三</td>
-      <td><div class="button-group">
-      <a class="button border-main" href="#add"><span class="icon-edit"></span> 修改</a>
-      </div></td>
+      <td><?php echo $department->dep_no?></td>     
+      <td><?php echo $department->name?></td>     
+      <td><?php echo $department->leader?></td>
+      <td><?php echo $department->plus?></td>
     </tr>
+	 <?php }?>
   </table>
 </div>
 <div class="panel admin-panel margin-top" id="add">
   <div class="panel-head"><strong><span class="icon-pencil-square-o"></span> 部门建立</strong></div>
   <div class="body-content">
-    <form method="post" class="form-x" action="">    
+    <form method="post" class="form-x" action="user/add_department">    
       <div class="form-group">
         <div class="label">
           <label>部门编号：</label>
@@ -53,7 +52,7 @@
           <label>部门名称：</label>
         </div>
         <div class="field">
-          <input type="text" class="input w50" name="explain" value=""  />
+          <input type="text" class="input w50" name="name" value=""  />
           <div class="tips"></div>
         </div>
       </div>
@@ -62,18 +61,18 @@
           <label>部门负责人：</label>
         </div>
         <div class="field">
-          <input type="text" class="input w50" name="sort" value=""  />
+          <input type="text" class="input w50" name="leader" value=""  />
           <div class="tips"></div>
         </div>
       </div>
       
 			<div class="form-group">
         <div class="label">
-          <label>附件：</label>
+          <label>说明：</label>
         </div>
         <div class="field">
-          <input type="text" id="url1" name="img" class="input tips" style="width:25%; float:left;"  value="" data-toggle="hover" data-place="right" data-image="" />
-          <input type="button" class="button bg-blue margin-left" id="image1" value="+ 浏览上传"  style="float:left;">
+          <input type="text"  name="plus" class="input tips" style="width:25%; float:left;"  value="" data-toggle="hover"  />
+          <!-- <input type="button" class="button bg-blue margin-left" id="image1" value="+ 浏览上传"  style="float:left;"> -->
         </div>
       </div>
       <div class="form-group">

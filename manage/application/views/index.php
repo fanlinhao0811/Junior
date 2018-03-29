@@ -58,7 +58,7 @@
 <script type="text/javascript">
 $(function(){
   $(".leftnav h2").click(function(){
-	  $(this).next().slideToggle(200);	
+	  $(this).next().slideToggle(400);	
 	  $(this).toggleClass("on"); 
   })
   $(".leftnav ul li a").click(function(){
@@ -72,7 +72,6 @@ $(function(){
   <li><a href="{:U('Index/info')}" target="right" class="icon-home"> 首页</a></li>
   <li><a href="##" id="a_leader_txt">高校基建管理系统</a></li>
   <li><b>当前语言：</b><span style="color:red;">中文</php></span>
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;切换语言：<a href="##">中文</a> &nbsp;&nbsp;<a href="##">英文</a> </li>
 </ul>
 <div class="admin">
   <iframe scrolling="auto" rameborder="0" src="welcome/inbox" name="right" width="100%" height="100%"></iframe>

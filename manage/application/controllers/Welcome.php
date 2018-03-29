@@ -2,12 +2,10 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Welcome extends CI_Controller {
-	public function __construct()
-	{
+	public function __construct()	{
 		parent::__construct();
 		$this->load->model('Email_model');
-		$this->load->model('User_model');
-	}
+		$this->load->model('User_model');	}
 	public function captcha(){
 		$this->load->helper('captcha');
 		$rand = rand(1000,9999);
@@ -35,50 +33,67 @@ class Welcome extends CI_Controller {
 	
 			$cap = create_captcha($vals);
 			$img = $cap['image'];
-			return $img;
-}
-
-		public function change_code(){
+			return $img;}
+  public function change_code(){
 			$img = $this->captcha();
 			echo $img;
 		}
-
-		public function index()
+	public function index()
 		{
-					$img = $this->captcha();
-					
-					//$this->Email_model->get_email_list();
-			$this->load->view('login',array('img'=>$img));
-			
+			$img = $this->captcha();
+			//$this->Email_model->get_email_list();
+			$this->load->view('login',array('img'=>$img));	
 		}	
-		
-		public function inbox()
-		{
-			
-		$this->load->library('pagination');
-		$user = $this->session->userdata('user');
-		$total = $this->Email_model->get_count_email();
+	public function inbox()
+		{					
+    		$this->load->library('pagination');
+				$user = $this->session->userdata('user');
+				$total = $this->Email_model->get_count_email();
+				$config['base_url'] = base_url().'welcome/inbox';//当前控制器方法
+				$config['total_rows'] = $total;//总数
+				$config['per_page'] = 2;//每页显示条数
+    		$this->pagination->initialize($config);
+				$links = $this->pagination->create_links();
+				$result = $this->Email_model->get_email_list($this->uri->segment(3),$config['per_page'],$user);
+    		$this->load->view('inbox',array('list'=>$result,'links'=>$links));
+				}
+	public function check_in(){
+	  	$rows = $this ->Email_model ->check_in(array(
+			'time_in'=>date("Y-m-d"),
+			'date' => date("H:m:s")
+			));
 
-		$config['base_url'] = base_url().'welcome/inbox';//当前控制器方法
-		$config['total_rows'] = $total;//总数
-		$config['per_page'] = 2;//每页显示条数
+			if($rows>0){
+				redirect('user/info');
+			}	
+	}
 
-		$this->pagination->initialize($config);
-		$links = $this->pagination->create_links();
 
-			$result = $this->Email_model->get_email_list($this->uri->segment(3),$config['per_page'],$user);
-
-			$this->load->view('inbox',array('list'=>$result,'links'=>$links));
-		}
-		public function del_book(){
+	public function del_book(){
 			$no = $this->input->get('no');
 			$rows = $this ->Email_model ->del_book($no);
-			if(rows>0){
-				echo "success";
+			if($rows>0){
+				echo 'success';
+			}else{
+				echo 'fail';
+			}
+		}
+	public function del_job(){
+			$no = $this->input->get('no');
+			$rows = $this ->Email_model ->del_job($no);
+			if($rows>0){
+				echo 'success';
+			}
+		}
+	public function del_dep(){
+			$no = $this->input->get('no');
+			$rows = $this ->Email_model ->del_dep($no);
+			if($rows>0){
+				echo 'success';
 			}
 		}
 		
-		public function check_login(){
+  public function check_login(){
 			$name = $this->input->get('name');
 			$pwd = $this->input->get('pwd');
 			$code = $this->input->get('code');

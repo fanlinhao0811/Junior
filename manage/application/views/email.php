@@ -42,7 +42,7 @@
         </div>
         <div class="field">
           <input type="text" class="input" name="plus" style="width:25%; float:left;"  value=""   />
-          <input type="button" class="button bg-blue margin-left" id="image1" value="+ 浏览上传"  style="float:left;">
+          <!-- <input type="button" class="button bg-blue margin-left" id="image1" value="+ 浏览上传"  style="float:left;"> -->
         </div>
       </div>
       <div class="form-group">
