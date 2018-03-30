@@ -16,13 +16,21 @@
 <div class="panel admin-panel">
   <div class="panel-head"><strong><span class="icon-key"></span> 监督建议 </strong></div>
   <div class="body-content">
-    <form method="post" class="form-x" action="">     
+    <form method="post" class="form-x" action="user/add_suggest">    
+			<div class="form-group">
+					<div class="label">
+						<label for="sitename">编号：</label>
+					</div>
+					<div class="field">
+						<input type="text" class="input" name="no" placeholder="请输入编号" data-validate="required:请输入编号" />       
+					</div>
+				</div>    
       <div class="form-group">
         <div class="label">
           <label for="sitename">相关人员：</label>
         </div>
         <div class="field">
-          <input type="text" class="input" name="title" placeholder="请输入相关人员或部门" data-validate="required:请输入相关人员或部门" />       
+          <input type="text" class="input" name="name" placeholder="请输入相关人员或部门" data-validate="required:请输入相关人员或部门" />       
         </div>
       </div>      
       <div class="form-group">
@@ -30,18 +38,9 @@
           <label for="sitename">问题描述：</label>
         </div>
 				<div class="field">
-          <textarea name="content" placeholder="请输入监督建议问题描述" data-validate="required:请输入描述内容"></textarea>
+				  <input type="text" class="input" name="content" placeholder="请输入监督建议问题描述" data-validate="required:请输入描述内容" />       
         </div>
 			</div>
-			<div class="form-group">
-        <div class="label">
-          <label>相关材料：</label>
-        </div>
-        <div class="field">
-          <input type="text" id="url1" name="img" class="input tips" style="width:25%; float:left;"  value="" />
-          <input type="button" class="button bg-blue margin-left" id="image1" value="+ 浏览上传"  style="float:left;">
-        </div>
-      </div>
       <div class="form-group">
         <div class="label">
           <label></label>

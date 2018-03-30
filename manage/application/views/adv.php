@@ -25,38 +25,17 @@
       <th width="30%">详细</th>
       <th width="15%">操作</th>
     </tr>
-   
-    <tr>
-      <td>1</td>     
-      <td>上班期间不准喝酒</td>     
-      <td>生活</td>
-      <td>描述文字....</td>
-      <td><div class="button-group">
-      <a class="button border-main" href="#add"><span class="icon-edit"></span> 修改</a>
+   <?php foreach($list as $adv){?>
+    <tr data-no="<?php echo $adv->no;?>">
+      <td><?php echo $adv->no;?></td>     
+      <td><?php echo $adv->short?></td>     
+      <td><?php echo $adv->class?></td>
+      <td><?php echo $adv->content?></td>
+			<td><div class="button-group">
       <a class="button border-red" href="javascript:void(0)" onclick="return del(1,1)"><span class="icon-trash-o"></span> 删除</a>
       </div></td>
     </tr>
-    <tr>
-      <td>2</td>     
-      <td>迟到早退要请假</td>     
-      <td>请假</td>
-      <td>描述文字....</td>
-      <td><div class="button-group">
-      <a class="button border-main" href="#add"><span class="icon-edit"></span> 修改</a>
-      <a class="button border-red" href="javascript:void(0)" onclick="return del(1,1)"><span class="icon-trash-o"></span> 删除</a>
-      </div></td>
-    </tr>
-    <tr>
-      <td>3</td>     
-      <td>不得受贿</td>     
-      <td>纪律</td>
-      <td>描述文字....</td>
-      <td><div class="button-group">
-      <a class="button border-main" href="#add"><span class="icon-edit"></span> 修改</a>
-      <a class="button border-red" href="javascript:void(0)" onclick="return del(1,1)"><span class="icon-trash-o"></span> 删除</a>
-      </div></td>
-    </tr>
-    
+	 <?php }?>
   </table>
 </div>
 <script type="text/javascript">
@@ -65,11 +44,24 @@ function del(id,mid){
 	
 	}
 }
+$(".button-group").on("click",function () {
+	var no = $(this).parent().parent().data("no");
+
+	$.get('welcome/del_adv',{
+		no:no
+		},function (data) {
+			if(data == 'fail'){		
+			}
+			if(data == 'success'){
+				location.href='user/adv';
+			}
+		},'text');	
+});
 </script>
 <div class="panel admin-panel margin-top" id="add">
   <div class="panel-head"><strong><span class="icon-pencil-square-o"></span> 增加内容</strong></div>
   <div class="body-content">
-    <form method="post" class="form-x" action="">    
+    <form method="post" class="form-x" action="user/add_adv">    
       <div class="form-group">
         <div class="label">
           <label>编号：</label>
@@ -84,7 +76,7 @@ function del(id,mid){
           <label>简要说明：</label>
         </div>
         <div class="field">
-          <input type="text" class="input w50" name="explain" value=""  />
+          <input type="text" class="input w50" name="short" value=""  />
           <div class="tips"></div>
         </div>
       </div>
@@ -93,7 +85,7 @@ function del(id,mid){
           <label>分类：</label>
         </div>
         <div class="field">
-          <input type="text" class="input w50" name="sort" value=""  />
+          <input type="text" class="input w50" name="class" value=""  />
           <div class="tips"></div>
         </div>
       </div>
@@ -102,26 +94,17 @@ function del(id,mid){
           <label>详细：</label>
         </div>
         <div class="field">
-          <textarea type="text" class="input" name="note" style="height:120px;" value=""></textarea>
+				<input type="text" class="input w50" name="content" value=""  />
           <div class="tips"></div>
         </div>
       </div>
-      
-			<div class="form-group">
-        <div class="label">
-          <label>附件：</label>
-        </div>
-        <div class="field">
-          <input type="text" id="url1" name="img" class="input tips" style="width:25%; float:left;"  value="" data-toggle="hover" data-place="right" data-image="" />
-          <input type="button" class="button bg-blue margin-left" id="image1" value="+ 浏览上传"  style="float:left;">
-        </div>
-      </div>
+    
       <div class="form-group">
         <div class="label">
           <label></label>
         </div>
         <div class="field">
-          <button class="button bg-main icon-check-square-o" type="submit"> 提交</button>
+          <button class="button bg-main icon-check-square-o" type="submit"> 添加</button>
         </div>
       </div>
     </form>

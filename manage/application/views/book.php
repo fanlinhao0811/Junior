@@ -30,7 +30,7 @@
         <tr data-no="<?php echo $book->no;?>">
           <td><input type="checkbox" name="id[]"/>
 					<?php echo $book->no?></td>
-          <td><?php echo $book->call?></td>
+          <td><?php echo $book->name?></td>
           <td><?php echo $book->tel?></td>
           <td><?php echo $book->email?></td>  
            <td><?php echo $book->job?></td>         
@@ -39,16 +39,8 @@
           <td><div class="button-group"> <a class="button border-red" href="javascript:void(0)" onclick="return del(1)"><span class="icon-trash-o"></span> 删除</a> </div></td>
         </tr>
 				<?php }?>
-    </table>
-		
+    </table>	
   </div>
-	<div class="padding border-bottom">
-      <ul class="search">
-        <li>
-          <button type="submit" class="button border-red"><span class="icon-trash-o"></span> 添加 </button>
-        </li>
-      </ul>
-    </div>
 </form>
 <script type="text/javascript">
 	function del(id){
@@ -69,8 +61,74 @@ $(".button-group").on("click",function () {
 			}
 		},'text');	
 });
-
-
 </script>
+<div class="panel admin-panel margin-top" id="add">
+  <div class="panel-head"><strong><span class="icon-pencil-square-o"></span> 增加联系人</strong></div>
+  <div class="body-content">
+    <form method="post" class="form-x" action="user/add_book">    
+      <div class="form-group">
+        <div class="label">
+          <label>编号：</label>
+        </div>
+        <div class="field">
+          <input type="text" class="input w50" value="" name="no" data-validate="required:请输入编号" />
+          <div class="tips"></div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="label">
+          <label>姓名：</label>
+        </div>
+        <div class="field">
+          <input type="text" class="input w50" name="name" value=""  />
+          <div class="tips"></div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="label">
+          <label>电话：</label>
+        </div>
+        <div class="field">
+          <input type="text" class="input w50" name="tel" value=""  />
+          <div class="tips"></div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="label">
+          <label>邮箱：</label>
+        </div>
+        <div class="field">
+					<input type="text" class="input w50" name="email" value=""  />
+          <div class="tips"></div>
+        </div>
+      </div>
+			<div class="form-group">
+        <div class="label">
+          <label>岗位：</label>
+        </div>
+        <div class="field">
+					<input type="text" class="input w50" name="job" value=""  />
+          <div class="tips"></div>
+        </div>
+      </div><div class="form-group">
+        <div class="label">
+          <label>地址：</label>
+        </div>
+        <div class="field">
+					<input type="text" class="input w50" name="address" value=""  />
+          <div class="tips"></div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="label">
+          <label></label>
+        </div>
+        <div class="field">
+          <button class="button bg-main icon-check-square-o" type="submit"> 添加</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
 </body>
 </html>

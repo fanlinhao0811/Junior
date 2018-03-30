@@ -50,7 +50,8 @@ class User extends CI_Controller {
 	 public function apply_room(){
 		$this->load->view('apply_room');}
 	 public function adv(){
-		$this->load->view('adv');}
+		$result = $this->Email_model->get_adv_list();
+		$this->load->view('adv',array('list'=>$result));}
 	 public function suggest(){
 		$this->load->view('suggest');}
 	 public function send_email() {
@@ -76,10 +77,85 @@ class User extends CI_Controller {
 			$rows = $this->Email_model->add_job($no,$name,$job,$job_class);
 			if($rows > 0){
 				echo '添加成功！';
-				//redirect('user/login');
+				redirect('user/job');
 			}else{
 				echo 'fail';
 			} }
+	 public function add_adv() {
+	  	$no = $this->input->post('no');
+		  $short = $this->input->post('short');
+		  $class = $this->input->post('class');
+		  $content = $this->input->post('content');
+		
+		  $rows = $this->Email_model->add_adv($no,$short,$class,$content);
+	  	if($rows > 0){
+		  	echo '添加成功！';
+		  	redirect('user/adv');
+		  }else{
+		  	echo 'fail';
+			 } }
+	 public function add_suggest() {
+		$no = $this->input->post('no');
+		$name = $this->input->post('name');
+		$content = $this->input->post('content');
+	
+		$rows = $this->Email_model->add_suggest($no,$name,$content);
+		if($rows > 0){
+			echo '建议成功！';
+		}else{
+			echo 'fail';
+			} }
+	 public function apply_m() {
+			$no = $this->input->post('no');
+			$job = $this->input->post('job');
+			$name = $this->input->post('name');
+			$content = $this->input->post('content');
+		
+			$rows = $this->Email_model->apply_m($no,$job,$name,$content);
+			if($rows > 0){
+				echo '提交申请成功！';
+			}else{
+				echo 'fail';
+				} }
+	 public function apply_r() {
+	   $no = $this->input->post('no');
+		 $job = $this->input->post('job');
+	   $name = $this->input->post('name');
+		 $content = $this->input->post('content');
+	
+		 $rows = $this->Email_model->apply_r($no,$job,$name,$content);
+		 if($rows > 0){
+		  	echo '提交申请成功！';
+		 }else{
+		  	echo 'fail';
+			} }
+   public function apply_re() {
+			$no = $this->input->post('no');
+			$job = $this->input->post('job');
+			$name = $this->input->post('name');
+			$content = $this->input->post('content');
+		
+			$rows = $this->Email_model->apply_re($no,$job,$name,$content);
+			if($rows > 0){
+					echo '提交申请成功！';
+			}else{
+					echo 'fail';
+				} }
+	 public function add_book() {
+		 $no = $this->input->post('no');
+		 $name = $this->input->post('name');
+		 $tel = $this->input->post('tel');
+		 $email = $this->input->post('email');
+		 $job = $this->input->post('job');
+		 $address = $this->input->post('address');
+		
+		 $rows = $this->Email_model->add_book($no,$name,$tel,$email,$job,$address);
+		 if($rows > 0){
+		  	echo '添加成功！';
+		  	redirect('user/book');
+		 }else{
+		 	echo 'fail';
+		 } }
 	 public function add_department() {
 			$no = $this->input->post('no');
 			$name = $this->input->post('name');
@@ -89,7 +165,7 @@ class User extends CI_Controller {
 			$rows = $this->Email_model->add_dep($no,$name,$leader,$plus);
 			if($rows > 0){
 				echo '添加成功！';
-				//redirect('user/login');
+				redirect('user/department_add');
 			}else{
 				echo 'fail';
 			}

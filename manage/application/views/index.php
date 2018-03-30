@@ -17,9 +17,9 @@
     <h1><img src="assets/images/y.jpg" class="radius-circle rotate-hover" height="50" alt="" />基建管理系统</h1>
   </div>
 	<div class="head-l">
-	<?php $user = $this->session->userdata('user');
+	<h2><?php $user = $this->session->userdata('user');
 	echo $user->name
-	 ?>
+	 ?></h2>
 	</div>
   <div class="head-l"><a class="button button-little bg-red" href="welcome/index"><span class="icon-power-off"></span> 退出登录</a> </div>
 </div>

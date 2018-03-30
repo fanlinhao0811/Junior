@@ -18,7 +18,7 @@
 	<a href="user/apply_room"><span class="icon-pencil-square-o">会议室申请 </span></a>
 	</strong></div>
   <div class="body-content">
-    <form method="post" class="form-x" action="">    
+    <form method="post" class="form-x" action="user/apply_m">    
       <div class="form-group">
         <div class="label">
           <label>申请编号：</label>
@@ -33,7 +33,7 @@
           <label>申请部门：</label>
         </div>
         <div class="field">
-          <input type="text" class="input w50" name="explain" value=""  />
+          <input type="text" class="input w50" name="job" value=""  />
           <div class="tips"></div>
         </div>
       </div>
@@ -42,7 +42,7 @@
           <label>申请人：</label>
         </div>
         <div class="field">
-          <input type="text" class="input w50" name="sort" value=""  />
+          <input type="text" class="input w50" name="name" value=""  />
           <div class="tips"></div>
         </div>
       </div>
@@ -51,17 +51,8 @@
           <label>申请用途说明：</label>
         </div>
         <div class="field">
-          <textarea name="content"></textarea>
+				<input type="text" class="input w50" name="content" value=""  />
           <div class="tips"></div>
-        </div>
-      </div>
-			<div class="form-group">
-        <div class="label">
-          <label>附件：</label>
-        </div>
-        <div class="field">
-          <input type="text" id="url1" name="img" class="input tips" style="width:25%; float:left;"  value="" data-toggle="hover" data-place="right" data-image="" />
-          <input type="button" class="button bg-blue margin-left" id="image1" value="+ 浏览上传"  style="float:left;">
         </div>
       </div>
       <div class="form-group">

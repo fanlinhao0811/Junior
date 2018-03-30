@@ -92,6 +92,13 @@ class Welcome extends CI_Controller {
 				echo 'success';
 			}
 		}
+		public function del_adv(){
+			$no = $this->input->get('no');
+			$rows = $this ->Email_model ->del_adv($no);
+			if($rows>0){
+				echo 'success';
+			}
+		}
 		
   public function check_login(){
 			$name = $this->input->get('name');

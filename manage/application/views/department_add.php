@@ -44,6 +44,7 @@
         </div>
         <div class="field">
           <input type="text" class="input w50" value="" name="no" data-validate="required:请输入部门编号" />
+				
           <div class="tips"></div>
         </div>
       </div>

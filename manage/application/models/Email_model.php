@@ -20,7 +20,18 @@ class Email_model extends CI_Model
 			  	'class'=>$job_class
 		  	));
 		  	return $this->db->affected_rows();
-      	}
+				}
+			public function add_book($no,$name,$tel,$email,$job,$address){
+				$this->db->insert('t_book',array(
+					'no'=>$no,
+					'name'=>$name,
+					'tel'=>$tel,
+					'email'=>$email,
+					'job'=>$job,
+					'address'=>$address
+				));
+				return $this->db->affected_rows();
+				}
 	    public function add_dep($no,$name,$leader,$plus){
 	    	$this->db->insert('t_department',array(
 		    	'dep_no'=>$no,
@@ -29,7 +40,51 @@ class Email_model extends CI_Model
 		    	'plus'=>$plus
 	    	));
   	  	return $this->db->affected_rows();
-        }
+				}
+			public function add_adv($no,$short,$class,$content){
+				$this->db->insert('t_rules',array(
+					'no'=>$no,
+					'short'=>$short,
+					'class'=>$class,
+					'content'=>$content
+				));
+				return $this->db->affected_rows();
+				}
+			public function add_suggest($no,$name,$content){
+				$this->db->insert('t_suggest',array(
+					'no'=>$no,
+					'name'=>$name,
+					'content'=>$content
+				));
+				return $this->db->affected_rows();
+				}
+			public function apply_m($no,$job,$name,$content){
+				$this->db->insert('t_apply_m',array(
+					'no'=>$no,
+					'job'=>$job,
+					'name'=>$name,
+					'content'=>$content
+				));
+				return $this->db->affected_rows();
+				}
+			public function apply_r($no,$job,$name,$content){
+				$this->db->insert('t_apply_r',array(
+					'no'=>$no,
+					'job'=>$job,
+					'name'=>$name,
+					'content'=>$content
+				));
+				return $this->db->affected_rows();
+				}
+		  public function apply_re($no,$job,$name,$content){
+			  $this->db->insert('t_apply_r',array(
+				  'no'=>$no,
+				  'job'=>$job,
+				  'name'=>$name,
+			  	'content'=>$content
+			  ));
+		  	return $this->db->affected_rows();	}
+	
 	
 		  public function get_email_list($offset,$page_size,$user){
 				$this->db->select('*');
@@ -50,7 +105,12 @@ class Email_model extends CI_Model
 				$this->db->where_in('no',$no);
 				$this->db->delete('t_book');
 				return $this->db->affected_rows();
-		  		}
+					}
+			public function del_adv($no){
+				$this->db->where_in('no',$no);
+				$this->db->delete('t_rules');
+				return $this->db->affected_rows();
+					}
 			public function del_job($no){
 				$this->db->where_in('no',$no);
 				$this->db->delete('t_job');
@@ -65,6 +125,12 @@ class Email_model extends CI_Model
 			public function get_book_list(){
 				$this->db->select('*');
 				$this->db->from('t_book');
+				$query = $this->db->get();
+				return $query->result();
+				}
+			public function get_adv_list(){
+				$this->db->select('*');
+				$this->db->from('t_rules');
 				$query = $this->db->get();
 				return $query->result();
 				}
