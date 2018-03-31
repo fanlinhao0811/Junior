@@ -34,10 +34,10 @@
   </ul>   
   <h2><span class="icon-pencil-square-o"></span>项目管理</h2>
   <ul>
-    <li><a href="list.html" target="right"><span class="icon-caret-right"></span>流程规划</a></li>
-    <li><a href="add.html" target="right"><span class="icon-caret-right"></span>模板申请</a></li>
-    <li><a href="cate.html" target="right"><span class="icon-caret-right"></span>日程安排</a></li>
-		<li><a href="column.html" target="right"><span class="icon-caret-right"></span>领导审批</a></li>        
+    <li><a href="user/plan" target="right"><span class="icon-caret-right"></span>流程规划</a></li>
+    <li><a href="user/apply_model" target="right"><span class="icon-caret-right"></span>模板申请</a></li>
+    <li><a href="user/data_a" target="right"><span class="icon-caret-right"></span>日程安排</a></li>
+		<li><a href="user/leader" target="right"><span class="icon-caret-right"></span>领导审批</a></li>        
   </ul> 
 	<h2><span class="icon-pencil-square-o"></span>综合行政</h2>
   <ul>

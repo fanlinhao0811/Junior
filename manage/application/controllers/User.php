@@ -26,6 +26,8 @@ class User extends CI_Controller {
 		$this->load->view('index');	}
 	 public function login()	{
 		$this->load->view('login');	}
+	 public function plan()	{
+		$this->load->view('plan');	}
 	 public function info()	{
 		$result = $this->Email_model->get_info_list();
 		$this->load->view('info',array('list'=>$result));	}
@@ -35,8 +37,18 @@ class User extends CI_Controller {
 	 public function book()	{
 		$result = $this->Email_model->get_book_list();
 		$this->load->view('book',array('list'=>$result));	}
+	 public function data_a()	{
+		$result = $this->Email_model->get_data_a();
+		$this->load->view('data_a',array('list'=>$result));	}
+	 public function leader()	{
+		$result = $this->Email_model->get_apply_r();
+		$result1 = $this->Email_model->get_apply_re();
+		$result2 = $this->Email_model->get_apply_m();
+		$this->load->view('leader',array('list'=>$result,'list1'=>$result1,'list2'=>$result2));	}
 	 public function email()	{
 		$this->load->view('email');}
+	 public function apply_model()	{
+		$this->load->view('apply_model');}
 	 public function department_add()	{
 		$result = $this->Email_model->get_department();
 		$this->load->view('department_add',array('list'=>$result));	}

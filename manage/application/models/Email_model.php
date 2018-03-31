@@ -77,7 +77,7 @@ class Email_model extends CI_Model
 				return $this->db->affected_rows();
 				}
 		  public function apply_re($no,$job,$name,$content){
-			  $this->db->insert('t_apply_r',array(
+			  $this->db->insert('t_apply_re',array(
 				  'no'=>$no,
 				  'job'=>$job,
 				  'name'=>$name,
@@ -128,6 +128,36 @@ class Email_model extends CI_Model
 				$query = $this->db->get();
 				return $query->result();
 				}
+			public function get_data_a(){
+				$this->db->select('*');
+				$this->db->from('t_data');
+				$query = $this->db->get();
+				return $query->result();
+				}
+			public function get_apply_r(){
+				$this->db->select('*');
+				$this->db->from('t_apply_r');
+				$query = $this->db->get();
+				return $query->result();
+				}
+			public function get_apply_re(){
+				$this->db->select('*');
+				$this->db->from('t_apply_re');
+				$query = $this->db->get();
+				return $query->result();
+				}
+			public function get_apply_m(){
+				$this->db->select('*');
+				$this->db->from('t_apply_m');
+				$query = $this->db->get();
+				return $query->result();
+				}
+			public function get_suggest(){
+				$this->db->select('*');
+				$this->db->from('t_suggest');
+				$query = $this->db->get();
+				return $query->result();
+				}
 			public function get_adv_list(){
 				$this->db->select('*');
 				$this->db->from('t_rules');
@@ -148,8 +178,7 @@ class Email_model extends CI_Model
 				}
   		public function get_info_list(){					
 				$this->db->select('*');
-				$this->db->from('t_check_in a');
-				$this->db->join('t_check_out t', 'a.no = t.no','left');
+				$this->db->from('t_check_in');
 				$query = $this->db->get();
 				return $query->result();
 				}

@@ -13,16 +13,16 @@
 </head>
 <body>
 <div class="panel admin-panel margin-top" id="add">
-  <div class="panel-head"><strong><span class="icon-pencil-square-o">资源申请 </span> 
+  <div class="panel-head"><strong><span class="icon-pencil-square-o">申请模板 </span> 
 	</strong></div>
   <div class="body-content">
-    <form method="post" class="form-x" action="user/apply_re">    
+    <form method="post" class="form-x" action="">    
       <div class="form-group">
         <div class="label">
           <label>申请编号：</label>
         </div>
         <div class="field">
-          <input type="text" class="input w50" value="" name="no" data-validate="required:请输入申请编号" />
+          <input type="text" class="input w50" value="1" name="no" data-validate="required:请输入申请编号" />
           <div class="tips"></div>
         </div>
       </div>
@@ -31,7 +31,7 @@
           <label>申请部门：</label>
         </div>
         <div class="field">
-          <input type="text" class="input w50" name="job" value=""  />
+          <input type="text" class="input w50" name="job" value="数学教研部"  />
           <div class="tips"></div>
         </div>
       </div>
@@ -40,7 +40,7 @@
           <label>申请人：</label>
         </div>
         <div class="field">
-          <input type="text" class="input w50" name="name" value=""  />
+          <input type="text" class="input w50" name="name" value="李四"  />
           <div class="tips"></div>
         </div>
       </div>
@@ -49,16 +49,8 @@
           <label>申请用途说明：</label>
         </div>
         <div class="field">
-				<input type="text" class="input w50" name="content" value=""  />
+				<input type="text" class="input w50" name="content" value="数学教研组开研讨会"  />
           <div class="tips"></div>
-        </div>
-      </div>
-      <div class="form-group">
-        <div class="label">
-          <label></label>
-        </div>
-        <div class="field">
-          <button class="button bg-main icon-check-square-o" type="submit"> 提交</button>
         </div>
       </div>
     </form>

@@ -9,8 +9,7 @@
 		<base href="<?php echo site_url()?>">
     <link rel="stylesheet" href="assets/css/pintuer.css">
     <link rel="stylesheet" href="assets/css/admin.css">
-    <script src="assets/js/jquery.js"></script>
-    <script src="assets/js/pintuer.js"></script>  
+    <script src="assets/js/jquery.js"></script> 
 </head>
 <body>
 <form method="post" action="">

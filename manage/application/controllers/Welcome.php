@@ -55,18 +55,17 @@ class Welcome extends CI_Controller {
     		$this->pagination->initialize($config);
 				$links = $this->pagination->create_links();
 				$result = $this->Email_model->get_email_list($this->uri->segment(3),$config['per_page'],$user);
-    		$this->load->view('inbox',array('list'=>$result,'links'=>$links));
+				$result1 = $this->Email_model->get_suggest();
+    		$this->load->view('inbox',array('list'=>$result,'list1'=>$result1,'links'=>$links));
 				}
 	public function check_in(){
 	  	$rows = $this ->Email_model ->check_in(array(
-			'time_in'=>date("Y-m-d"),
-			'date' => date("H:m:s")
+			'time_in'=>date("Y-m-d h:m:s")
 			));
-
+			date_default_timezone_set("Asia/Shanghai");
 			if($rows>0){
 				redirect('user/info');
-			}	
-	}
+			}		}
 
 
 	public function del_book(){
