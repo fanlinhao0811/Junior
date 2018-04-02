@@ -18,7 +18,6 @@
     
     <table class="table table-hover text-center">
       <tr>
-        <th width="120">编号</th>
         <th>姓名</th>       
         <th>电话</th>
         <th>邮箱</th>
@@ -27,16 +26,17 @@
       </tr>      
 			<?php foreach($list as $book){?>
         <tr data-no="<?php echo $book->no;?>">
-          <td><input type="checkbox" name="id[]"/>
-					<?php echo $book->no?></td>
           <td><?php echo $book->name?></td>
           <td><?php echo $book->tel?></td>
           <td><?php echo $book->email?></td>  
            <td><?php echo $book->job?></td>         
           <td><?php echo $book->address?></td>
+					<?php $user = $this->session->userdata('user');
+	         if ($user->privilege=='1'){?>
 					<!-- <td><div class="button-group"> <a class="button border-green" href="javascript:void(0)" onclick="return del(1)"><span class="icon-trash-o"></span> 修改</a> </div></td> -->
           <td><div class="button-group"> <a class="button border-red" href="javascript:void(0)" onclick="return del(1)"><span class="icon-trash-o"></span> 删除</a> </div></td>
-        </tr>
+          <?php }?>
+				</tr>
 				<?php }?>
     </table>	
   </div>
@@ -61,19 +61,12 @@ $(".button-group").on("click",function () {
 		},'text');	
 });
 </script>
+<?php $user = $this->session->userdata('user');
+	         if ($user->privilege=='1'){?>
 <div class="panel admin-panel margin-top" id="add">
   <div class="panel-head"><strong><span class="icon-pencil-square-o"></span> 增加联系人</strong></div>
   <div class="body-content">
     <form method="post" class="form-x" action="user/add_book">    
-      <div class="form-group">
-        <div class="label">
-          <label>编号：</label>
-        </div>
-        <div class="field">
-          <input type="text" class="input w50" value="" name="no" data-validate="required:请输入编号" />
-          <div class="tips"></div>
-        </div>
-      </div>
       <div class="form-group">
         <div class="label">
           <label>姓名：</label>
@@ -129,5 +122,6 @@ $(".button-group").on("click",function () {
     </form>
   </div>
 </div>
+<?php }?>
 </body>
 </html>

@@ -47,13 +47,11 @@
     </div>
     <table class="table table-hover text-center">
       <tr>
-        <th>编号</th>
         <th>姓名</th>       
         <th>描述</th>    
       </tr>      
 					<?php foreach($list1 as $suggest){?>
 					<tr>
-						<td><?php echo $suggest->no?></td>
 						<td><?php echo $suggest->name?></td>          
 						<td><?php echo $suggest->content?></td>
 			 	  </tr>

@@ -19,27 +19,61 @@
     </div>
     <table class="table table-hover text-center">
       <tr>
-        <th width="25%">编号</th>
         <th>日期</th>       
         <th>行程1</th>
         <th>行程2</th>    
-      </tr>      
-        
+      </tr>  
 					<?php foreach($list as $data){?>
 						<tr>
-          <td><?php echo $data->no?></td>
-          <td><?php echo $data->data?></td>
-          <td><?php echo $data->content1?></td>          
-          <td><?php echo $data->content2?></td>
-					
-				</tr>
+						<td><?php echo $data->data?></td>
+						<td><?php echo $data->content1?></td>          
+						<td><?php echo $data->content2?></td>
+						</tr>
 				<?php }?>
-        
-     
-    </table>
-		
+    </table>	
   </div>
-	<?php echo $links?>
 </form>
-
+<div class="panel admin-panel margin-top" id="add">
+  <div class="panel-head"><strong><span class="icon-pencil-square-o"></span> 增加行程</strong></div>
+  <div class="body-content">
+    <form method="post" class="form-x" action="user/add_data">    
+      <div class="form-group">
+        <div class="label">
+          <label>日期：</label>
+        </div>
+        <div class="field">
+          <input type="date" class="input w50" value="" name="date" data-validate="required:请输入日期" />
+          <div class="tips"></div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="label">
+          <label>行程1：</label>
+        </div>
+        <div class="field">
+          <input type="text" class="input w50" name="content1" value=""  />
+          <div class="tips"></div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="label">
+          <label>行程2：</label>
+        </div>
+        <div class="field">
+          <input type="text" class="input w50" name="content2" value=""  />
+          <div class="tips"></div>
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <div class="label">
+          <label></label>
+        </div>
+        <div class="field">
+          <button class="button bg-main icon-check-square-o" type="submit"> 添加</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
 </body></html>

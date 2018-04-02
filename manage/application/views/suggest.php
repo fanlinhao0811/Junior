@@ -15,15 +15,7 @@
 <div class="panel admin-panel">
   <div class="panel-head"><strong><span class="icon-key"></span> 监督建议 </strong></div>
   <div class="body-content">
-    <form method="post" class="form-x" action="user/add_suggest">    
-			<div class="form-group">
-					<div class="label">
-						<label for="sitename">编号：</label>
-					</div>
-					<div class="field">
-						<input type="text" class="input" name="no" placeholder="请输入编号" data-validate="required:请输入编号" />       
-					</div>
-				</div>    
+    <form method="post" class="form-x" action="user/add_suggest">       
       <div class="form-group">
         <div class="label">
           <label for="sitename">相关人员：</label>

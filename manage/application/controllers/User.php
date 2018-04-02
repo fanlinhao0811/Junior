@@ -93,13 +93,24 @@ class User extends CI_Controller {
 			}else{
 				echo 'fail';
 			} }
+	 public function add_data() {
+		$date = $this->input->post('date');
+		$content1 = $this->input->post('content1');
+		$content2 = $this->input->post('content2');
+		
+		$rows = $this->Email_model->add_data($data,$content1,$content2);
+		if($rows > 0){
+			echo '添加成功！';
+			redirect('user/data_a');
+		}else{
+			echo 'fail';
+		} }
 	 public function add_adv() {
-	  	$no = $this->input->post('no');
 		  $short = $this->input->post('short');
 		  $class = $this->input->post('class');
 		  $content = $this->input->post('content');
 		
-		  $rows = $this->Email_model->add_adv($no,$short,$class,$content);
+		  $rows = $this->Email_model->add_adv($short,$class,$content);
 	  	if($rows > 0){
 		  	echo '添加成功！';
 		  	redirect('user/adv');
@@ -107,11 +118,10 @@ class User extends CI_Controller {
 		  	echo 'fail';
 			 } }
 	 public function add_suggest() {
-		$no = $this->input->post('no');
 		$name = $this->input->post('name');
 		$content = $this->input->post('content');
 	
-		$rows = $this->Email_model->add_suggest($no,$name,$content);
+		$rows = $this->Email_model->add_suggest($name,$content);
 		if($rows > 0){
 			echo '建议成功！';
 		}else{
@@ -154,14 +164,13 @@ class User extends CI_Controller {
 					echo 'fail';
 				} }
 	 public function add_book() {
-		 $no = $this->input->post('no');
 		 $name = $this->input->post('name');
 		 $tel = $this->input->post('tel');
 		 $email = $this->input->post('email');
 		 $job = $this->input->post('job');
 		 $address = $this->input->post('address');
 		
-		 $rows = $this->Email_model->add_book($no,$name,$tel,$email,$job,$address);
+		 $rows = $this->Email_model->add_book($name,$tel,$email,$job,$address);
 		 if($rows > 0){
 		  	echo '添加成功！';
 		  	redirect('user/book');

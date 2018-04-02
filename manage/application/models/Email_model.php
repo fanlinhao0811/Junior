@@ -21,7 +21,15 @@ class Email_model extends CI_Model
 		  	));
 		  	return $this->db->affected_rows();
 				}
-			public function add_book($no,$name,$tel,$email,$job,$address){
+			public function add_data($data,$content1,$content2){
+				$this->db->insert('t_data',array(
+					'data'=>data,
+					'content1'=>$content1,
+					'content2'=>$content2
+				));
+				return $this->db->affected_rows();
+				}
+			public function add_book($name,$tel,$email,$job,$address){
 				$this->db->insert('t_book',array(
 					'no'=>$no,
 					'name'=>$name,
@@ -41,18 +49,16 @@ class Email_model extends CI_Model
 	    	));
   	  	return $this->db->affected_rows();
 				}
-			public function add_adv($no,$short,$class,$content){
+			public function add_adv($short,$class,$content){
 				$this->db->insert('t_rules',array(
-					'no'=>$no,
 					'short'=>$short,
 					'class'=>$class,
 					'content'=>$content
 				));
 				return $this->db->affected_rows();
 				}
-			public function add_suggest($no,$name,$content){
+			public function add_suggest($name,$content){
 				$this->db->insert('t_suggest',array(
-					'no'=>$no,
 					'name'=>$name,
 					'content'=>$content
 				));

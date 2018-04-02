@@ -21,18 +21,24 @@
       <th width="10%">编号</th>
       <th width="20%">简要说明</th>
       <th width="15%">分类</th>
-      <th width="30%">详细</th>
-      <th width="15%">操作</th>
+			<th width="30%">详细</th>
+			<?php $user = $this->session->userdata('user');
+	    if ($user->privilege=='1'){?>
+			<th width="15%">操作</th>
+			<?php }?>
     </tr>
    <?php foreach($list as $adv){?>
     <tr data-no="<?php echo $adv->no;?>">
       <td><?php echo $adv->no;?></td>     
       <td><?php echo $adv->short?></td>     
       <td><?php echo $adv->class?></td>
-      <td><?php echo $adv->content?></td>
+			<td><?php echo $adv->content?></td>
+			<?php $user = $this->session->userdata('user');
+	    if ($user->privilege=='1'){?>
 			<td><div class="button-group">
       <a class="button border-red" href="javascript:void(0)" onclick="return del(1,1)"><span class="icon-trash-o"></span> 删除</a>
-      </div></td>
+			</div></td>
+			<?php }?>
     </tr>
 	 <?php }?>
   </table>
@@ -57,19 +63,12 @@ $(".button-group").on("click",function () {
 		},'text');	
 });
 </script>
+<?php $user = $this->session->userdata('user');
+	    if ($user->privilege=='1'){?>
 <div class="panel admin-panel margin-top" id="add">
   <div class="panel-head"><strong><span class="icon-pencil-square-o"></span> 增加内容</strong></div>
   <div class="body-content">
     <form method="post" class="form-x" action="user/add_adv">    
-      <div class="form-group">
-        <div class="label">
-          <label>编号：</label>
-        </div>
-        <div class="field">
-          <input type="text" class="input w50" value="" name="no" data-validate="required:请输入编号" />
-          <div class="tips"></div>
-        </div>
-      </div>
       <div class="form-group">
         <div class="label">
           <label>简要说明：</label>
@@ -109,4 +108,5 @@ $(".button-group").on("click",function () {
     </form>
   </div>
 </div>
+<?php }?>
 </body></html>
