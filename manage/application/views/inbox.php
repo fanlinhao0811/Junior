@@ -40,6 +40,8 @@
   </div>
 	<?php echo $links?>
 </form>
+<?php $user = $this->session->userdata('user');
+	  if ($user->privilege=='1'){?>
 <form method="post" action="">
   <div class="panel admin-panel">
     <div class="panel-head"><strong class="icon-reorder">监督与建议</strong></div>
@@ -61,5 +63,5 @@
 		
   </div>
 </form>
-
+<?php }?>
 </body></html>

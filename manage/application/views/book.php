@@ -43,23 +43,27 @@
 </form>
 <script type="text/javascript">
 	function del(id){
-		if(confirm("您确定要删除吗?")){
-			
+		var r=confirm("您确定要删除吗?")
+		if(r==true){
+			$(".button-group").on("click",function () {
+			var no = $(this).parent().parent().data("no");
+
+			$.get('welcome/del_book',{
+				no:no
+				},function (data) {
+					if(data == 'fail'){		
+					}
+					if(data == 'success'){
+						location.href='user/book';
+					}
+				},'text');	
+		});
+		}
+		else {
+			location.href='user/book';
 		}
 	}
-$(".button-group").on("click",function () {
-	var no = $(this).parent().parent().data("no");
 
-	$.get('welcome/del_book',{
-		no:no
-		},function (data) {
-			if(data == 'fail'){		
-			}
-			if(data == 'success'){
-				location.href='user/book';
-			}
-		},'text');	
-});
 </script>
 <?php $user = $this->session->userdata('user');
 	         if ($user->privilege=='1'){?>
@@ -73,6 +77,24 @@ $(".button-group").on("click",function () {
         </div>
         <div class="field">
           <input type="text" class="input w50" name="name" value=""  />
+          <div class="tips"></div>
+        </div>
+      </div>
+			<div class="form-group">
+        <div class="label">
+          <label>登录密码：</label>
+        </div>
+        <div class="field">
+          <input type="text" class="input w50" name="pwd" value=""  />
+          <div class="tips"></div>
+        </div>
+      </div>
+			<div class="form-group">
+        <div class="label">
+          <label>权限：</label>
+        </div>
+        <div class="field">
+          <input type="text" class="input w50" name="privilege" value=""  placeholder="1为管理权限，0为普通权限"/>
           <div class="tips"></div>
         </div>
       </div>

@@ -38,23 +38,28 @@
 </div>
 <script type="text/javascript">
 	function del(id){
-		if(confirm("您确定要删除吗?")){
-			
-		}
-	}
-$(".button-group").on("click",function () {
-	var no = $(this).parent().parent().data("no");
+		var r=confirm("您确定要删除吗?")
+		if(r==true){
+			$(".button-group").on("click",function () {
+			var no = $(this).parent().parent().data("no");
 
-	$.get('welcome/del_dep',{
-		no:no
-		},function (data) {
-			if(data == 'fail'){		
-			}
-			if(data == 'success'){
-				location.href='user/department_reduce';
-			}
-		},'text');	
-});
+			$.get('welcome/del_dep',{
+				no:no
+				},function (data) {
+					if(data == 'fail'){		
+					}
+					if(data == 'success'){
+						location.href='user/department_reduce';
+					}
+				},'text');	
+		});
+		}
+		else
+				{
+					location.href='user/department_reduce';
+				}
+	}
+
 
 
 </script>

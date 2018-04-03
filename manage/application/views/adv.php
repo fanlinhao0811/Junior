@@ -18,18 +18,16 @@
   </div>
   <table class="table table-hover text-center">
     <tr>
-      <th width="10%">编号</th>
-      <th width="20%">简要说明</th>
+      <th width="25%">简要说明</th>
       <th width="15%">分类</th>
-			<th width="30%">详细</th>
+			<th width="35%">详细</th>
 			<?php $user = $this->session->userdata('user');
 	    if ($user->privilege=='1'){?>
 			<th width="15%">操作</th>
 			<?php }?>
     </tr>
    <?php foreach($list as $adv){?>
-    <tr data-no="<?php echo $adv->no;?>">
-      <td><?php echo $adv->no;?></td>     
+    <tr data-no="<?php echo $adv->no;?>">   
       <td><?php echo $adv->short?></td>     
       <td><?php echo $adv->class?></td>
 			<td><?php echo $adv->content?></td>
@@ -45,23 +43,29 @@
 </div>
 <script type="text/javascript">
 function del(id,mid){
-	if(confirm("您确定要删除吗?")){
-	
-	}
-}
-$(".button-group").on("click",function () {
-	var no = $(this).parent().parent().data("no");
+		var r=confirm("您确定要删除吗?")
+			if (r==true)
+				{
+					$(".button-group").on("click",function () {
+					var no = $(this).parent().parent().data("no");
 
-	$.get('welcome/del_adv',{
-		no:no
-		},function (data) {
-			if(data == 'fail'){		
-			}
-			if(data == 'success'){
-				location.href='user/adv';
-			}
-		},'text');	
-});
+						$.get('welcome/del_adv',{
+							no:no
+							},function (data) {
+								if(data == 'fail'){		
+								}
+								if(data == 'success'){
+									location.href='user/adv';
+								}
+							},'text');	
+					})
+				}
+			else
+				{
+					location.href='user/adv';
+				}
+}
+
 </script>
 <?php $user = $this->session->userdata('user');
 	    if ($user->privilege=='1'){?>

@@ -29,10 +29,11 @@ class Email_model extends CI_Model
 				));
 				return $this->db->affected_rows();
 				}
-			public function add_book($name,$tel,$email,$job,$address){
+			public function add_book($name,$pwd,$privilege,$tel,$email,$job,$address){
 				$this->db->insert('t_book',array(
-					'no'=>$no,
 					'name'=>$name,
+					'password'=>$pwd,
+					'privilege'=>$privilege,
 					'tel'=>$tel,
 					'email'=>$email,
 					'job'=>$job,

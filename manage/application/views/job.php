@@ -38,24 +38,29 @@
   </table>
 </div>
 <script type="text/javascript">
-function del(id,mid){
-	if(confirm("您确定要删除吗?")){
-	
-	}
-}
-$(".button-group").on("click",function () {
-	var no = $(this).parent().parent().data("no");
-
-	$.get('welcome/del_job',{
-		no:no
-		},function (data) {
-			if(data == 'fail'){		
-			}
-			if(data == 'success'){
-				location.href='user/job';
-			}
-		},'text');	
-});
+		function del(id,mid){
+				var r=confirm("您确定要删除吗?")
+					if (r==true)
+						{
+							$(".button-group").on("click",function () {
+								var no = $(this).parent().parent().data("no");
+							
+								$.get('welcome/del_job',{
+									no:no
+									},function (data) {
+										if(data == 'fail'){		
+										}
+										if(data == 'success'){
+											location.href='user/job';
+										}
+									},'text');	
+							})
+						}
+					else
+						{
+							location.href='user/job';
+						}
+		}
 </script>
 <div class="panel admin-panel margin-top" id="add">
   <div class="panel-head"><strong><span class="icon-pencil-square-o"></span> 增加岗位</strong></div>

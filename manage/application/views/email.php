@@ -49,7 +49,8 @@
           <label>内容：</label>
         </div>
         <div class="field">
-				<input type="text" class="input" name="content" style="width:600px;height:300px;"  value=""   />
+				<textarea name="content" cols="" rows="" class="textinput"></textarea>
+				<!-- <input type="text" class="input" name="content" style="width:600px;height:300px;"  value=""   /> -->
         </div>
       </div>
       <div class="form-group">

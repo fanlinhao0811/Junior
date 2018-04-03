@@ -165,12 +165,14 @@ class User extends CI_Controller {
 				} }
 	 public function add_book() {
 		 $name = $this->input->post('name');
+		 $pwd = $this->input->post('pwd');
+		 $privilege = $this->input->post('privilege');
 		 $tel = $this->input->post('tel');
 		 $email = $this->input->post('email');
 		 $job = $this->input->post('job');
 		 $address = $this->input->post('address');
 		
-		 $rows = $this->Email_model->add_book($name,$tel,$email,$job,$address);
+		 $rows = $this->Email_model->add_book($name,$pwd,$privilege,$tel,$email,$job,$address);
 		 if($rows > 0){
 		  	echo '添加成功！';
 		  	redirect('user/book');

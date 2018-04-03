@@ -78,8 +78,8 @@ $(function(){
 });
 </script>
 <ul class="bread">
-  <li><a href="{:U('Index/info')}" target="right" class="icon-home"> 首页</a></li>
-  <li><a href="##" id="a_leader_txt">高校基建管理系统</a></li>
+  <li><a href="welcome/inbox" target="right" class="icon-home"> 首页</a></li>
+  <li>高校基建管理系统</li>
   <li><b>当前语言：</b><span style="color:red;">中文</php></span>
 </ul>
 <div class="admin">
