@@ -29,7 +29,8 @@ class User extends CI_Controller {
 	 public function plan()	{
 		$this->load->view('plan');	}
 	 public function info()	{
-		$result = $this->Email_model->get_info_list();
+		$user = $this->session->userdata('user');
+		$result = $this->Email_model->get_info_list($user);
 		$this->load->view('info',array('list'=>$result));	}
 	 public function job(){
 		$result = $this->Email_model->get_job_list();

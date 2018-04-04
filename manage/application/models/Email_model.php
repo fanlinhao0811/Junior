@@ -183,9 +183,11 @@ class Email_model extends CI_Model
 				$query = $this->db->get();
 				return $query->result();
 				}
-  		public function get_info_list(){					
+  		public function get_info_list($user){					
 				$this->db->select('*');
-				$this->db->from('t_check_in');
+				$this->db->from('t_check_in a');
+				$this->db->where('a.UID',$user->no);
+				$this->db->order_by('time_in','desc');
 				$query = $this->db->get();
 				return $query->result();
 				}

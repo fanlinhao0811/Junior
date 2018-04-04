@@ -20,11 +20,23 @@
 		</div>
 		<table class="table table-hover text-center">
 			<tr>
-				<th width="25%">签到时间</th>
+				<th >签到时间</th>
+				<th width="25%">状态</th>
 			</tr>
 			<?php foreach($list as $info){?>
 			<tr>  
 				<td><?php echo $info->time_in?></td>
+				<td><?php
+					// 	$time1=date('Y-m-d 9:00:00');
+					// 	$time2=date('Y-m-d H:i:s');
+					// 	if(strtotime($time1)-strtotime($time2) < 0){                
+					// 		echo "\$time1早于\$time2";                              
+					// }else{
+					// 		echo "\$time2早于\$time1";                             
+					// }
+					echo $info->state
+						?>
+				</td>
 			</tr>
 			<?php }?>
 			

@@ -59,10 +59,17 @@ class Welcome extends CI_Controller {
     		$this->load->view('inbox',array('list'=>$result,'list1'=>$result1,'links'=>$links));
 				}
 	public function check_in(){
-	  	$rows = $this ->Email_model ->check_in(array(
-			'time_in'=>date("Y-m-d h:m:s")
-			));
+			$user = $this->session->userdata('user');
 			date_default_timezone_set("Asia/Shanghai");
+			$time1=date('Y-m-d 9:0:0');
+			$time2=date('Y-m-d H:i:s');
+			$state= strtotime($time1)-strtotime($time2) > 0 ? 正常:迟到   ;
+ 	  	$rows = $this ->Email_model ->check_in(array(
+			'time_in'=>date('Y-m-d H:i:s'),
+			'UID'=>$user->no,
+			'state'=>$state
+			));
+		
 			if($rows>0){
 				redirect('user/info');
 			}		}
