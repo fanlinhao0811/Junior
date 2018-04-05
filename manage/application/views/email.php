@@ -14,8 +14,9 @@
 <body>
 <div class="panel admin-panel">
 	<div class="panel-head">
-		<strong><span class="icon-pencil-square-o"></span> 发信箱</strong>
-		<strong><a href="welcome/inbox"><span class="icon-pencil-square-o" style="margin-left:80%;"></span> 收信箱</a></strong>
+		<strong><span class="icon-pencil-square-o"></span> 写信 </strong>
+		<a href="user/shouxin"><span class="icon-pencil-square-o" style="margin-left:50%;"></span> 收信箱</a>
+		<a href="user/faxin"><span class="icon-pencil-square-o" style="margin-left:30%;"></span> 发信箱</a></strong>
 	</div>
   <div class="body-content">
     <form method="post" class="form-x" action="user/send_email">   
@@ -64,4 +65,5 @@
     </form>
   </div>
 </div>
+
 </body></html>

@@ -32,6 +32,14 @@
 				  <input type="text" class="input" name="content" placeholder="请输入监督建议问题描述" data-validate="required:请输入描述内容" />       
         </div>
 			</div>
+			<div class="form-group">
+        <div class="label">
+          <label for="sitename">姓名：</label>
+        </div>
+				<div class="field">
+				  <input type="text" class="input" name="u_name" placeholder="可匿名"  />       
+        </div>
+			</div>
       <div class="form-group">
         <div class="label">
           <label></label>

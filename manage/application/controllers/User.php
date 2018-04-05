@@ -28,6 +28,25 @@ class User extends CI_Controller {
 		$this->load->view('login');	}
 	 public function plan()	{
 		$this->load->view('plan');	}
+	 public function shouxin()	{
+		$this->load->library('pagination');
+		$user = $this->session->userdata('user');
+		$total = $this->Email_model->get_count_email();
+		$config['base_url'] = base_url().'welcome/inbox';//当前控制器方法
+		$config['total_rows'] = $total;//总数
+		$config['per_page'] = 8;//每页显示条数
+		$this->pagination->initialize($config);
+		$links = $this->pagination->create_links();
+		$result = $this->Email_model->get_email_list($this->uri->segment(3),$config['per_page'],$user);
+		$this->load->view('shouxin',array('list'=>$result,'links'=>$links));	}
+	 public function faxin(){
+		$user = $this->session->userdata('user');
+		$result = $this->Email_model->get_email($user);
+		$this->load->view('faxin',array('list'=>$result));}
+	 public function jiandu(){
+		$result1 = $this->Email_model->get_suggest();
+		$this->load->view('jiandu',array('list1'=>$result1));
+	 }
 	 public function info()	{
 		$user = $this->session->userdata('user');
 		$result = $this->Email_model->get_info_list($user);
@@ -121,8 +140,11 @@ class User extends CI_Controller {
 	 public function add_suggest() {
 		$name = $this->input->post('name');
 		$content = $this->input->post('content');
+		$uname = $this->input->post('u_name');
+		date_default_timezone_set("Asia/Shanghai");
+		$time = date('Y-m-d H:i:s');
 	
-		$rows = $this->Email_model->add_suggest($name,$content);
+		$rows = $this->Email_model->add_suggest($name,$content,$uname,$time);
 		if($rows > 0){
 			echo '建议成功！';
 		}else{

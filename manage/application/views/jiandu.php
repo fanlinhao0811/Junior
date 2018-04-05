@@ -14,17 +14,24 @@
 <body>
 <form method="post" action="">
   <div class="panel admin-panel">
-    <div class="panel-head"><a href="user/shouxin"><strong class="icon-reorder">收信箱</strong></a></div>
- 		
+    <div class="panel-head"><strong class="icon-reorder">监督与建议</strong></div>
+    <div class="padding border-bottom">
+    </div>
+    <table class="table table-hover text-center">
+      <tr>
+        <th>姓名</th>       
+				<th>描述</th> 
+				<th>监督人</th>   
+      </tr>      
+					<?php foreach($list1 as $suggest){?>
+					<tr>
+						<td><?php echo $suggest->name?></td>          
+						<td><?php echo $suggest->content?></td>
+						<td><?php echo $suggest->uname?></td>
+					 </tr>
+					<?php }?>
+   
+    </table>		
   </div>
 </form>
-<?php $user = $this->session->userdata('user');
-	  if ($user->privilege=='1'){?>
-<form method="post" action="">
-  <div class="panel admin-panel">
-    <div class="panel-head"><a href="user/jiandu"><strong class="icon-reorder">监督与建议</strong></a></div>
-    
-  </div>
-</form>
-<?php }?>
 </body></html>

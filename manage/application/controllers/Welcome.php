@@ -46,17 +46,8 @@ class Welcome extends CI_Controller {
 		}	
 	public function inbox()
 		{					
-    		$this->load->library('pagination');
-				$user = $this->session->userdata('user');
-				$total = $this->Email_model->get_count_email();
-				$config['base_url'] = base_url().'welcome/inbox';//当前控制器方法
-				$config['total_rows'] = $total;//总数
-				$config['per_page'] = 2;//每页显示条数
-    		$this->pagination->initialize($config);
-				$links = $this->pagination->create_links();
-				$result = $this->Email_model->get_email_list($this->uri->segment(3),$config['per_page'],$user);
-				$result1 = $this->Email_model->get_suggest();
-    		$this->load->view('inbox',array('list'=>$result,'list1'=>$result1,'links'=>$links));
+    	
+    		$this->load->view('inbox');
 				}
 	public function check_in(){
 			$user = $this->session->userdata('user');

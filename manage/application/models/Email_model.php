@@ -8,7 +8,7 @@ class Email_model extends CI_Model
 					'title'=>$title,
 					'plus'=>$plus,
 					'content'=>$content,
-					'no'=>$user->no
+					's_email'=>$user->email
 				));
 				return $this->db->affected_rows();
 	    	}
@@ -58,10 +58,12 @@ class Email_model extends CI_Model
 				));
 				return $this->db->affected_rows();
 				}
-			public function add_suggest($name,$content){
+			public function add_suggest($name,$content,$uname,$time){
 				$this->db->insert('t_suggest',array(
 					'name'=>$name,
-					'content'=>$content
+					'content'=>$content,
+					'uname'=>$uname,
+					'time'=>$time
 				));
 				return $this->db->affected_rows();
 				}
@@ -96,14 +98,22 @@ class Email_model extends CI_Model
 		  public function get_email_list($offset,$page_size,$user){
 				$this->db->select('*');
 				$this->db->from('t_email a');
-				$this->db->where('a.no',$user->no);
+				$this->db->where('a.email_name',$user->email);
 				// $this->db->join('t_user t', 'a.no = t.no');
 				$this->db->limit($page_size, $offset);
 				$query = $this->db->get();
 		
 						return $query->result();
 				}
-				
+			public function get_email($user){
+					$this->db->select('*');
+					$this->db->from('t_email a');
+					$this->db->where('a.s_email',$user->email);
+					$this->db->order_by('email_no','desc');
+					$query = $this->db->get();
+			
+							return $query->result();
+					}
 				
   		public function get_count_email(){		
 						return $this->db->count_all('t_email');
@@ -155,13 +165,15 @@ class Email_model extends CI_Model
 				}
 			public function get_apply_m(){
 				$this->db->select('*');
-				$this->db->from('t_apply_m');
+				$this->db->from('t_apply_m a');
+				$this->db->where('a.flag',1);
 				$query = $this->db->get();
 				return $query->result();
 				}
 			public function get_suggest(){
 				$this->db->select('*');
 				$this->db->from('t_suggest');
+				$this->db->order_by('time','desc');
 				$query = $this->db->get();
 				return $query->result();
 				}
