@@ -15,7 +15,6 @@
 <form method="post" action="">
   <div class="panel admin-panel">
     <div class="panel-head"><strong class="icon-reorder">相关人员通讯录</strong></div>
-    
     <table class="table table-hover text-center">
       <tr>
         <th>姓名</th>       

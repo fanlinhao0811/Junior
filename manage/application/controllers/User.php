@@ -46,17 +46,20 @@ class User extends CI_Controller {
 	 public function jiandu(){
 		$result1 = $this->Email_model->get_suggest();
 		$this->load->view('jiandu',array('list1'=>$result1));
-	 }
+	  }
 	 public function info()	{
 		$user = $this->session->userdata('user');
 		$result = $this->Email_model->get_info_list($user);
-		$this->load->view('info',array('list'=>$result));	}
+		$this->load->view('info',array('list'=>$result));	
+		}
 	 public function job(){
 		$result = $this->Email_model->get_job_list();
-		$this->load->view('job',array('list'=>$result));	}
+		$this->load->view('job',array('list'=>$result));	
+		}
 	 public function book()	{
 		$result = $this->Email_model->get_book_list();
-		$this->load->view('book',array('list'=>$result));	}
+		$this->load->view('book',array('list'=>$result));	
+		}
 	 public function data_a()	{
 		$result = $this->Email_model->get_data_a();
 		$this->load->view('data_a',array('list'=>$result));	}

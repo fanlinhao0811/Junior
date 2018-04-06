@@ -75,6 +75,61 @@ class Welcome extends CI_Controller {
 				echo 'fail';
 			}
 		}
+	public function agree(){
+			$no = $this->input->get('no');
+			$rows = $this ->Email_model ->agree($no);
+			if($rows>0){
+				echo 'success';
+			}else{
+				echo 'fail';
+			}
+		}
+	public function del(){
+			$no = $this->input->get('no');
+			$rows = $this ->Email_model ->del($no);
+			if($rows>0){
+				echo 'success';
+			}else{
+				echo 'fail';
+			}
+		}
+	public function agree1(){
+			$no = $this->input->get('no');
+			$rows = $this ->Email_model ->agree1($no);
+			if($rows>0){
+				echo 'success';
+			}else{
+				echo 'fail';
+			}
+		}
+	public function del1(){
+			$no = $this->input->get('no');
+			$rows = $this ->Email_model ->del1($no);
+			if($rows>0){
+				echo 'success';
+			}else{
+				echo 'fail';
+			}
+		}
+	public function agree2(){
+			$no = $this->input->get('no');
+			$rows = $this ->Email_model ->agree2($no);
+			if($rows>0){
+				echo 'success';
+			}else{
+				echo 'fail';
+			}
+		}
+	public function del2(){
+			$no = $this->input->get('no');
+			$rows = $this ->Email_model ->del2($no);
+			if($rows>0){
+				echo 'success';
+			}else{
+				echo 'fail';
+			}
+		}
+	
 	public function del_job(){
 			$no = $this->input->get('no');
 			$rows = $this ->Email_model ->del_job($no);

@@ -133,6 +133,48 @@ class Email_model extends CI_Model
 				$this->db->delete('t_job');
 				return $this->db->affected_rows();
 				}
+			public function agree($no){
+					$this->db->where('no',$no);
+					$this->db->update('t_apply_m', array(
+						"flag" => 2,
+					));
+					return $this->db->affected_rows();
+					}
+			public function del($no){
+			  	$this->db->where('no',$no);
+					$this->db->update('t_apply_m', array(
+						"flag" => 0,
+					));
+					return $this->db->affected_rows();
+					}
+			public function agree1($no){
+						$this->db->where('no',$no);
+						$this->db->update('t_apply_r', array(
+							"flag" => 2,
+						));
+						return $this->db->affected_rows();
+						}
+			public function del1($no){
+						$this->db->where('no',$no);
+						$this->db->update('t_apply_r', array(
+							"flag" => 0,
+						));
+						return $this->db->affected_rows();
+						}
+			public function agree2($no){
+							$this->db->where('no',$no);
+							$this->db->update('t_apply_re', array(
+								"flag" => 2,
+							));
+							return $this->db->affected_rows();
+							}
+			public function del2($no){
+							$this->db->where('no',$no);
+							$this->db->update('t_apply_re', array(
+								"flag" => 0,
+							));
+							return $this->db->affected_rows();
+							}
 			public function del_dep($no){
 				$this->db->where_in('dep_no',$no);
 				$this->db->delete('t_department');
@@ -153,13 +195,15 @@ class Email_model extends CI_Model
 				}
 			public function get_apply_r(){
 				$this->db->select('*');
-				$this->db->from('t_apply_r');
+				$this->db->from('t_apply_r a');
+				$this->db->where('a.flag',1);
 				$query = $this->db->get();
 				return $query->result();
 				}
 			public function get_apply_re(){
 				$this->db->select('*');
-				$this->db->from('t_apply_re');
+				$this->db->from('t_apply_re a');
+				$this->db->where('a.flag',1);
 				$query = $this->db->get();
 				return $query->result();
 				}

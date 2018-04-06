@@ -19,22 +19,20 @@
     </div>
     <table class="table table-hover text-center">
       <tr>
-        <th>申请编号</th>
-        <th>申请部门</th>       
-        <th>申请人</th>
-        <th>申请用途说明</th>   
-				<th>操作</th>   
+        <th width="20%">申请部门</th>       
+        <th width="20%">申请人</th>
+        <th width="40%">申请用途说明</th>   
+				<th width="20%">操作</th>   
       </tr>      
         
 					<?php foreach($list as $apply){?>
-						<tr>
-          <td><?php echo $apply->no?></td>
+						<tr data-no="<?php echo $apply->no;?>">
           <td><?php echo $apply->job?></td>
           <td><?php echo $apply->name?></td>          
           <td><?php echo $apply->content?></td>
-					<td><div class="button-group"> <a class="button border-green" href="javascript:void(0)" onclick="return agree(1)">
+					<td><div class="button-group"> <a class="button border-green" href="javascript:void(0)" onclick="return agree1(1)">
 					 同意</a> </div>
-					 <div class="button-group"> <a class="button border-red" href="javascript:void(0)" onclick="return del(1)">
+					 <div class="button-group"> <a class="button border-red" href="javascript:void(0)" onclick="return del1(1)">
 					 拒绝</a> </div></td>
 				</tr>
 				<?php }?>
@@ -51,16 +49,14 @@
     </div>
     <table class="table table-hover text-center">
       <tr>
-        <th>申请编号</th>
-        <th>申请部门</th>       
-        <th>申请人</th>
-        <th>申请用途说明</th> 
-				<th>操作</th>   
+        <th width="20%">申请部门</th>       
+        <th width="20%">申请人</th>
+        <th width="40%">申请用途说明</th> 
+				<th width="20%">操作</th>   
       </tr>      
         
 					<?php foreach($list2 as $apply){?>
-						<tr>
-          <td><?php echo $apply->no?></td>
+						<tr data-no="<?php echo $apply->no;?>">
           <td><?php echo $apply->job?></td>
           <td><?php echo $apply->name?></td>          
           <td><?php echo $apply->content?></td>
@@ -84,44 +80,146 @@
     </div>
     <table class="table table-hover text-center">
       <tr>
-        <th>申请编号</th>
-        <th>申请部门</th>       
-        <th>申请人</th>
-        <th>申请用途说明</th> 
-				<th>操作</th>     
-      </tr>      
-        
+        <th width="20%">申请部门</th>       
+        <th width="20%">申请人</th>
+        <th width="40%">申请用途说明</th> 
+				<th width="20%">操作</th>     
+      </tr>            
 					<?php foreach($list1 as $apply){?>
-						<tr>
-          <td><?php echo $apply->no?></td>
+						<tr data-no="<?php echo $apply->no;?>">
           <td><?php echo $apply->job?></td>
           <td><?php echo $apply->name?></td>          
           <td><?php echo $apply->content?></td>
-					<td><div class="button-group"> <a class="button border-green" href="javascript:void(0)" onclick="return agree(1)">
+					<td><div class="button-group"> <a class="button border-green" href="javascript:void(0)" onclick="return agree2(1)">
 					 同意</a> </div>
-					 <div class="button-group"> <a class="button border-red" href="javascript:void(0)" onclick="return del(1)">
+					 <div class="button-group"> <a class="button border-red" href="javascript:void(0)" onclick="return del2(1)">
 					 拒绝</a> </div></td>
 				</tr>
-				<?php }?>
-        
-     
-    </table>
-		
+				<?php }?>    
+    </table>	
   </div>
 
 </form>
 <script type="text/javascript">
-function agree(id){
-		if(confirm("您确定同意吗吗?")){
-			
+	function agree(id){
+		var r=confirm("您确定同意吗?")
+		if(r==true){
+			$(".button-group").on("click",function () {
+			var no = $(this).parent().parent().data("no");
+
+			$.get('welcome/agree',{
+				no:no
+				},function (data) {
+					if(data == 'fail'){		
+					}
+					if(data == 'success'){
+						location.href='user/leader';
+					}
+				},'text');	
+		});
 		}
-	};
+		else {
+			location.href='user/leader';
+		}}
 	function del(id){
-		if(confirm("您确定不同意吗吗?")){
-			
+		var r=confirm("您确定要拒绝吗?")
+		if(r==true){
+			$(".button-group").on("click",function () {
+			var no = $(this).parent().parent().data("no");
+
+			$.get('welcome/del',{
+				no:no
+				},function (data) {
+					if(data == 'fail'){		
+					}
+					if(data == 'success'){
+						location.href='user/leader';
+					}
+				},'text');	
+		});
 		}
-	}
+		else {
+			location.href='user/leader';
+		}}
+	function agree1(id){
+		var r=confirm("您确定同意吗?")
+		if(r==true){
+			$(".button-group").on("click",function () {
+			var no = $(this).parent().parent().data("no");
 
+			$.get('welcome/agree1',{
+				no:no
+				},function (data) {
+					if(data == 'fail'){		
+					}
+					if(data == 'success'){
+						location.href='user/leader';
+					}
+				},'text');	
+		});
+		}
+		else {
+			location.href='user/leader';
+		}}
+	function del1(id){
+		var r=confirm("您确定要拒绝吗?")
+		if(r==true){
+			$(".button-group").on("click",function () {
+			var no = $(this).parent().parent().data("no");
 
+			$.get('welcome/del1',{
+				no:no
+				},function (data) {
+					if(data == 'fail'){		
+					}
+					if(data == 'success'){
+						location.href='user/leader';
+					}
+				},'text');	
+		});
+		}
+		else {
+			location.href='user/leader';
+		}}
+	function agree2(id){
+		var r=confirm("您确定同意吗?")
+		if(r==true){
+			$(".button-group").on("click",function () {
+			var no = $(this).parent().parent().data("no");
+
+			$.get('welcome/agree2',{
+				no:no
+				},function (data) {
+					if(data == 'fail'){		
+					}
+					if(data == 'success'){
+						location.href='user/leader';
+					}
+				},'text');	
+		});
+		}
+		else {
+			location.href='user/leader';
+		}}
+	function del2(id){
+		var r=confirm("您确定要拒绝吗?")
+		if(r==true){
+			$(".button-group").on("click",function () {
+			var no = $(this).parent().parent().data("no");
+
+			$.get('welcome/del2',{
+				no:no
+				},function (data) {
+					if(data == 'fail'){		
+					}
+					if(data == 'success'){
+						location.href='user/leader';
+					}
+				},'text');	
+		});
+		}
+		else {
+			location.href='user/leader';
+		}}
 </script>
 </body></html>
