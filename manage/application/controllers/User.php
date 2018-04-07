@@ -61,13 +61,22 @@ class User extends CI_Controller {
 		$this->load->view('book',array('list'=>$result));	
 		}
 	 public function data_a()	{
-		$result = $this->Email_model->get_data_a();
+		$no = $this->session->userdata('user')->no;
+		$result = $this->Email_model->get_data_a($no);
 		$this->load->view('data_a',array('list'=>$result));	}
 	 public function leader()	{
 		$result = $this->Email_model->get_apply_r();
 		$result1 = $this->Email_model->get_apply_re();
 		$result2 = $this->Email_model->get_apply_m();
-		$this->load->view('leader',array('list'=>$result,'list1'=>$result1,'list2'=>$result2));	}
+		$result3 = $this->Email_model->get_apply_r1();
+		$result4 = $this->Email_model->get_apply_re1();
+		$result5 = $this->Email_model->get_apply_m1();
+		$result6 = $this->Email_model->get_apply_r2();
+		$result7 = $this->Email_model->get_apply_re2();
+		$result8 = $this->Email_model->get_apply_m2();
+
+		$this->load->view('leader',array('list'=>$result,'list1'=>$result1,'list2'=>$result2,'list3'=>$result3
+		,'list4'=>$result4,'list5'=>$result5,'list6'=>$result6,'list7'=>$result7,'list8'=>$result8));	}
 	 public function email()	{
 		$this->load->view('email');}
 	 public function apply_model()	{
@@ -120,8 +129,9 @@ class User extends CI_Controller {
 		$date = $this->input->post('date');
 		$content1 = $this->input->post('content1');
 		$content2 = $this->input->post('content2');
+		$user = $this->session->userdata('user');
 		
-		$rows = $this->Email_model->add_data($data,$content1,$content2);
+		$rows = $this->Email_model->add_data($date,$content1,$content2,$user);
 		if($rows > 0){
 			echo '添加成功！';
 			redirect('user/data_a');

@@ -26,7 +26,7 @@
 								<div id="error_msg" class="error_msg" style="display:none;"></div>
                     <div class="form-group">
                         <div class="field field-icon-right">
-                            <input type="text" class="input input-big" id="f_name" name="name"  placeholder="登录账号" data-validate="required:请填写账号" />
+                            <input type="text" class="input input-big" id="f_name" name="name"  placeholder="请输入您的姓名" data-validate="required:请输入您的姓名" />
                             <span class="icon icon-user margin-small"></span>
                         </div>
                     </div>

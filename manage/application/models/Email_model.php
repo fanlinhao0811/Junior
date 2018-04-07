@@ -21,11 +21,12 @@ class Email_model extends CI_Model
 		  	));
 		  	return $this->db->affected_rows();
 				}
-			public function add_data($data,$content1,$content2){
+			public function add_data($date,$content1,$content2,$user){
 				$this->db->insert('t_data',array(
-					'data'=>data,
+					'data'=>$date,
 					'content1'=>$content1,
-					'content2'=>$content2
+					'content2'=>$content2,
+					'uid'=>$user->no
 				));
 				return $this->db->affected_rows();
 				}
@@ -187,9 +188,11 @@ class Email_model extends CI_Model
 				$query = $this->db->get();
 				return $query->result();
 				}
-			public function get_data_a(){
+			public function get_data_a($no){
 				$this->db->select('*');
 				$this->db->from('t_data');
+				$this->db->where_in('uid',$no);
+				$this->db->order_by('data','desc');
 				$query = $this->db->get();
 				return $query->result();
 				}
@@ -200,6 +203,20 @@ class Email_model extends CI_Model
 				$query = $this->db->get();
 				return $query->result();
 				}
+				public function get_apply_r1(){
+					$this->db->select('*');
+					$this->db->from('t_apply_r a');
+					$this->db->where('a.flag',0);
+					$query = $this->db->get();
+					return $query->result();
+					}
+					public function get_apply_r2(){
+						$this->db->select('*');
+						$this->db->from('t_apply_r a');
+						$this->db->where('a.flag',2);
+						$query = $this->db->get();
+						return $query->result();
+						}
 			public function get_apply_re(){
 				$this->db->select('*');
 				$this->db->from('t_apply_re a');
@@ -207,6 +224,20 @@ class Email_model extends CI_Model
 				$query = $this->db->get();
 				return $query->result();
 				}
+				public function get_apply_re1(){
+					$this->db->select('*');
+					$this->db->from('t_apply_re a');
+					$this->db->where('a.flag',0);
+					$query = $this->db->get();
+					return $query->result();
+					}
+					public function get_apply_re2(){
+						$this->db->select('*');
+						$this->db->from('t_apply_re a');
+						$this->db->where('a.flag',2);
+						$query = $this->db->get();
+						return $query->result();
+						}
 			public function get_apply_m(){
 				$this->db->select('*');
 				$this->db->from('t_apply_m a');
@@ -214,6 +245,20 @@ class Email_model extends CI_Model
 				$query = $this->db->get();
 				return $query->result();
 				}
+				public function get_apply_m1(){
+					$this->db->select('*');
+					$this->db->from('t_apply_m a');
+					$this->db->where('a.flag',0);
+					$query = $this->db->get();
+					return $query->result();
+					}
+					public function get_apply_m2(){
+						$this->db->select('*');
+						$this->db->from('t_apply_m a');
+						$this->db->where('a.flag',2);
+						$query = $this->db->get();
+						return $query->result();
+						}
 			public function get_suggest(){
 				$this->db->select('*');
 				$this->db->from('t_suggest');

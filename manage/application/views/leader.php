@@ -98,7 +98,132 @@
 				<?php }?>    
     </table>	
   </div>
-
+</form>
+<form method="post" action="">
+  <div class="panel admin-panel">
+	<div class="panel-head"><strong class="icon-reorder">已拒绝申请会议室</strong></div>
+    <div class="padding border-bottom">
+    </div>
+    <table class="table table-hover text-center">
+      <tr>
+        <th width="25%">申请部门</th>       
+        <th width="25%">申请人</th>
+        <th width="50%">申请用途说明</th>   				 
+      </tr>             
+					<?php foreach($list3 as $apply){?>
+				<tr>
+          <td><?php echo $apply->job?></td>
+          <td><?php echo $apply->name?></td>          
+          <td><?php echo $apply->content?></td>
+				</tr>
+				<?php }?>     
+    </table>		
+  </div>
+</form>
+<form method="post" action="">
+  <div class="panel admin-panel">
+	<div class="panel-head"><strong class="icon-reorder">已同意申请会议室</strong></div>
+    <div class="padding border-bottom">
+    </div>
+    <table class="table table-hover text-center">
+      <tr>
+        <th width="25%">申请部门</th>       
+        <th width="25%">申请人</th>
+        <th width="50%">申请用途说明</th>   				 
+      </tr>             
+					<?php foreach($list6 as $apply){?>
+				<tr>
+          <td><?php echo $apply->job?></td>
+          <td><?php echo $apply->name?></td>          
+          <td><?php echo $apply->content?></td>
+				</tr>
+				<?php }?>     
+    </table>		
+  </div>
+</form>
+<form method="post" action="">
+  <div class="panel admin-panel">
+	<div class="panel-head"><strong class="icon-reorder">已拒绝申请会议</strong></div>
+    <div class="padding border-bottom">
+    </div>
+    <table class="table table-hover text-center">
+      <tr>
+        <th width="25%">申请部门</th>       
+        <th width="25%">申请人</th>
+        <th width="50%">申请用途说明</th>   				 
+      </tr>             
+					<?php foreach($list5 as $apply){?>
+				<tr>
+          <td><?php echo $apply->job?></td>
+          <td><?php echo $apply->name?></td>          
+          <td><?php echo $apply->content?></td>
+				</tr>
+				<?php }?>     
+    </table>		
+  </div>
+</form>
+<form method="post" action="">
+  <div class="panel admin-panel">
+	<div class="panel-head"><strong class="icon-reorder">已同意申请会议</strong></div>
+    <div class="padding border-bottom">
+    </div>
+    <table class="table table-hover text-center">
+      <tr>
+        <th width="25%">申请部门</th>       
+        <th width="25%">申请人</th>
+        <th width="50%">申请用途说明</th>   				 
+      </tr>             
+					<?php foreach($list8 as $apply){?>
+				<tr>
+          <td><?php echo $apply->job?></td>
+          <td><?php echo $apply->name?></td>          
+          <td><?php echo $apply->content?></td>
+				</tr>
+				<?php }?>     
+    </table>		
+  </div>
+</form>
+<form method="post" action="">
+  <div class="panel admin-panel">
+	<div class="panel-head"><strong class="icon-reorder">已拒绝申请资源</strong></div>
+    <div class="padding border-bottom">
+    </div>
+    <table class="table table-hover text-center">
+      <tr>
+        <th width="25%">申请部门</th>       
+        <th width="25%">申请人</th>
+        <th width="50%">申请用途说明</th>   				 
+      </tr>             
+					<?php foreach($list4 as $apply){?>
+				<tr>
+          <td><?php echo $apply->job?></td>
+          <td><?php echo $apply->name?></td>          
+          <td><?php echo $apply->content?></td>
+				</tr>
+				<?php }?>     
+    </table>		
+  </div>
+</form>
+<form method="post" action="">
+  <div class="panel admin-panel">
+	<div class="panel-head"><strong class="icon-reorder">已同意申请资源</strong></div>
+    <div class="padding border-bottom">
+    </div>
+    <table class="table table-hover text-center">
+      <tr>
+        <th width="25%">申请部门</th>       
+        <th width="25%">申请人</th>
+        <th width="50%">申请用途说明</th>   				 
+      </tr>             
+					<?php foreach($list7 as $apply){?>
+				<tr>
+          <td><?php echo $apply->job?></td>
+          <td><?php echo $apply->name?></td>          
+          <td><?php echo $apply->content?></td>
+				</tr>
+				<?php }?>     
+    </table>		
+  </div>
 </form>
 <script type="text/javascript">
 	function agree(id){

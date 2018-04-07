@@ -19,15 +19,6 @@
     <form method="post" class="form-x" action="">    
       <div class="form-group">
         <div class="label">
-          <label>申请编号：</label>
-        </div>
-        <div class="field">
-          <input type="text" class="input w50" value="1" name="no" data-validate="required:请输入申请编号" />
-          <div class="tips"></div>
-        </div>
-      </div>
-      <div class="form-group">
-        <div class="label">
           <label>申请部门：</label>
         </div>
         <div class="field">
