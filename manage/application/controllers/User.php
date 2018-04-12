@@ -27,7 +27,8 @@ class User extends CI_Controller {
 	 public function login()	{
 		$this->load->view('login');	}
 	 public function plan()	{
-		$this->load->view('plan');	}
+		$result = $this->Email_model->get_plan();
+		$this->load->view('plan',array('list'=>$result));	}
 	 public function shouxin()	{
 		$this->load->library('pagination');
 		$user = $this->session->userdata('user');
@@ -135,6 +136,19 @@ class User extends CI_Controller {
 		if($rows > 0){
 			echo '添加成功！';
 			redirect('user/data_a');
+		}else{
+			echo 'fail';
+		} }
+	public function add_plan() {
+		$date = $this->input->post('date');
+		$content1 = $this->input->post('content1');
+		$content2 = $this->input->post('content2');
+		$user = $this->session->userdata('user');
+		
+		$rows = $this->Email_model->add_plan($date,$content1,$content2,$user);
+		if($rows > 0){
+			echo '添加成功！';
+			redirect('user/plan');
 		}else{
 			echo 'fail';
 		} }

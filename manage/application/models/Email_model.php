@@ -30,6 +30,15 @@ class Email_model extends CI_Model
 				));
 				return $this->db->affected_rows();
 				}
+			public function add_plan($date,$content1,$content2,$user){
+				$this->db->insert('t_plan',array(
+					'data'=>$date,
+					'content1'=>$content1,
+					'content2'=>$content2,
+					'uid'=>$user->no
+				));
+				return $this->db->affected_rows();
+				}
 			public function add_book($name,$pwd,$privilege,$tel,$email,$job,$address){
 				$this->db->insert('t_book',array(
 					'name'=>$name,
@@ -124,6 +133,11 @@ class Email_model extends CI_Model
 				$this->db->delete('t_book');
 				return $this->db->affected_rows();
 					}
+			public function del_plan($no){
+				$this->db->where_in('no',$no);
+				$this->db->delete('t_plan');
+				return $this->db->affected_rows();
+					}
 			public function del_adv($no){
 				$this->db->where_in('no',$no);
 				$this->db->delete('t_rules');
@@ -192,6 +206,13 @@ class Email_model extends CI_Model
 				$this->db->select('*');
 				$this->db->from('t_data');
 				$this->db->where_in('uid',$no);
+				$this->db->order_by('data','desc');
+				$query = $this->db->get();
+				return $query->result();
+				}
+			public function get_plan(){
+				$this->db->select('*');
+				$this->db->from('t_plan');
 				$this->db->order_by('data','desc');
 				$query = $this->db->get();
 				return $query->result();

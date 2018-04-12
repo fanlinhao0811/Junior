@@ -75,6 +75,15 @@ class Welcome extends CI_Controller {
 				echo 'fail';
 			}
 		}
+	public function del_plan(){
+		$no = $this->input->get('no');
+		$rows = $this ->Email_model ->del_plan($no);
+		if($rows>0){
+			echo 'success';
+		}else{
+			echo 'fail';
+		}
+	}
 	public function agree(){
 			$no = $this->input->get('no');
 			$rows = $this ->Email_model ->agree($no);
