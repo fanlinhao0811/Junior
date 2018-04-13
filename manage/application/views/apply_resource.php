@@ -19,15 +19,6 @@
     <form method="post" class="form-x" action="user/apply_re">    
       <div class="form-group">
         <div class="label">
-          <label>申请编号：</label>
-        </div>
-        <div class="field">
-          <input type="text" class="input w50" value="" name="no" data-validate="required:请输入申请编号" />
-          <div class="tips"></div>
-        </div>
-      </div>
-      <div class="form-group">
-        <div class="label">
           <label>申请部门：</label>
         </div>
         <div class="field">
@@ -63,5 +54,26 @@
       </div>
     </form>
   </div>
+</div>
+<div class="panel admin-panel">
+  <div class="panel-head"><strong class="icon-reorder">申请资源记录</strong></div>
+  <div class="padding border-bottom">  
+  </div>
+  <table class="table table-hover text-center">
+	<tr>
+	<th width="20%">申请部门</th>       
+	<th width="20%">申请人</th>
+	<th width="40%">申请用途说明</th> 
+	<th width="20%">申请结果</th>     
+</tr>            
+		<?php foreach($list as $apply){?>
+			<tr>
+		<td><?php echo $apply->job?></td>
+		<td><?php echo $apply->name?></td>          
+		<td><?php echo $apply->content?></td>
+		<td><?php echo $apply->flag?></td>
+	</tr>
+	<?php }?> 
+  </table>
 </div>
 </body></html>

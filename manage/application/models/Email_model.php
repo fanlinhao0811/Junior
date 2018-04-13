@@ -77,30 +77,30 @@ class Email_model extends CI_Model
 				));
 				return $this->db->affected_rows();
 				}
-			public function apply_m($no,$job,$name,$content){
+			public function apply_m($job,$name,$content,$user){
 				$this->db->insert('t_apply_m',array(
-					'no'=>$no,
 					'job'=>$job,
 					'name'=>$name,
-					'content'=>$content
+					'content'=>$content,
+					'uid'=>$user->no
 				));
 				return $this->db->affected_rows();
 				}
-			public function apply_r($no,$job,$name,$content){
+			public function apply_r($job,$name,$content,$user){
 				$this->db->insert('t_apply_r',array(
-					'no'=>$no,
 					'job'=>$job,
 					'name'=>$name,
-					'content'=>$content
+					'content'=>$content,
+					'uid'=>$user->no
 				));
 				return $this->db->affected_rows();
 				}
-		  public function apply_re($no,$job,$name,$content){
+		  public function apply_re($job,$name,$content,$user){
 			  $this->db->insert('t_apply_re',array(
-				  'no'=>$no,
 				  'job'=>$job,
 				  'name'=>$name,
-			  	'content'=>$content
+					'content'=>$content,
+					'uid'=>$user->no
 			  ));
 		  	return $this->db->affected_rows();	}
 	
@@ -151,42 +151,42 @@ class Email_model extends CI_Model
 			public function agree($no){
 					$this->db->where('no',$no);
 					$this->db->update('t_apply_m', array(
-						"flag" => 2,
+						"flag" => 同意,
 					));
 					return $this->db->affected_rows();
 					}
 			public function del($no){
 			  	$this->db->where('no',$no);
 					$this->db->update('t_apply_m', array(
-						"flag" => 0,
+						"flag" => 拒绝,
 					));
 					return $this->db->affected_rows();
 					}
 			public function agree1($no){
 						$this->db->where('no',$no);
 						$this->db->update('t_apply_r', array(
-							"flag" => 2,
+							"flag" => 同意,
 						));
 						return $this->db->affected_rows();
 						}
 			public function del1($no){
 						$this->db->where('no',$no);
 						$this->db->update('t_apply_r', array(
-							"flag" => 0,
+							"flag" => 拒绝,
 						));
 						return $this->db->affected_rows();
 						}
 			public function agree2($no){
 							$this->db->where('no',$no);
 							$this->db->update('t_apply_re', array(
-								"flag" => 2,
+								"flag" => 同意,
 							));
 							return $this->db->affected_rows();
 							}
 			public function del2($no){
 							$this->db->where('no',$no);
 							$this->db->update('t_apply_re', array(
-								"flag" => 0,
+								"flag" =>拒绝,
 							));
 							return $this->db->affected_rows();
 							}
@@ -199,6 +199,30 @@ class Email_model extends CI_Model
 			public function get_book_list(){
 				$this->db->select('*');
 				$this->db->from('t_book');
+				$query = $this->db->get();
+				return $query->result();
+				}
+			public function get_apply_list($user){
+				$this->db->select('*');
+				$this->db->from('t_apply_m a');
+				$this->db->where('a.UID',$user->no);
+				$this->db->order_by('no','desc');
+				$query = $this->db->get();
+				return $query->result();
+				}
+			public function get_apply_list1($user){
+				$this->db->select('*');
+				$this->db->from('t_apply_re a');
+				$this->db->where('a.UID',$user->no);
+				$this->db->order_by('no','desc');
+				$query = $this->db->get();
+				return $query->result();
+				}
+			public function get_apply_list2($user){
+				$this->db->select('*');
+				$this->db->from('t_apply_r a');
+				$this->db->where('a.UID',$user->no);
+				$this->db->order_by('no','desc');
 				$query = $this->db->get();
 				return $query->result();
 				}
@@ -220,66 +244,75 @@ class Email_model extends CI_Model
 			public function get_apply_r(){
 				$this->db->select('*');
 				$this->db->from('t_apply_r a');
-				$this->db->where('a.flag',1);
+				$this->db->where('a.flag',未处理);
+				$this->db->order_by('no','desc');
 				$query = $this->db->get();
 				return $query->result();
 				}
-				public function get_apply_r1(){
-					$this->db->select('*');
-					$this->db->from('t_apply_r a');
-					$this->db->where('a.flag',0);
-					$query = $this->db->get();
-					return $query->result();
-					}
-					public function get_apply_r2(){
-						$this->db->select('*');
-						$this->db->from('t_apply_r a');
-						$this->db->where('a.flag',2);
-						$query = $this->db->get();
-						return $query->result();
-						}
+			public function get_apply_r1(){
+				$this->db->select('*');
+				$this->db->from('t_apply_r a');
+				$this->db->where('a.flag',拒绝);
+				$this->db->order_by('no','desc');
+				$query = $this->db->get();
+				return $query->result();
+				}
+			public function get_apply_r2(){
+				$this->db->select('*');
+				$this->db->from('t_apply_r a');
+				$this->db->where('a.flag',同意);
+				$this->db->order_by('no','desc');
+				$query = $this->db->get();
+				return $query->result();
+				}
 			public function get_apply_re(){
 				$this->db->select('*');
 				$this->db->from('t_apply_re a');
-				$this->db->where('a.flag',1);
+				$this->db->where('a.flag',未处理);
+				$this->db->order_by('no','desc');
 				$query = $this->db->get();
 				return $query->result();
 				}
-				public function get_apply_re1(){
-					$this->db->select('*');
-					$this->db->from('t_apply_re a');
-					$this->db->where('a.flag',0);
-					$query = $this->db->get();
-					return $query->result();
-					}
-					public function get_apply_re2(){
-						$this->db->select('*');
-						$this->db->from('t_apply_re a');
-						$this->db->where('a.flag',2);
-						$query = $this->db->get();
-						return $query->result();
-						}
+			public function get_apply_re1(){
+				$this->db->select('*');
+				$this->db->from('t_apply_re a');
+				$this->db->where('a.flag',拒绝);
+				$this->db->order_by('no','desc');
+				$query = $this->db->get();
+				return $query->result();
+				}
+			public function get_apply_re2(){
+				$this->db->select('*');
+				$this->db->from('t_apply_re a');
+				$this->db->where('a.flag',同意);
+				$this->db->order_by('no','desc');
+				$query = $this->db->get();
+				return $query->result();
+				}
 			public function get_apply_m(){
 				$this->db->select('*');
 				$this->db->from('t_apply_m a');
-				$this->db->where('a.flag',1);
+				$this->db->where('a.flag',未处理);
+				$this->db->order_by('no','desc');
 				$query = $this->db->get();
 				return $query->result();
 				}
-				public function get_apply_m1(){
-					$this->db->select('*');
-					$this->db->from('t_apply_m a');
-					$this->db->where('a.flag',0);
-					$query = $this->db->get();
-					return $query->result();
-					}
-					public function get_apply_m2(){
-						$this->db->select('*');
-						$this->db->from('t_apply_m a');
-						$this->db->where('a.flag',2);
-						$query = $this->db->get();
-						return $query->result();
-						}
+			public function get_apply_m1(){
+				$this->db->select('*');
+				$this->db->from('t_apply_m a');
+				$this->db->where('a.flag',拒绝);
+				$this->db->order_by('no','desc');
+				$query = $this->db->get();
+				return $query->result();
+				}
+			public function get_apply_m2(){
+				$this->db->select('*');
+				$this->db->from('t_apply_m a');
+				$this->db->where('a.flag',同意);
+				$this->db->order_by('no','desc');
+				$query = $this->db->get();
+				return $query->result();
+				}
 			public function get_suggest(){
 				$this->db->select('*');
 				$this->db->from('t_suggest');

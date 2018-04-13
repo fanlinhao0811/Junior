@@ -26,10 +26,7 @@
 			<?php foreach($list as $info){?>
 			<tr>  
 				<td><?php echo $info->time_in?></td>
-				<td><?php
-					echo $info->state
-						?>
-				</td>
+				<td><?php	echo $info->state	?></td>
 			</tr>
 			<?php }?>
 			

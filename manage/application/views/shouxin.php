@@ -40,7 +40,7 @@
     </table>
 		
   </div>
-	<?php echo $links?>
+	<!-- <?php echo $links?> -->
 </form>
 
 </body></html>

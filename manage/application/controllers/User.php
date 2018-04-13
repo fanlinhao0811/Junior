@@ -35,7 +35,7 @@ class User extends CI_Controller {
 		$total = $this->Email_model->get_count_email();
 		$config['base_url'] = base_url().'welcome/inbox';//当前控制器方法
 		$config['total_rows'] = $total;//总数
-		$config['per_page'] = 8;//每页显示条数
+		$config['per_page'] = 10;//每页显示条数
 		$this->pagination->initialize($config);
 		$links = $this->pagination->create_links();
 		$result = $this->Email_model->get_email_list($this->uri->segment(3),$config['per_page'],$user);
@@ -69,15 +69,20 @@ class User extends CI_Controller {
 		$result = $this->Email_model->get_apply_r();
 		$result1 = $this->Email_model->get_apply_re();
 		$result2 = $this->Email_model->get_apply_m();
+
+		$this->load->view('leader',array('list'=>$result,'list1'=>$result1,'list2'=>$result2));	}
+	 public function leader_r()	{
 		$result3 = $this->Email_model->get_apply_r1();
 		$result4 = $this->Email_model->get_apply_re1();
 		$result5 = $this->Email_model->get_apply_m1();
+
+		$this->load->view('leader_r',array('list3'=>$result3,'list4'=>$result4,'list5'=>$result5));	}
+	 public function leader_a()	{
 		$result6 = $this->Email_model->get_apply_r2();
 		$result7 = $this->Email_model->get_apply_re2();
 		$result8 = $this->Email_model->get_apply_m2();
 
-		$this->load->view('leader',array('list'=>$result,'list1'=>$result1,'list2'=>$result2,'list3'=>$result3
-		,'list4'=>$result4,'list5'=>$result5,'list6'=>$result6,'list7'=>$result7,'list8'=>$result8));	}
+		$this->load->view('leader_a',array('list6'=>$result6,'list7'=>$result7,'list8'=>$result8));	}
 	 public function email()	{
 		$this->load->view('email');}
 	 public function apply_model()	{
@@ -89,11 +94,20 @@ class User extends CI_Controller {
 		$result = $this->Email_model->get_department();
 		$this->load->view('department_reduce',array('list'=>$result));	}
 	 public function apply_meeting()	{
-		$this->load->view('apply_meeting');	}
+		$user = $this->session->userdata('user');
+		$result = $this->Email_model->get_apply_list($user);
+		$this->load->view('apply_meeting',array('list'=>$result));	
+		}
 	 public function apply_resource()	{
-		$this->load->view('apply_resource');	}
+		$user = $this->session->userdata('user');
+		$result = $this->Email_model->get_apply_list1($user);
+		$this->load->view('apply_resource',array('list'=>$result));	
+			}
 	 public function apply_room(){
-		$this->load->view('apply_room');}
+		$user = $this->session->userdata('user');
+		$result = $this->Email_model->get_apply_list2($user);
+		$this->load->view('apply_room',array('list'=>$result));
+		 }
 	 public function adv(){
 		$result = $this->Email_model->get_adv_list();
 		$this->load->view('adv',array('list'=>$result));}
@@ -139,7 +153,7 @@ class User extends CI_Controller {
 		}else{
 			echo 'fail';
 		} }
-	public function add_plan() {
+	 public function add_plan() {
 		$date = $this->input->post('date');
 		$content1 = $this->input->post('content1');
 		$content2 = $this->input->post('content2');
@@ -182,8 +196,9 @@ class User extends CI_Controller {
 			$job = $this->input->post('job');
 			$name = $this->input->post('name');
 			$content = $this->input->post('content');
+			$user = $this->session->userdata('user');
 		
-			$rows = $this->Email_model->apply_m($no,$job,$name,$content);
+			$rows = $this->Email_model->apply_m($job,$name,$content,$user);
 			if($rows > 0){
 				echo '提交申请成功！';
 			}else{
@@ -194,8 +209,9 @@ class User extends CI_Controller {
 		 $job = $this->input->post('job');
 	   $name = $this->input->post('name');
 		 $content = $this->input->post('content');
+		 $user = $this->session->userdata('user');
 	
-		 $rows = $this->Email_model->apply_r($no,$job,$name,$content);
+		 $rows = $this->Email_model->apply_r($job,$name,$content,$user);
 		 if($rows > 0){
 		  	echo '提交申请成功！';
 		 }else{
@@ -206,8 +222,9 @@ class User extends CI_Controller {
 			$job = $this->input->post('job');
 			$name = $this->input->post('name');
 			$content = $this->input->post('content');
+			$user = $this->session->userdata('user');
 		
-			$rows = $this->Email_model->apply_re($no,$job,$name,$content);
+			$rows = $this->Email_model->apply_re($job,$name,$content,$user);
 			if($rows > 0){
 					echo '提交申请成功！';
 			}else{
