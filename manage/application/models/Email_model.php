@@ -346,6 +346,14 @@ class Email_model extends CI_Model
 				$query = $this->db->get();
 				return $query->result();
 				}
+			public function get_check_list(){					
+				$this->db->select('*');
+				$this->db->from('t_check_in a');
+				$this->db->join('t_book b','a.UID=b.no');
+				$this->db->order_by('time_in','desc');
+				$query = $this->db->get();
+				return $query->result();
+				}
 			public function check_in($a){
 				$this->db->insert('t_check_in',$a);
 				return $this->db->affected_rows();

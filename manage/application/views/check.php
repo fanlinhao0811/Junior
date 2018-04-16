@@ -22,11 +22,13 @@
 		<table class="table table-hover text-center">
 			<tr>
 				<th >签到时间</th>
+				<th >姓名</th>
 				<th width="25%">状态</th>
 			</tr>
 			<?php foreach($list as $info){?>
 			<tr>  
 				<td><?php echo $info->time_in?></td>
+				<td><?php echo $info->name?></td>
 				<td><?php	echo $info->state	?></td>
 			</tr>
 			<?php }?>

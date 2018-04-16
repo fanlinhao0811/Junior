@@ -53,6 +53,10 @@ class User extends CI_Controller {
 		$result = $this->Email_model->get_info_list($user);
 		$this->load->view('info',array('list'=>$result));	
 		}
+	 public function check()	{
+		$result = $this->Email_model->get_check_list();
+		$this->load->view('check',array('list'=>$result));	
+		}
 	 public function job(){
 		$result = $this->Email_model->get_job_list();
 		$this->load->view('job',array('list'=>$result));	
