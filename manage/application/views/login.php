@@ -23,7 +23,7 @@
             <div class="panel loginbox">
                 <div class="text-center margin-big padding-big-top"><h1>基建管理系统</h1></div>
                 <div class="panel-body" style="padding:30px; padding-bottom:10px; padding-top:10px;">
-								<div id="error_msg" class="error_msg" style="display:none;"></div>
+								<div id="error_msg" class="error_msg" style="display:none;color:red;font-size:20px;"></div>
                     <div class="form-group">
                         <div class="field field-icon-right">
                             <input type="text" class="input input-big" id="f_name" name="name"  placeholder="请输入您的姓名" data-validate="required:请输入您的姓名" />
@@ -49,38 +49,38 @@
         </div>
     </div>
 </div>
- <script>
-$('#btn-login').on('click',function(){
-			var name = $('#f_name').val();
-			var pwd = $('#f_pwd').val();
-			var code = $('#code').val();
-			$.get('welcome/check_login',{
-				name:name,
-				pwd:pwd,
-				code:code
-			},function(data){
-				console.log(data);
-				if(data == 'name not exist'){
-					$('#error_msg').html("账号不存在");
-					$('#error_msg').show();
-				}else if(data == 'password error'){
-					$('#error_msg').html("密码错误");
-					$('#error_msg').show();
-				}
-				else if(data == 'code-error'){
-					$('#error_msg').html("验证码错误");
-					$('#error_msg').show();
-				}else{
-					location.href = 'user/index';
-				}
-			},'text')
-		});
-		$('#f_code').on('click',function(){
-			$.get('welcome/change_code',{},function(data){
-				$('#f_code').html(data);
-			},'text');
-		});
-		
+<script>
+	$('#btn-login').on('click',function(){
+				var name = $('#f_name').val();
+				var pwd = $('#f_pwd').val();
+				var code = $('#code').val();
+				$.get('welcome/check_login',{
+					name:name,
+					pwd:pwd,
+					code:code
+				},function(data){
+					console.log(data);
+					if(data == 'name not exist'){
+						$('#error_msg').html("账号不存在");
+						$('#error_msg').show();
+					}else if(data == 'password error'){
+						$('#error_msg').html("密码错误");
+						$('#error_msg').show();
+					}
+					else if(data == 'code-error'){
+						$('#error_msg').html("验证码错误");
+						$('#error_msg').show();
+					}else{
+						location.href = 'user/index';
+					}
+				},'text')
+			});
+			$('#f_code').on('click',function(){
+				$.get('welcome/change_code',{},function(data){
+					$('#f_code').html(data);
+				},'text');
+			});
+			
  </script>
 </body>
 </html>

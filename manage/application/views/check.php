@@ -21,15 +21,19 @@
 		</div>
 		<table class="table table-hover text-center">
 			<tr>
-				<th >签到时间</th>
 				<th >姓名</th>
+				<th >签到时间</th>
 				<th width="25%">状态</th>
 			</tr>
 			<?php foreach($list as $info){?>
 			<tr>  
-				<td><?php echo $info->time_in?></td>
 				<td><?php echo $info->name?></td>
-				<td><?php	echo $info->state	?></td>
+				<td><?php echo $info->time_in?></td>
+					<?php if($info->state == 迟到){?>
+					<td style="color:red"><?php	echo $info->state?></td>
+					<?php }else{?>
+					<td><?php	echo $info->state?></td>
+					<?php }?>
 			</tr>
 			<?php }?>
 			

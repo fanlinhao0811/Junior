@@ -17,7 +17,10 @@
 
 		<div class="padding border-bottom">  
 			<button type="submit" class="button border-red" > 签到 </button>
+			<?php $user = $this->session->userdata('user');
+	    if ($user->privilege=='1'){?>
 			<button class="button border-yellow" ><a href="user/check">出勤表</a></button>
+			<?php }?>
 		</div>
 		<table class="table table-hover text-center">
 			<tr>
@@ -27,7 +30,11 @@
 			<?php foreach($list as $info){?>
 			<tr>  
 				<td><?php echo $info->time_in?></td>
-				<td><?php	echo $info->state	?></td>
+				<?php if($info->state == 迟到){?>
+					<td style="color:red"><?php	echo $info->state?></td>
+					<?php }else{?>
+					<td><?php	echo $info->state?></td>
+					<?php }?>
 			</tr>
 			<?php }?>
 			

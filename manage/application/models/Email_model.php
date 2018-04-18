@@ -350,7 +350,7 @@ class Email_model extends CI_Model
 				$this->db->select('*');
 				$this->db->from('t_check_in a');
 				$this->db->join('t_book b','a.UID=b.no');
-				$this->db->order_by('time_in','desc');
+				$this->db->order_by('name','desc');
 				$query = $this->db->get();
 				return $query->result();
 				}
