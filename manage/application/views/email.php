@@ -19,7 +19,7 @@
 		<a href="user/faxin"><span class="icon-pencil-square-o" style="margin-left:30%;"></span> 发信箱</a></strong>
 	</div>
   <div class="body-content">
-    <form method="post" class="form-x" action="user/send_email">   
+    <form method="post" class="form-x" enctype="multipart/form-data" action="user/send_email">   
 		<div class="form-group">
         <div class="label">
           <label>发给：</label>
@@ -41,8 +41,8 @@
           <label>附件：</label>
         </div>
         <div class="field">
-          <input type="text" class="input" name="plus" style="width:25%; float:left;"  value=""   />
-          <!-- <input type="button" class="button bg-blue margin-left" id="image1" value="+ 浏览上传"  style="float:left;"> -->
+					<!-- <input type="text" class="input" name="plus" style="width:25%; float:left;"  value=""   /> -->
+          <input type="file" name="file" class="button bg-blue margin-left" id="file" value="+ 浏览上传"  style="float:left;">
         </div>
       </div>
       <div class="form-group">

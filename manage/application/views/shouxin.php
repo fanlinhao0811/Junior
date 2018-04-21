@@ -31,7 +31,7 @@
 						<tr>
           <td><?php echo $email->s_email?></td>
           <td><?php echo $email->title?></td>
-          <td><a href="000"><?php echo $email->plus?></a></td>          
+          <td><a href="<?php echo $email->plus?>" download="w3logo"><?php echo $email->plus?></a></td>          
           <td><?php echo $email->content?></td>
 					
 				</tr>

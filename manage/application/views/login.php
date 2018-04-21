@@ -36,12 +36,12 @@
                             <span class="icon icon-key margin-small"></span>
                         </div>
                     </div>
-                    <div class="form-group">
+                    <!-- <div class="form-group">
                         <div class="field">
                             <input type="text" class="input input-big" name="code" id="code" placeholder="填写右侧的验证码" data-validate="required:请填写右侧的验证码" />
 													<span  width="100" height="32" id="f_code" class="passcode" style="height:43px;cursor:pointer;"><?php echo $img?></span> 
                         </div>
-                    </div>
+                    </div> -->
                 </div>
                 <div style="padding:30px;"><input type="submit" class="button button-block bg-main text-big input-big" id="btn-login" value="登录"></div>
             </div>
@@ -67,19 +67,20 @@
 						$('#error_msg').html("密码错误");
 						$('#error_msg').show();
 					}
-					else if(data == 'code-error'){
-						$('#error_msg').html("验证码错误");
-						$('#error_msg').show();
-					}else{
+					// else if(data == 'code-error'){
+					// 	$('#error_msg').html("验证码错误");
+					// 	$('#error_msg').show();
+					// }
+					else{
 						location.href = 'user/index';
 					}
 				},'text')
 			});
-			$('#f_code').on('click',function(){
-				$.get('welcome/change_code',{},function(data){
-					$('#f_code').html(data);
-				},'text');
-			});
+			// $('#f_code').on('click',function(){
+			// 	$.get('welcome/change_code',{},function(data){
+			// 		$('#f_code').html(data);
+			// 	},'text');
+			// });
 			
  </script>
 </body>

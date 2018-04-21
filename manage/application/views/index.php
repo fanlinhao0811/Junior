@@ -37,32 +37,38 @@
   </ul>   
   <h2><span class="icon-asterisk"></span>项目管理</h2>
   <ul>
-    <li><a href="user/plan" target="right"><span class="icon-caret-right"></span>流程规划</a></li>
-    <li><a href="user/apply_model" target="right"><span class="icon-caret-right"></span>模板申请</a></li>
+		<li><a href="user/plan" target="right"><span class="icon-caret-right"></span>流程规划</a></li>
+		<?php $user = $this->session->userdata('user');
+	  if ($user->privilege=='0'){?>
+		<li><a href="user/apply_model" target="right"><span class="icon-caret-right"></span>模板申请</a></li>
+		<?php }?>  
     <li><a href="user/data_a" target="right"><span class="icon-caret-right"></span>日程安排</a></li>
 		<?php $user = $this->session->userdata('user');
 	  if ($user->privilege=='1'){?>
 		<li><a href="user/leader" target="right"><span class="icon-caret-right"></span>领导审批</a></li> 
 		<?php }?>       
-  </ul> 
-	<h2><span class="icon-book"></span>综合行政</h2>
-  <ul>
+	</ul> 
+	  <?php $user = $this->session->userdata('user');
+	  if ($user->privilege=='0'){?>
+	  <h2><span class="icon-book"></span>综合行政</h2>
+    <ul>
     <li><a href="user/apply_meeting" target="right"><span class="icon-caret-right"></span>会议申请</a></li>
     <li><a href="user/apply_resource" target="right"><span class="icon-caret-right"></span>资源申请</a></li>      
-  </ul> 
-	<?php $user = $this->session->userdata('user');
+	  </ul> 
+  	<?php }?>
+	  <?php $user = $this->session->userdata('user');
 	  if ($user->privilege=='1'){?>
-	<h2><span class="icon-paper-plane"></span>相关部门管理</h2>
-  <ul>
+  	<h2><span class="icon-paper-plane"></span>相关部门管理</h2>
+    <ul>
     <li><a href="user/department_add" target="right"><span class="icon-caret-right"></span>相关部门建立</a></li>
     <li><a href="user/department_reduce" target="right"><span class="icon-caret-right"></span>相关部门删除</a></li>     
-	</ul> 
-	<?php }?>
-	<h2><span class="icon-thumbs-up"></span>规章制度管理</h2>
-  <ul>
+	  </ul> 
+  	<?php }?>
+	  <h2><span class="icon-thumbs-up"></span>规章制度管理</h2>
+    <ul>
     <li><a href="user/adv" target="right"><span class="icon-caret-right"></span>增删规章制度</a></li>
     <li><a href="user/suggest" target="right"><span class="icon-caret-right"></span>纪律监察</a></li>  
-  </ul>  
+   </ul>  
 </div>
 <script type="text/javascript">
 $(function(){

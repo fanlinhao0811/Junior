@@ -12,11 +12,12 @@
 <script src="assets/js/jquery.js"></script>
 </head>
 <body>
-<form action="welcome/check_in" method="post">
+<div class="error_msg" style="display:none;color:red;font-size:20px;"></div>
+<!-- <form action="welcome/check_in" method="post"> -->
 	<div class="panel admin-panel">
-
+	
 		<div class="padding border-bottom">  
-			<button type="submit" class="button border-red" > 签到 </button>
+			<button type="submit" class="button border-red" id="check_in" > 签到 </button>
 			<?php $user = $this->session->userdata('user');
 	    if ($user->privilege=='1'){?>
 			<button class="button border-yellow" ><a href="user/check">出勤表</a></button>
@@ -40,7 +41,23 @@
 			
 		</table>
 	</div>
-</form>
-  
+<!-- </form> -->
+  <script>
+		$('#check_in').on('click',function(){
+				$.get('welcome/check_in',{
+				},function(data){
+					if(data == 'error'){
+						// console.log($(typeof '.error_msg')[0])
+						console.log(1)
+						// console.log($(typeof('.error_msg')[0]))11
+						$('.error_msg').text("今日已签到");
+						$('#check_in').text("已签到");
+						$('.error_msg').show();
+					}else{
+						alert('签到成功');
+						location.href = 'user/info';
+					}
+				},'text')
+			});</script>
 </body>
 </html>

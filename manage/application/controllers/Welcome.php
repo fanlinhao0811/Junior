@@ -44,28 +44,37 @@ class Welcome extends CI_Controller {
 			//$this->Email_model->get_email_list();
 			$this->load->view('login',array('img'=>$img));	
 		}	
-	public function inbox()
-		{					
-    	
-    		$this->load->view('inbox');
-				}
-	public function check_in(){
-			$user = $this->session->userdata('user');
-			date_default_timezone_set("Asia/Shanghai");
-			$time1=date('Y-m-d 9:0:0');
-			$time2=date('Y-m-d H:i:s');
-			$state= strtotime($time1)-strtotime($time2) > 0 ? 正常:迟到   ;
- 	  	$rows = $this ->Email_model ->check_in(array(
-			'time_in'=>date('Y-m-d H:i:s'),
-			'UID'=>$user->no,
-			'state'=>$state
-			));
-		
-			if($rows>0){
-				redirect('user/info');
+	public function inbox(){
+		if(isset($_SESSION['user'])){
+			$this->load->view('inbox');
+		}else{
+			$this->load->view('login');
 			}		}
+	public function check_in(){
+			$flag = $this->check_check();
+			if ($flag != 'same'){
+				$user = $this->session->userdata('user');
+				date_default_timezone_set("Asia/Shanghai");
+				$time1=date('Y-m-d 9:0:0');
+				$time2=date('Y-m-d H:i:s');
+				$state= strtotime($time1)-strtotime($time2) > 0 ? 正常:迟到   ;
+				 $rows = $this ->Email_model ->check_in(array(
+				'time_in'=>date('Y-m-d H:i:s'),
+				'time'=>date('Y-m-d'),
+				'UID'=>$user->no,
+				'state'=>$state
+				));
+			
+				if($rows>0){
+					redirect('user/info');
+				}
+				echo 'success';
+			}else{
+				echo 'error';
+			}
+					}
 
-
+	
 	public function del_book(){
 			$no = $this->input->get('no');
 			$rows = $this ->Email_model ->del_book($no);
@@ -152,15 +161,29 @@ class Welcome extends CI_Controller {
 				echo 'success';
 			}
 		}
-		public function del_adv(){
-			$no = $this->input->get('no');
-			$rows = $this ->Email_model ->del_adv($no);
-			if($rows>0){
-				echo 'success';
-			}
-		}
+	public function del_adv(){
+		$no = $this->input->get('no');
+		$rows = $this ->Email_model ->del_adv($no);
+		if($rows>0){
+			echo 'success';
+		}}
 		
-  public function check_login(){
+	public function check_check(){
+		$no = $this->session->userdata('user')->no;
+		date_default_timezone_set("Asia/Shanghai");
+		$time=date('Y-m-d');
+		$result = $this->Email_model->check_check($no);
+		// var_dump($time);
+		// $length = count($result);
+		// var_dump(array_pop($result)->time);
+		// die();
+		
+		if(array_pop($result)->time == $time){	
+			return 'same';
+		}else{
+			return 'nt_same';
+		}}
+	public function check_login(){
 			$name = $this->input->get('name');
 			$pwd = $this->input->get('pwd');
 			$code = $this->input->get('code');

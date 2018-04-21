@@ -2,11 +2,11 @@
 
 class Email_model extends CI_Model
 {
-			public function add($email,$title,$plus,$content,$user){
+			public function add($email,$title,$photo_all,$content,$user){
 				$this->db->insert('t_email',array(
 					'email_name'=>$email,
 					'title'=>$title,
-					'plus'=>$plus,
+					'plus'=>$photo_all,
 					'content'=>$content,
 					's_email'=>$user->email
 				));
@@ -358,5 +358,9 @@ class Email_model extends CI_Model
 				$this->db->insert('t_check_in',$a);
 				return $this->db->affected_rows();
 							}
+			public function check_check($no){
+				$query = $this->db->get_where('t_check_in', array('UID' => $no));
+				return $query->result();
+	    	}
 
 }

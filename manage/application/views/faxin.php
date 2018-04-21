@@ -31,7 +31,7 @@
 					<tr>
 				<td><?php echo $email->email_name?></td>
 				<td><?php echo $email->title?></td>
-				<td><a href="000"><?php echo $email->plus?></a></td>          
+				<td><a href="<?php echo $email->plus?>" download="<?php echo substr(strrchr($email->plus, '/'), 1)?>"><?php echo substr(strrchr($email->plus, '/'), 1)?></a></td>          
 				<td><?php echo $email->content?></td>
 				
 			</tr>
