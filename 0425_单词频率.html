@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+<body>
+	
+
+<script>
+	var str="Age has reached the end of the beginning of a word. May be guilty in his seems to passing a lot of different life became the appearance of the same day;";
+	var array=str.split(" ");
+		var map={};
+		for(var i=0;i<array.length;i++)
+		{
+			var strWord=array[i];
+			if(!map[strWord]){map[strWord]=1;}
+			else{map[strWord]++;}
+	  }
+	for(var word in map){
+		console.info(word+'...'+map[word]);
+	}
+	// function counts(article)
+	// {　　
+	// 	article = article.trim().toUpperCase();　
+	// 	　var array = article.match(/[A-z]+/g);　　
+	// 	  article = " "+array.join(" ")+" ";　　
+	// 	  var max = 0,word,num = 0,maxword="";　　
+	// 		for(var i = 0; i < array.length; i++) 
+	// 		{　　
+	// 			word = new RegExp(" "+array[i]+" ",'g');　　
+	// 			num = article.match(word).length;　　
+	// 			if(num>max)
+	// 			{　　
+	// 				max=num;　　
+	// 				maxword = array[i];　
+	// 				　}　　
+	// 				}　　
+	// 	console.log(maxword+" "+max);　　
+	// 	}　　
+	// 	counts("Age has reached the end of the beginning of a word. May be guilty in his seems to passing a lot of different life became the appearance of the same day;");　
+</script>
+</body>
+</html>
