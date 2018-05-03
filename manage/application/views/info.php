@@ -58,6 +58,7 @@
 						location.href = 'user/info';
 					}
 				},'text')
-			});</script>
+			});
+	</script>
 </body>
 </html>

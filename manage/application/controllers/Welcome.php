@@ -40,6 +40,7 @@ class Welcome extends CI_Controller {
 		}
 	public function index()
 		{
+			$this->session->sess_destroy('user');
 			$img = $this->captcha();
 			//$this->Email_model->get_email_list();
 			$this->load->view('login',array('img'=>$img));	
