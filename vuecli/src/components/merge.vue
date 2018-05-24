@@ -30,24 +30,34 @@
       <v-toolbar-title>Application</v-toolbar-title>
       <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
     </v-toolbar>
-      <v-content>
+       <v-content>
       <v-container>
         <div>
 					<form ref="form">
 						<input type="file" name="file">
-						<v-btn color="info" id="upJS" @click="upload">上传</v-btn>
+						<v-btn color="info" id="upJS" @click="upload2merge">上传</v-btn>
 					</form>
-					
 				<v-data-table
-    :headers="headers"
-    :items="items"
-    hide-actions
-    class="elevation-1"
-  >
-    <template slot="items" slot-scope="props">
-			<td v-for="{ align, value } of headers" :class="{ 'text-xs-right': align === 'right' }">{{ props.item[value] }}</td>
-    </template>
-  </v-data-table>
+					:items="items"
+					hide-actions	
+					:headers="headers"
+          v-model="selected"
+          class="elevation-1"
+					item-key="fileName"
+				>
+				<template slot-scope="props"></template>
+					<template slot="items" slot-scope="props">
+						<tr :active="props.selected" @click="props.selected = !props.selected">
+						<td>{{ props.index}}</td>
+						<td>{{ props.item.fileName}} </td>
+						<td> <v-checkbox
+              v-model="props.selected"
+              primary
+              hide-details
+            ></v-checkbox></td>
+						</tr>
+					</template>
+				</v-data-table>
 		    </div>
       </v-container>
     </v-content>
@@ -60,35 +70,27 @@ import api from '../api'
     data: () => ({
 			drawer: null,
 			table: null,
+			selected: [],
+			items:[],
+	  	headers: [
+        { text: 'index',value: 'index' },
+        { text: '文件名', value: '文件名' },
+        { text: '选择', value: '选择' },
+      ],
 		}),
-		
-		computed: {
-			headers() {
-				return this.table ? this.table.content.schema.fields.map(col => ({
-					text: col.name,
-					align: col.type === 'integer' ? 'right' : 'left',
-					sortable: false,
-					value: col.name
-				})) : []
-			},
-
-			items() {
-				return this.table ? this.table.content.data : []
-			}
-		},
 
     props: {
       source: String
     },
   methods: {
-    async upload() {
+    async upload2merge() {
 			try {
 				this.table = await api.post('/upload2merge', new FormData(this.$refs.form), { type: 'form' })
-				this.files = await api.get('/list-tmp-files', formData)
+				this.items = this.table.fileNames.map(fileName => ({ fileName }))
 			} catch (e) {
 				console.error(e)
 			}
 		}
-  }
+	}
   }
 </script>
