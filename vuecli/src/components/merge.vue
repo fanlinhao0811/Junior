@@ -6,8 +6,7 @@
       right
       app
     >
-      <v-list dense>
-        <v-list-tile @click="">
+      <v-list-tile @click="">
           <v-list-tile-action>
             <v-icon>home</v-icon>
           </v-list-tile-action>
@@ -20,23 +19,30 @@
             <v-icon>contact_mail</v-icon>
           </v-list-tile-action>
           <v-list-tile-content>
-            <v-list-tile-title>	<router-link to="/rules">规则映射</router-link></v-list-tile-title>
+            <v-list-tile-title><router-link to="/newLine">新建CSV列名</router-link></v-list-tile-title>
           </v-list-tile-content>
         </v-list-tile>
-      </v-list>
+				<v-list-tile @click="">
+          <v-list-tile-action>
+            <v-icon>home</v-icon>
+          </v-list-tile-action>
+          <v-list-tile-content>
+            <v-list-tile-title><router-link to="/rules">规则映射</router-link></v-list-tile-title>
+          </v-list-tile-content>
+        </v-list-tile>
     </v-navigation-drawer>
     <v-toolbar color="cyan" dark fixed app>
-      <v-spacer></v-spacer>
+      <v-spacer>
+				<form ref="form">
+						<input type="file" name="file">
+						<v-btn color="info" id="upJS" @click="upload2merge">上传</v-btn>
+				</form>
+			</v-spacer>
       <v-toolbar-title>Application</v-toolbar-title>
       <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
     </v-toolbar>
        <v-content>
       <v-container>
-        <div>
-					<form ref="form">
-						<input type="file" name="file">
-						<v-btn color="info" id="upJS" @click="upload2merge">上传</v-btn>
-					</form>
 				<v-data-table
 					:items="items"
 					hide-actions	
@@ -58,7 +64,21 @@
 						</tr>
 					</template>
 				</v-data-table>
-		    </div>
+				<v-layout row>
+					    <v-flex xs2>
+        			<v-text-field
+							v-model="mergedName"
+          		 label="文件名"
+              ></v-text-field>
+								</v-flex>
+							<v-flex xs2>
+									<v-btn color="info" @click="merge">合并</v-btn>
+      				</v-flex>
+							<v-flex xs6></v-flex>
+							<v-flex xs2>
+									<v-btn color="info" @click="del">删除</v-btn>
+      				</v-flex>
+          </v-layout>
       </v-container>
     </v-content>
   </v-app>
@@ -72,6 +92,7 @@ import api from '../api'
 			table: null,
 			selected: [],
 			items:[],
+			mergedName:null,
 	  	headers: [
         { text: 'index',value: 'index' },
         { text: '文件名', value: '文件名' },
@@ -90,7 +111,26 @@ import api from '../api'
 			} catch (e) {
 				console.error(e)
 			}
-		}
+		},
+		async merge() {
+			try {
+				this.table = await api.post('/merge', { fileNames: this.selected.map(item => { return item.fileName}) ,mergedName:this.mergedName })
+			} catch (e) {
+				console.error(e)
+			}
+		},
+		async del() {
+			try {
+				if(this.selected.length === 1){
+    				this.table = await api.get('/del-tmp-file', {fileName : this.selected[0].fileName})
+				}else(
+					  alert(111)
+				)
+			} catch (e) {
+				console.error(e)
+			}
+		},
+
 	}
   }
 </script>
